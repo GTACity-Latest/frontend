@@ -1,17 +1,13 @@
 <template>
-    <div v-if="state" style="position:absolute; height:0vw;">
-      <div style="margin-top:40.9vw; margin-left:85vw; width:10vw;">
-        <div style="text-align:center; margin-bottom:1vw;">
-          <h1 style="color:white; font-size:20px;"><font size="20" style="font-weight:600;"><i>{{getSpeed()}}</i></font> <font style="color:grey; font-weight:600;">KM/H</font></h1>
-        </div>
-        <div v-if="speedoData[0].vehRpm > 0" style="background-color:rgba(0, 0, 0, 0.529); border-radius:10px;">
-          <div style="border-radius:10px; margin-bottom:.9vw; height:.5vw; margin-top:1vw;" :style="rpmWidth"></div>
-        </div>
-        <div style="background-color:rgba(0, 0, 0, 0.529);  padding:.7vw; height:2.5vw; color:white; border-radius:10px; margin-top:.5vw;"><i class="fa-solid fa-gears"></i> <font style="float:right;">{{ speedoData[0].vehHealth }}%</font></div>
-        <div style="background-color:rgba(0, 0, 0, 0.529);  padding:.7vw; height:2.5vw; color:white; border-radius:10px; margin-top:.5vw;"><i class="fa-solid fa-gas-pump"></i> <font style="float:right;">{{ speedoData[0].vehicleFuel }}%</font></div>
-      </div>
-    </div>
-</template>
+  <div v-if="state" style="position: absolute;bottom: 10px;display: flex;width: 100%;justify-content: center;align-items: center;">
+    <span style="background: #80808094;padding: 3px;border-radius: 4px;border-top: 2px solid #393939;color: white;
+  "><i style="margin-right:3px;" class="fa-solid fa-gears"></i>{{ speedoData[0].vehHealth }}%</span>
+    <span style="background: #80808094;padding: 3px;border-radius: 4px;border-top: 2px solid #393939;font-weight: bold;font-size:20px;color: white;margin: 4px;
+  ">{{getSpeed()}} <span style="font-weight: normal;    color: #cfcfcf;">KM/H</span></span>
+    <span style="background: #80808094;padding: 3px;border-radius: 4px;border-top: 2px solid #393939;color: white;
+  "><i style="margin-right:3px;" class="fa-solid fa-gas-pump"></i>{{ speedoData[0].vehicleFuel }}%</span>
+  </div>
+  </template>
 
 <script>
 /* eslint-disable */
@@ -43,7 +39,7 @@ export default {
       if(this.speedoData.length == 0) return;
       return {
         width: `${this.speedoData[0].vehRpm * 100}%`,
-        "background-color": `${this.speedoData[0].vehRpm*100 > 90 ? 'red' : 'rgba(220, 171, 255, 20)'}`
+        "background-color": `${this.speedoData[0].vehRpm*100 > 90 ? 'red' : 'white'}`
       }
     }
   },
@@ -55,8 +51,8 @@ export default {
     getSpeed() {
       if(this.speedoData.length > 0 && this.speedoData[0].vehSpeed) {
         var speed = this.speedoData[0].vehSpeed;
-        if(speed < 10) return "00"+speed;
-        if(speed > 10 && speed < 100) return "0"+speed;
+        if(speed < 10) return ""+speed;
+        if(speed > 10 && speed < 100) return ""+speed;
         else return speed;
       }
     },

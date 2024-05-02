@@ -1,17 +1,47 @@
 <template>
-  <div v-if="hudState" style="position: absolute;
+  <div v-if="hudState">
+    <div style="position: absolute;
   bottom:18px;
   left: 15.9vw;">
     <div v-if="protectedArea" style="margin-top:5px;background:#17940c;border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
     <div style="margin-top:5px;background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(35, 150, 0) 0%, rgba(0, 0, 0, 0) 100%);border-left: 3px solid #047a00;" class="cont"><i class="fa-solid fa-wallet" style="    margin-right: 7px;"></i>${{  hudInfo[0].money.toLocaleString('en-US') }}</div>
     <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-user" style="    margin-right: 5px;"></i>ID: {{ hudInfo[0].id }}</div>
     <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-users" style="    margin-right: 7px;"></i>{{ hudInfo[0].players }}</div>
-    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-clock" style="    margin-right: 5px;"></i>{{ getTime() }}</div>
     <div style="margin-top:5px;height:fit-content;    padding: 5px;padding-right:28px;" class="cont"><i class="fa-solid fa-location-dot" style="    margin-right: 8px;font-size: 28px;"></i><div style="display: flex;
     flex-direction: column;"><span style="font-weight:bold;">{{  hudInfo[0].location }}</span><span style="    margin-top: -6px;
     font-size: 12px;
     color: #d7d7d7;">{{  hudInfo[0].locationTwo }}</span></div></div>
   </div>
+  <div style="position: absolute;
+  bottom:18px;
+  right: 0.9vw;
+  display: flex;
+    flex-direction: column;
+    align-items: flex-end;">
+  <span style="    display: flex;
+    justify-content: flex-end;padding: 6px;padding-left:28px;
+    border-radius: 7px;background: linear-gradient(-90deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);border-right: 3px solid #2f2f2f;">
+    <div style="font-family: 'Roboto', sans-serif;font-weight: 500;display: flex;flex-direction: column;color:white;align-items: flex-end;margin-right: 3px;">
+      <span style="font-size: 21px;
+    font-weight: 900;
+    line-height: 17px;
+    margin-top: 7px;">V0.0.1</span>
+      <span style="font-weight: 400;
+    color: lightgrey;">gtacity.com.tr</span>
+    </div>
+    <img style="width: 50px;" src="./assets/dclogo.png"></span>
+  <div style="height:fit-content;margin-top:5px;background: linear-gradient(-90deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);border-left:none; border-right: 3px solid #2f2f2f;padding-right:5px;padding-left:20px;" class="cont">
+  <div style="    display: flex;flex-direction: column;align-items: flex-end;    margin: 3px;">
+    <span style="font-size: 21px;
+    font-weight: 900;
+    line-height: 17px;
+    margin-top: 7px;">{{ getTime() }}</span>
+      <span style="font-weight: 400;
+    color: lightgrey;">{{ getDate() }}</span>
+    </div>
+    </div>
+  </div>
+</div>
 </template>
 
 
@@ -33,11 +63,17 @@ export default {
     formatNum(num) {
       return num.toLocaleString("en-US");
     },
-    getTime() {
-      const date = new Date();
-      const formattedDate = `${date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`}.${(date.getMonth() + 1) < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`}.${date.getFullYear()}, ${date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`}:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : `${date.getMinutes()}`}`;
-      return formattedDate;
-    },
+    getDate() {
+    const date = new Date();
+    const formattedDate = `${date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`}.${(date.getMonth() + 1) < 10 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`}.${date.getFullYear()}`;
+    return formattedDate;
+  },
+  // Saat bilgisini döndüren fonksiyon
+  getTime() {
+    const date = new Date();
+    const formattedTime = `${date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`}:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : `${date.getMinutes()}`}`;
+    return formattedTime;
+  },
     getNotifs() {
       return global.gui.notify.getAll();
     }
