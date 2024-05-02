@@ -1,14 +1,16 @@
 <template>
   <div v-if="hudState" style="position: absolute;
-  bottom:15px;
+  bottom:18px;
   left: 15.9vw;">
-    <div v-if="protectedArea" style="margin-top:5px;background:#17940c;border:none;padding:5px;" class="cont">Güvenli Bölge</div>
+    <div v-if="protectedArea" style="margin-top:5px;background:#17940c;border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
+    <div style="margin-top:5px;background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(35, 150, 0) 0%, rgba(0, 0, 0, 0) 100%);border-left: 3px solid #047a00;" class="cont"><i class="fa-solid fa-wallet" style="    margin-right: 7px;"></i>${{  hudInfo[0].money.toLocaleString('en-US') }}</div>
+    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-user" style="    margin-right: 7px;"></i>ID: {{ hudInfo[0].id }}</div>
+    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-users" style="    margin-right: 7px;"></i>{{ hudInfo[0].players }}</div>
+    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-clock" style="    margin-right: 5px;"></i>{{ getTime() }}</div>
     <div style="margin-top:5px;height:fit-content;    padding: 5px;padding-right:28px;" class="cont"><i class="fa-solid fa-location-dot" style="    margin-right: 8px;font-size: 28px;"></i><div style="display: flex;
     flex-direction: column;"><span style="font-weight:bold;">{{  hudInfo[0].location }}</span><span style="    margin-top: -6px;
     font-size: 12px;
     color: #d7d7d7;">{{  hudInfo[0].locationTwo }}</span></div></div>
-    <div :key="stat.id" style="margin-top:5px;" class="cont"><i class="fa-solid fa-user" style="    margin-right: 7px;"></i>{{  playerStats.name }} [{{  playerStats.id }}]</div>
-    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-clock" style="    margin-right: 5px;"></i>{{ getTime() }}</div>
   </div>
 </template>
 
@@ -47,7 +49,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 .cont {
-  background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(109 109 109) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);
     color: rgb(255, 255, 255);
     font-family: "Roboto", sans-serif;
     width: fit-content;
@@ -56,7 +58,7 @@ export default {
     padding-right: 27px;
     font-size: 15px;
     font-weight: 500;
-    border-left: 3px solid #474747;
+    border-left: 3px solid #313131;
     padding-left: 3px;
     display: flex;
     align-items: center;

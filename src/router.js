@@ -21,11 +21,13 @@ import vehicleManagement from './components/vehicleManagement.vue';
 import bankingMenus from './components/bankingMenus.vue';
 import lockPicking from './components/hud/lockPicking.vue';
 import clientHud from './components/hud/clientHud.vue';
+import phoneSystem from './components/hud/phoneSystem.vue';
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
+        { path: '/phone', component: phoneSystem},
         { path: '/hud', component: clientHud},
         { path: '/listmenu', component: thisList},
         { path: '/reports', component: reportMenu},
