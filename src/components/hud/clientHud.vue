@@ -14,7 +14,7 @@
   </div>
   <div style="position: absolute;
   bottom:18px;
-  right: 0.9vw;
+  right: 0.3vw;
   display: flex;
     flex-direction: column;
     align-items: flex-end;">

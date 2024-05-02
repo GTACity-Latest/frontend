@@ -1,18 +1,18 @@
 <template>
-    <div v-if="hudState">
-      <div v-if="showChat" id="chat">
-        <ul id="chat_messages">
-          <li v-for="(item, message) in chatMessages" :key="'B' + message" v-html="item.toString()">
-          </li>
-        </ul>
-        <input v-show="showInput"  v-model="inputText" ref="input" id="chat_msg" type="text" />
-        <li v-for="(item, cmd) in queryCmds" :key="'B' + cmd" class="suggestionDropDown">
-          <ul class="itemSel" v-html="item"></ul>
+  <div v-if="hudState">
+    <div v-if="showChat" id="chat">
+      <ul id="chat_messages">
+        <li v-for="(item, message) in chatMessages" :key="'B' + message" v-html="item.toString()">
         </li>
-      </div>
+      </ul>
+      <input v-show="showInput"  v-model="inputText" ref="input" id="chat_msg" type="text" />
+      <li v-for="(item, cmd) in queryCmds" :key="'B' + cmd" class="suggestionDropDown">
+        <ul class="itemSel" v-html="item"></ul>
+      </li>
     </div>
+  </div>
 
-  </template>
+</template>
 
   <script>
 /* eslint-disable */
@@ -271,14 +271,13 @@ html {
 
 #chat {
   width: 800px;
-  line-height: 24px;
-  font-weight: 700;
-  text-shadow: -33px -33px 2 #000, 33px -33px 2 #000, -33px 33px 2 #000,
-    33px 33px 2 #000;
-  text-shadow: 0 0 5px #000000, 0 0 6px #000000;
-  font-family: "Arial", sans-serif;
-  font-size: 16px;
-  margin-left: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    outline: black;
+    font-family: "Arial", sans-serif;
+    text-shadow: -1px 1px 0 #000000bd, 1px 1px 0 #000000bb, 1px -1px 0 #000000be;
+    font-size: 16px;
+    margin-left: 15px;
 }
 
 @media screen and (min-height: 1080px) {
@@ -291,14 +290,12 @@ html {
 #chat ul#chat_messages {
   height: 285px;
   margin-top: 1vh;
-  transform: rotate(180deg);
   padding: 10px 20px;
   list-style-type: none;
   overflow: auto;
 }
 
 #chat ul#chat_messages > li {
-  transform: rotate(-180deg);
 }
 
 #chat input#chat_msg {
