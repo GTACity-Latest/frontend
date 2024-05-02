@@ -1,12 +1,13 @@
 <template>
-  <div style="position: absolute;
-  bottom:10px;
+  <div v-if="hudState" style="position: absolute;
+  bottom:15px;
   left: 15.9vw;">
+    <div v-if="protectedArea" style="margin-top:5px;background:#17940c;border:none;padding:5px;" class="cont">Güvenli Bölge</div>
     <div style="margin-top:5px;height:fit-content;    padding: 5px;padding-right:28px;" class="cont"><i class="fa-solid fa-location-dot" style="    margin-right: 8px;font-size: 28px;"></i><div style="display: flex;
-    flex-direction: column;"><span style="font-weight:bold;">Idlewood</span><span style="    margin-top: -6px;
+    flex-direction: column;"><span style="font-weight:bold;">{{  hudInfo[0].location }}</span><span style="    margin-top: -6px;
     font-size: 12px;
-    color: #d7d7d7;">Arka Sokak</span></div></div>
-    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-user" style="    margin-right: 7px;"></i>Eira Test [0]</div>
+    color: #d7d7d7;">{{  hudInfo[0].locationTwo }}</span></div></div>
+    <div :key="stat.id" style="margin-top:5px;" class="cont"><i class="fa-solid fa-user" style="    margin-right: 7px;"></i>{{  playerStats.name }} [{{  playerStats.id }}]</div>
     <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-clock" style="    margin-right: 5px;"></i>{{ getTime() }}</div>
   </div>
 </template>
@@ -20,6 +21,7 @@ export default {
     ...mapGetters({
       hudState: "getHudState",
       hudInfo: "hudInfo",
+      playerStats: "statsList",
       protectedArea: "getProtectedHud",
       hungerThirst: 'hungerThirstData'
     }),

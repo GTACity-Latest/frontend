@@ -54,10 +54,10 @@
                 <img :src="require('../assets/img/clothingStores.png')" width="150" style="margin-top: 1vw;" />
                 <div class="textBase"><b>Clothing Shop</b></div>
                 <ul class="navOne">
-                    <li class="navTwo"><a @click="browsingType='Tops', componentId=11, resetPlayerClothes()">Tops</a></li>
-                    <li class="navTwo"><a @click="browsingType='Undershirts', componentId=8, resetPlayerClothes()">Undershirts</a></li>
-                    <li class="navTwo"><a @click="browsingType='Bottoms', componentId=4, resetPlayerClothes()">Bottoms</a></li>
-                    <li class="navTwo"><a @click="browsingType='Shoes', componentId=6, resetPlayerClothes()">Shoes</a></li>
+                    <li class="navTwo"><a @click="browsingType='Tops', componentId=11">Tops</a></li>
+                    <li class="navTwo"><a @click="browsingType='Undershirts', componentId=8">Undershirts</a></li>
+                    <li class="navTwo"><a @click="browsingType='Bottoms', componentId=4">Bottoms</a></li>
+                    <li class="navTwo"><a @click="browsingType='Shoes', componentId=6">Shoes</a></li>
                     <button class="purchaseBtn" @click="buyClothes()">Purchase</button>
                     <button class="purchaseBtn" style="margin-top: 0.2vw" @click="close()">Exit</button>
                 </ul>
