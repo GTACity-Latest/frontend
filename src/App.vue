@@ -5,7 +5,6 @@
     <progress-bar ref="progressbar"/>
     <chat-box ref="chatsystem" style="position:absolute;" />
     <client-hud />
-    <phoneSystem ref="phone"/>
     <vehicle-speedometer />
     <router-view ref="routers">
     </router-view>
@@ -18,7 +17,6 @@
 import { mapGetters, mapMutations } from "vuex";
 
 import altMenu from "./components/hud/altMenu.vue";
-import phoneSystem from "./components/hud/phoneSystem.vue";
 import Notifications from './components/Notifications.vue';
 import vehicleSpeedometer from './components/hud/vehicleSpeedometer.vue';
 import clientHud from './components/hud/clientHud.vue';
@@ -37,7 +35,6 @@ export default {
     chatBox,
     progressBar,
     fuelScreen,
-    phoneSystem,
     altMenu
 },
   computed: {
@@ -55,7 +52,6 @@ export default {
     global.gui.fuelscreen = this.$refs.fuelScreens;
     global.gui.loading = this.$refs.loading;
     global.gui.progressbar = this.$refs.progressbar;
-    global.gui.phone = this.$refs.phone;
   }
 }
 

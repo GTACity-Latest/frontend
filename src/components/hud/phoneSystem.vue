@@ -1,11 +1,7 @@
 <template>
-    <div v-if="hudShow">
-        <div style="position:absolute">
-            <div class=" w-2 mr-6 pl-2 absolute" style="background-size:contain; background-repeat:no-repeat; border-radius: 35px; width:14vw; height:23vw; margin-left:67.2vw; margin-top:33vw;">
-                <div class="bg-gray-500 w-5 mt-9"></div>
-            </div>
-
-            <div class="phoneBody" style="position:relative; background-image: url(https://wallpaperaccess.com/full/623479.jpg); height:0; background-size:contain; background-repeat:no-repeat; width:100%; border-radius: 35px; width:12.5vw; height:23vw; margin-left:68vw; border: solid 2px rgb(210, 210, 210);" :style="phoneOpen">
+    <div>
+        <div style="position:absolute;bottom: 10px;">
+            <div class="phoneBody" style="position:relative; background-image: url(https://wallpapers.com/images/featured/iphone-wltnz5o1xymafqmo.jpg); height:0; background-size:cover; background-repeat:no-repeat; width:100%; border-radius: 35px; width:14.5vw; height:29vw;     margin-left: 84vw; border: solid 2px rgb(210, 210, 210);" :style="phoneOpen">
 
                 <div>
 
@@ -17,40 +13,31 @@
                         </div>
                     </div>
 
-                    <button @click="showPhone()" style="text-align:center; margin-left:4vw;">
-                        <div v-if="!notifMsg && !notifIcon" style="background-color:black; border-radius:50px; width:4vw; margin-top:.5vw; min-width:4vw; height:1vw;">
+                    <button @click="close()" style="text-align:center; margin-left:4vw;">
+                        <div v-if="!notifMsg && !notifIcon" style="background-color:black; border-radius: 0px 0px 7px 7px;width: 6.5vw;margin-top: 5px; min-width:4vw; height:1vw;">
                             <p style="border-radius:50%; background-color:rgba(95, 95, 95, 0.462); width:1vw; height:.5vw; width:.5vw; margin-top:.3vw; margin-left:.5vw; position:absolute;"></p>
-                            <p style="border-radius:50%; background-color:rgba(95, 95, 95, 0.462); width:1vw; height:.5vw; width:.5vw; margin-top:.3vw; margin-left:3vw; position:absolute; border: solid 3px rgba(128, 128, 128, 0.497);"></p>
+                            <p style="border-radius:50%; background-color:rgba(95, 95, 95, 0.462); width:1vw; height:.5vw; width:.5vw; margin-top:.3vw;     margin-left: 5.6vw;position:absolute; border: solid 3px rgba(128, 128, 128, 0.497);"></p>
                             <div>
-                                <p style="color:white; position:absolute; margin-left:-2.8vw; font-size:13px; font-weight:600;"><font>{{phoneData[0].time}}</font></p>
+                                <p style="color: white;position: absolute;margin-left: -2.3vw;font-size: 11px;margin-top: 1px;font-weight: 500;"><font>{{phoneData[0].time}}</font></p>
                                 <p v-if="silentMode" style="color:white; position:absolute; margin-left:-1vw; font-size:13px; font-weight:600; color:orange;"><font><i class="fa-solid fa-bell-slash"></i></font></p>
-                                <p style="color:white; position:absolute; margin-left:4.4vw; font-size:13px;"><font>{{phoneData[0].battery == null ? 0 : phoneData[0].battery}}%</font></p>
-                                <p style="color:white; margin-left:6.3vw; font-size:12px;"><font><i class="fa-solid fa-battery-full"></i></font></p>
+                                <p style="color:white; margin-left:7.9vw; font-size:12px;"><font><i class="fa-solid fa-battery-full"></i></font></p>
                             </div>
                         </div>
                     </button>
 
                     <div v-if="appView === 'home'" class="homePage" style="margin-top:1vw;">
-                        <div class="apps" style=" text-align:center; display:block; width:11vw; margin-left:.5vw;">
-                            <div style="background-color:rgb(253,203,36); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block;"><i id="app" class="fa-solid fa-taxi" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                            <p style="color:white; margin-top:.8vw; font-weight:500; font-size:12px;">DCC</p>
+                        <div class="apps" style=" text-align:center; display:block;">
+                            <div style="background-image:linear-gradient(to bottom right, rgb(255, 189, 8), rgb(255, 97, 29)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:0vw;"><img src='./assets/safari.png'>
+                                <p style="color:white; margin-top: 0.5vw; font-weight:500; font-size:11px; text-align:center;">Safari</p>
+                                </div>
+                            <div @click="openApp('settings')" style="background-color:rgb(150, 150, 150); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><img src='./assets/settings.png'>
+                                <p style="color:white;    margin-top: 0.5vw; font-weight:500; font-size:11px; text-align:center;">Ayarlar</p>
                             </div>
-                            <div @click="openApp('settings')" style="background-color:rgb(150, 150, 150); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-gear" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:12px; text-align:center;">Settings</p>
+                            <div style="background-image:linear-gradient(to bottom right, rgb(8, 169, 255), rgb(29, 48, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-car" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
+                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Araçlar</p>
                             </div>
-                            <div style="background-image:linear-gradient(to bottom right, rgb(8, 169, 255), rgb(29, 48, 255)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-car" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:12px; text-align:center;">Vehicles</p>
-                            </div>
-                            <div style="margin-top:1vw;">
-                            <div @click="openApp('banking')" style="background-image:linear-gradient(to bottom right, rgb(41, 8, 255), rgb(195, 29, 255)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:0vw;"><i class="fa-solid fa-building-columns" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:12px; text-align:center;">Banking</p>
-                            </div>
-                            <div style="background-color:rgb(253,203,36); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-file" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:12px; text-align:center;">Notes</p>
-                            </div>
-                            <div style="background-image:linear-gradient(to bottom right, rgb(255, 189, 8), rgb(255, 97, 29)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-photo-film" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:12px; text-align:center;">Photos</p>
-                            </div>
+                            <div @click="openApp('banking')" style="background-image:linear-gradient(to bottom right, rgb(41, 8, 255), rgb(195, 29, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-building-columns" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
+                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Banka</p>
                             </div>
                         </div>
                     </div>
@@ -340,13 +327,15 @@
                     </div>
 
                     <div style="position:absolute; bottom: 10px; width:100%;">
-                        <div v-if="appView === 'home'" style=" text-align:center; display:block; width:11vw; margin-left:.5vw;">
-                            <div style="border-radius:20px; height:3vw; margin-top:8vw;" class="backdrop-blur-xl bg-white/30 ...">
-                                <div @click="openApp('phone')" style="background-image:linear-gradient(to bottom right, rgb(8, 255, 12), rgb(29, 255, 142)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-top:.3vw;"><i class="fa-solid fa-phone" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
+                        <div v-if="appView === 'home'" style=" text-align:center; display:block;     margin: 0px 13px;">
+                            <div style="    border-radius: 15px; height:3vw; margin-top:8vw;" class="backdrop-blur-xl bg-white/30 ...">
+                                <div @click="openApp('phone')" style="background-image:linear-gradient(to bottom right, rgb(8, 255, 12), rgb(29, 255, 142)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-top:.3vw;"><img src='./assets/phone.png'>
                                 </div>
-                                <div style="background-image:linear-gradient(to bottom right, rgb(8, 255, 12), rgb(29, 255, 142)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-message" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
+                                <div style="background-image:linear-gradient(to bottom right, rgb(8, 255, 12), rgb(29, 255, 142)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block;    margin-left: 8px;"><img src='./assets/messages.png'>
                                 </div>
-                                <div style="background-color:grey; width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-camera" style="font-size:1.4vw; margin-top:.4vw; color:rgb(36, 36, 36);"></i>
+                                <div style="background-image:linear-gradient(to bottom right, rgb(8, 255, 12), rgb(29, 255, 142)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block;    margin-left: 8px;"><img src='./assets/safari.png'>
+                                </div>
+                                <div style="background-image:linear-gradient(to bottom right, rgb(8, 255, 12), rgb(29, 255, 142)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block;    margin-left: 8px;"><img src='./assets/twitter.png'>
                                 </div>
                             </div>
                         </div>
@@ -385,7 +374,7 @@ export default {
             wallpaper: '',
             notifTime: null,
             phoneOpen: {
-                'margin-top': '33vw',
+                'margin-top': '17.5vw',
             }
         }
     },
@@ -416,6 +405,13 @@ export default {
         }
     },
     methods: {
+
+        close() {
+            if(window.mp) {
+                window.mp.trigger('closeRoute');
+            }
+        },
+
         showPhone() {
             if(!this.phoneData[0].cursor) return;
             this.show = !this.show;
@@ -456,7 +452,7 @@ export default {
                     this.phoneOpen = {
                         'background-color': 'rgb(31,31,31)',
                         'background-image': 'none',
-                        'margin-top': "33vw",
+                        'margin-top': "17.5vw",
                     }
                     this.appView = 'banking';
                     break;
@@ -466,7 +462,7 @@ export default {
                     this.phoneOpen = {
                         'background-color': 'rgb(31,31,31)',
                         'background-image': 'none',
-                        'margin-top': "33vw",
+                        'margin-top': "17.5vw",
                     }
                     this.appView = 'settings';
                     break;
@@ -476,7 +472,7 @@ export default {
                     this.phoneOpen = {
                         'background-color': 'rgb(31,31,31)',
                         'background-image': 'none',
-                        'margin-top': "33vw",
+                        'margin-top': "17.5vw",
                     }
                     this.appView = 'phone';
                     this.subView = 'keypad';
@@ -509,8 +505,8 @@ export default {
             this.appView = 'home';
             this.subView = 'none';
             this.phoneOpen = {
-                'background-image': 'url(https://wallpaperaccess.com/full/623479.jpg)',
-                'margin-top': '33vw'
+                'background-image': 'url(https://wallpapers.com/images/featured/iphone-wltnz5o1xymafqmo.jpg)',
+                'margin-top': '17.5vw'
             };
         },
         formatUnix(unix) {
@@ -547,7 +543,7 @@ export default {
             this.show = true;
 
             this.phoneOpen = {
-                    'margin-top': "33vw",
+                    'margin-top': "17.5vw",
                     animation: '1s show'
             }
             this.subView = 'none';
@@ -558,7 +554,7 @@ export default {
             this.show = false;
 
             this.phoneOpen = {
-                'margin-top': "54vw",
+                'margin-top': "17.5vw",
                 animation: '1s hide'
             }
             this.subView = 'none';
