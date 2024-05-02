@@ -2,8 +2,7 @@
   <div v-if="hudState">
     <div v-if="showChat" id="chat">
       <ul id="chat_messages">
-        <li v-for="(item, message) in chatMessages" :key="'B' + message" v-html="item.toString()">
-        </li>
+        <li v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()"></li>
       </ul>
       <input v-show="showInput"  v-model="inputText" ref="input" id="chat_msg" type="text" />
       <li v-for="(item, cmd) in queryCmds" :key="'B' + cmd" class="suggestionDropDown">
@@ -72,7 +71,11 @@ export default {
     ...mapGetters({
       hudState: "getHudState",
       inputStat: "chatStat"
-    })
+    }),
+    reversedMessages() {
+    // chatMessages dizisini ters çevirerek döndürür
+    return this.chatMessages.slice().reverse();
+  }
   },
 
   watch: {
@@ -275,8 +278,8 @@ html {
     font-weight: 700;
     outline: black;
     font-family: "Arial", sans-serif;
-    text-shadow: -1px 1px 0 #000000bd, 1px 1px 0 #000000bb, 1px -1px 0 #000000be;
-    font-size: 16px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 14px;
     margin-left: 15px;
 }
 
