@@ -1,7 +1,7 @@
 <template>
   <div v-if="hudState">
-    <div v-if="showChat" id="chat">
-      <ul id="chat_messages">
+    <div v-if="showChat" id="chat" ref="chatContainer">
+      <ul id="chat_messages" ref="messageList">
         <li v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()"></li>
       </ul>
       <input v-show="showInput"  v-model="inputText" ref="input" id="chat_msg" type="text" />
@@ -105,6 +105,10 @@ export default {
         this.active = true, this.showChat = true
       }
 
+      if (e.which === this.$options.keys.KEY_ESC) {
+        this.active = false, this.showChat = false
+      }
+
       if (
         e.which === this.$options.keys.KEY_T &&
         !this.showInput &&
@@ -164,6 +168,9 @@ export default {
 
     push(text) {
       this.chatMessages.unshift(text);
+      this.$nextTick(() => {
+        this.scrollToBottom();
+      });
     },
 
     clear() {
@@ -202,6 +209,9 @@ export default {
     setCaretPosition(ctrl, pos) {
       ctrl.focus();
       ctrl.setSelectionRange(pos, pos);
+    },
+    scrollToBottom() {
+      this.$refs.chatContainer.scrollTop = this.$refs.messageList.scrollHeight;
     }
   },
   created() {
@@ -327,7 +337,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.425);
+  background: rgba(10, 10, 10, 0) !important; 
   border-radius: 20px;
 }
 </style>

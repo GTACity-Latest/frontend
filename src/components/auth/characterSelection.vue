@@ -1,66 +1,78 @@
 <template>
-    <div class="limiter" style="user-select: none;">
-        <div class="container-charSelect">
-          <div v-if="charNames.length > 0" class="selectionBase" style="margin-left:2vw; position:absolute; height:14vw;">
-            <div class="headerSelect"><i class="fa-solid fa-user"></i> Your Account Information <p style="margin-top:0.3vw">Information for account {{ charNames[0].accName }}</p></div>
-            <div style="line-height:2vw; padding-bottom:1vw;">
-              <p style="margin-top:0.5vw; color:rgba(255, 255, 255, 0.576); margin-left:0.3vw; font-size:0.9vw;">Referral Code <font style="float:right; margin-right:0.6vw; color:white;">{{ charNames[0].referral }}</font></p>
-              <p style="margin-top:0.5vw; color:rgba(255, 255, 255, 0.576); margin-left:0.3vw; font-size:0.9vw;">Creation Date <font style="float:right; margin-right:0.6vw; color:white; font-size:0.9vw;">{{ cut(charNames[0].creation) }}</font></p>
-              <p style="margin-top:0.5vw; color:rgba(255, 255, 255, 0.576); margin-left:0.3vw; font-size:0.9vw;">Total Hours Played <font style="float:right; margin-right:0.6vw; color:white; word-wrap: break-word;">{{ formatNum(charNames[0].totalHours) }}</font></p>
-              <p style="margin-top:0.5vw; color:rgba(255, 255, 255, 0.576); margin-left:0.3vw; font-size:0.9vw;">Total Credits <font style="float:right; margin-right:0.6vw; color:rgba(255, 223, 63, 0.835); word-wrap: break-word;">${{ formatNum(charNames[0].adminPunishments) }}</font></p>
-            </div>
+   <div style="display: flex;
+    justify-content: space-between;
+    margin: 65px;">
+
+    <div>
+
+        <div v-if="charNames.length > 0" style="display: flex;background: #292929;width: fit-content;    flex-direction: column;    border-radius: 5px;">
+          <div class="ecreator_header">
+            
+            <span style="font-family: 'Archivo Black', sans-serif;    color: #ebebeb;text-transform: uppercase;font-size: 26px;">
+            HESAP BİLGİLERİ
+            </span>
+            <span style="    font-size: 13px;font-weight: 700;color: #676767;margin-top: -3px;">
+              {{ charNames[0].accName }} hesabının bilgileri
+            </span>
           </div>
-          <div class="selectionBase" style="margin-left:2vw; position:absolute; height:33vw; margin-top:17vw; background-color:transparent; background-image: url('...'); border-bottom: none;">
-            <div class="headerSelect" style="background-color: #000000b1; background-image: url('./assets/image/diagmonds.png');"><i class="fa-solid fa-envelope"></i> Notifications <p style="margin-top:0.3vw">Administrator and account related notificiations </p></div>
-            <div style="padding-bottom:1vw; overflow:scroll; height:41vw; overflow-x: hidden;">
-              <div v-if="accNotifs.length > 0">
-                <div v-for="notif in accNotifs" :key="notif.id">
-              <div style="background-color:rgba(158, 158, 158, 0.305); padding:0.5vw; margin-top:0.5vw; margin-left:0.2vw; background-color: #0000009a; background-image: url('./assets/image/diagmonds.png'); border-bottom: solid grey 3px;">
-                <p style="color:rgb(255, 255, 255); margin-left:0.3vw; font-size:0.9vw; word-wrap:break-word;">{{notif.text}}<font style="float:right; margin-right:0.6vw; color:white;"><button @click="clearNotif(notif.id)"><i class="fa-sharp fa-solid fa-circle-check" style="color:rgba(145, 255, 145, 0.887); font-size:0.8vw;"></i></button></font></p>
-              </div>
-                </div>
-              </div>
-              <div v-else>
-                <div style="background-color:rgba(158, 158, 158, 0.305); padding:0.5vw; margin-top:0.5vw; margin-left:0.2vw; background-color: #0000009a; background-image: url('./assets/image/diagmonds.png'); border-bottom: solid grey 3px;">
-                  <p style="color:rgb(255, 255, 255); margin-left:0.3vw; font-size:0.9vw; word-wrap:break-word;">You have no pending notifications<font style="float:right; margin-right:0.6vw; color:white;"></font></p>
-                </div>
-              </div>
-            </div>
+          <div class="secimseysi">
+                          <div class="subText" style="float:left;">HESAP OLUŞTURULMA TARİHİ<span style="color: #576163;">{{ cut(charNames[0].creation) }}</span></div>
+                          
+                      </div>
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">TOPLAM SAAT<span style="color: #576163;">{{ formatNum(charNames[0].totalHours) }}</span></div>
+                          
+                      </div>
+        </div>
+
+        <div style="display: flex;background: #292929;width: fit-content;    flex-direction: column;    border-radius: 5px;margin-top: 24px;">
+          <div class="ecreator_header">
+            
+            <span style="font-family: 'Archivo Black', sans-serif;    color: #ebebeb;text-transform: uppercase;font-size: 26px;">
+              BİLDİRİMLER
+            </span>
+            <span style="    font-size: 13px;font-weight: 700;color: #676767;margin-top: -3px;">
+              Bildirimlerini burada görüntüleyebilirsin
+            </span>
           </div>
-        <div class="selectionBase" style="background-color:transparent; background-image:none;">
-            <div class="headerSelect" style="background-color:rgba(1, 1, 1, 0.7);"><i class="fa-solid fa-user-group"></i> Character Selection
-              <p v-if="charNames[0].name" style="margin-top:0.3vw;">Select your character {{ charNames.length }} {{ charNames.length == 0 ? `/ 2` : `/ ${charNames[0].max}` }}</p>
-              <p v-else style="margin-top:0.4vw;">You have no characters. Click on the Create Character button to create one.</p>
-            </div>
-            <div v-if="charNames[0].name" class="characterCluster" style="overflow:scroll; height:41vw; overflow-x: hidden;">
-                <b v-for="cName in charNames" :key="cName.id">
-                  <div class="character">
-                    <table class="tableOne" cellspacing="2" style="table-layout:fixed; text-align: left; margin-left: 0.1vw;">
-                        <tr>
-                          <th v-if="charNames.length > 0">
-                            <i class="fa-solid fa-user"></i> Name: <b style="color:grey">{{ formatName(cName.name) }}</b><br>
-                            <i class="fa-solid fa-clock"></i> Playtime: <b style="color:grey">{{ cName.hours }} days</b><br>
-                            <i class="fa-solid fa-building-columns"></i> Bank: <b style="color:grey">{{ '$'+cName.bank }}</b><br>
-                        </th>
-                        <th v-if="charNames.length > 0" style="margin-right: 2vw;">
-                            <i class="fa-sharp fa-solid fa-people-group" style="margin-left:0.3vw;"></i> Faction: <b style="color:grey">{{ cName.faction }}</b><br>
-                            <i class="fa-solid fa-notes-medical" style="margin-left:0.3vw;"></i> Health: <b style="color:grey">{{ cName.hp }}</b><br>
-                            <i class="fa-solid fa-right-to-bracket" style="margin-left:0.3vw;"></i> Last Active: <b style="color:grey">{{ formatUnixTimestamp(cName.lastPlayed) }}</b><br>
-                        </th>
-                        </tr>
-                          <tr>
-                            <th><button class="selectButton" @click="previewCharacter(cName.name)" style="float:left; margin-bottom: 2vw;"><i style="color:rgb(183, 119, 255)" class="fa-solid fa-eye"></i></button></th>
-                            <th><button class="selectButton" @click="playerCharacter(cName.name)" style="float:left; margin-bottom: 2vw;"><i class="fa-solid fa-play"></i></button></th>
-                          </tr>
-                      </table>
-                </div>
-                </b>
-            </div>
-            <b v-if="charNames.length==0 || !charNames[0].name"><div class="headSelect" style="color:grey; font-weight: 500;">You don't have any characters.</div></b>
-          </div>
-        <button class="createCharBtn" style="margin-top:1vw;" @click="goToCharCreation()">Create Character</button>
-      </div>
+          <div v-for="notif in accNotifs" :key="notif.id" class="secimseysi">
+                          <div class="subText" style="    display: flex;flex-direction: row;"><span>{{notif.text}}</span><button @click="clearNotif(notif.id)"><i class="fa-sharp fa-solid fa-circle-check" style="color:rgba(145, 255, 145, 0.887); font-size:0.8vw;margin-left:4px;"></i></button></div>
+                          
+                      </div>
+                      <div v-if="accNotifs.length < 1" class="secimseysi">
+                          <div class="subText" style="    display: flex;flex-direction: row;"><span>Bekleyen hiç bildirimin bulunmuyor.</span></div>
+                          
+                      </div>
+        </div>
+
     </div>
+
+    <div>
+
+      <div style="display: flex;background: #292929;width: fit-content;    flex-direction: column;    border-radius: 5px;">
+          <div class="ecreator_header">
+            
+            <span style="font-family: 'Archivo Black', sans-serif;    color: #ebebeb;text-transform: uppercase;font-size: 26px;">
+              KARAKTERLERİM
+            </span>
+            <span style="    font-size: 13px;font-weight: 700;color: #676767;margin-top: -3px;">
+              {{ charNames.length }}/100 slot kullanılıyor.
+            </span>
+          </div>
+                      <a  v-for="cName in charNames" :key="cName.id" @click="previewCharacter(cName.name)" style="    display: flex;justify-content: space-between;" class="secimseysi">
+                        <div style="display: flex;flex-direction: column;">
+                          <div class="subText" style="float: left;display: flex;flex-direction: row;align-items: center;"><i class="fa-solid fa-user" style="margin-right:0.3vw;"></i><span>{{ formatName(cName.name) }}</span></div>
+                          <div class="subText" style="float: left;display: flex;flex-direction: row;align-items: center;"><i class="fa-solid fa-clock" style="margin-right:0.3vw;"></i><span>{{ cName.hours }}</span></div>                        
+                          <div class="subText" style="float: left;display: flex;flex-direction: row;align-items: center;    font-size: 11px;color: #5b5b5b;"><span style="margin-right:0.3vw;">Son Giriş: </span><span>{{ formatUnixTimestamp(cName.lastPlayed) }}</span></div>
+                        </div>
+                        <button class="selectButton" @click="playerCharacter(cName.name)" style="float:left; margin-bottom: 2vw;"><i class="fa-solid fa-play"></i></button>
+                      </a>
+                      
+        </div>
+        <button class="newbuton" style="margin-top:1vw;" @click="goToCharCreation()">Karakter Yarat</button>
+    </div>
+
+   </div>
 </template>
 
 <script>
@@ -124,6 +136,67 @@ export default {
 </script>
 
 <style scoped>
+.newbuton {
+  margin-top: 1vw;
+    background: #b53434;
+    font-family: 'Poppins-Regular';
+    font-weight: 700;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px 49px;
+}
+.newbuton:hover {
+  background: #641a1a;
+  transition: 0.5s;
+}
+
+.bizmbuton {
+  background: #b53434;
+    color: rgb(235, 235, 235);
+    text-transform: uppercase;
+    padding: 4px;
+    display: flex;
+    font-family: "Archivo Black", sans-serif;
+    justify-content: center;
+}
+.bizmbuton:hover {
+  background: #811515;
+}
+.genel {
+  overflow: auto;
+}
+.secimseysi {
+  margin: 20px;
+    margin-top: 0px;
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+}
+.secimseysi:hover {
+  background: #464646;
+}
+.ecreator_container {
+  position: absolute;
+    right: 1px;
+    display: flex;
+    flex-direction: column;
+    background: #1e1e1ee6;
+    margin: 49px;
+    height: 91%;
+}
+.ecreator_header {
+  display: flex;
+  padding:10px;
+  padding-right: 71px;
+    flex-direction: column;
+    background: #1a1a1a;
+    margin-bottom: 9px;
+    border-radius: 5px 5px 0px 0px;
+}
+
 * {
   background-color: transparent;
   user-select: none;
@@ -164,15 +237,19 @@ body:focus {
 }
 .selectButton {
   border: none;
-  color: #00ff99fb;
-  height: 0.1vw;
-  transition-duration: 0.4s;
-  font-family: "OSL";
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-weight: 1000;
-  margin-left: 4.4vw;
-  margin-top: -0.1vw;
-  font-size: 30px;
+    color: #3b3b3b;
+    height: 0.1vw;
+    transition-duration: 0.4s;
+    font-family: "OSL";
+    font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
+    font-weight: 1000;
+    margin-left: 4.4vw;
+    margin-top: 4px;
+    margin-right: 12px;
+    font-size: 30px;
+}
+.selectButton:hover {
+  color: #181818;
 }
 
 .createCharBtn {
@@ -199,6 +276,16 @@ body:focus {
 
 .createCharBtn:hover {
   border-top: solid rgba(140, 255, 117, 20) 6px;
+}
+a::after {
+  background: none !important;
+}
+.subText {
+  float: left;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins-Regular';
+    font-size: 13px;font-weight: 700;color: #a1a1a1;
 }
 .character {
   background: -webkit-linear-gradient(right, #4b4b4b, #d8d8d864);

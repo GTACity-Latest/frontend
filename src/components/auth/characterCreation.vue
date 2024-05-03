@@ -376,8 +376,8 @@ export default {
         window.mp.trigger(
           "setHeadBlend:creator",
           this.mother,
-          oldType,
           this.father,
+          oldType,
           this.skinMother,
           this.skinFather,
           this.skinThird,

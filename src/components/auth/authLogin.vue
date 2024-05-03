@@ -16,23 +16,14 @@
                             <input class="input100" id="loginName" type="text" placeholder="Kullanıcı adınızı girin" v-model="username">
                             <div class="focus-input100"></div>
                         </div>
-
                         <div class="wrap-input100 validate-input">
                             <div class="label-input100" style="color: #fff;"><i style="margin-right: 4px;" class="fa-solid fa-lock"></i> Şifre</div>
                             <input id="loginPass" class="input100" type="password" placeholder="Şifrenizi girin" v-model="password">
                             <div class="focus-input100"></div>
-
                         </div>
-
                         <div class="text-right p-t-8 p-b-31">
                         </div>
-
-
                         <b style="display: none;"><a @click="register()" style="color: rgb(209, 209, 209); text-decoration:none">Don't have an account yet? Register now</a><br></b>
-
-                        <p style="margin-top:0.4vw;">
-                          <label for="loginAuto">Beni Hatırla </label> <input name="loginAuto" type="checkbox" v-model="autoLogin"></p>
-
                         <br>
                         <div class="container-login100-form-btn">
                             <div class="wrap-login100-form-btn">
