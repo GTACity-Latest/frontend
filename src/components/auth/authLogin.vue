@@ -5,8 +5,8 @@
               
                 <div class="wrap-login100">
                   <div class="headerSelect">
-                  <span>GTACITY'e hoşgeldin
-                    <span style="font-size: 11px;color: #c5c5c5;font-weight: 500;">Bilgilerini girerek oynamaya başlayabilirsin!</span>
+                  <span>GTA CITY
+                    <span style="font-size: 11px;color: #c5c5c5;font-weight: 500;">Bilgilerini girerek oyun sunucusuna giriş yapabilirsin.</span>
                   </span><img style="width: 40px;" src="./assets/image/dclogo.png"></div>
                   <div class="p-l-55 p-r-55 p-b-54">
                   <form class="login100-form validate-form" id="auth-form" @submit.prevent="add()">
@@ -536,7 +536,7 @@ iframe {
 }
 
 .label-input100 {
-  background: #3f3f3f;
+  background: #060606;
     width: fit-content;
     color: rgb(255, 255, 255);
     display: flex;

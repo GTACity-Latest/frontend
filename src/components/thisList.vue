@@ -181,7 +181,7 @@ th, tr {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #b1a1ff;
+  background: rgb(181, 52, 52);
 }
 
 /* Handle on hover */

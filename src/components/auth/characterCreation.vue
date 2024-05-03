@@ -1,158 +1,72 @@
 <template>
-<div class="creationContainer">
-    <div class="creationBase" :style="menuHeightOne">
-        <div class="head1"><a><i class="fa-solid fa-screwdriver-wrench"></i> Character Creation <p style="margin-top:0.3vw;">Create a new character.</p></a></div>
-        <div class="navCreation">
-            <ul class="unitList">
-                <li class="listItem"><a @click="browsingType='general', menuOneH=31, menuTwoH=22">General</a></li>
-                <li class="listItem"><a @click="browsingType='face', menuOneH=44, menuTwoH=38">Face</a></li>
-                <li class="listItem"><a @click="browsingType='hair', menuOneH=28, menuTwoH=22">Hair</a></li>
-                <li class="listItem"><a @click="browsingType='other', menuOneH=31, menuTwoH=30">Other</a></li>
-            </ul>
-        </div>
-        <div class="creationMenuBase" :style="menuHeightTwo">
-            <div v-if="browsingType==='general'">
-                <div class="inputFields">
-                  <div style="border-bottom: solid rgba(255, 255, 255, 0.311) 2px; ">
-                    <input id="loginPass" class="input100" maxlength="15" placeholder="Enter a First Name..." v-model="fName">
+  <div class="ecreator_container">
+          <div class="ecreator_header">
+            <span style="font-family: 'Archivo Black', sans-serif;    color: #ebebeb;text-transform: uppercase;font-size: 23px;">
+              Karakter Yaratma
+            </span>
+            <span style="    font-size: 13px;font-weight: 700;color: #676767;margin-top: -3px;">
+              Karakterini oluştur ve oynamaya başla!
+            </span>
+          </div>
+          <div style="background: #b53434;color: #ebebeb;font-family: 'Poppins-SemiBold';    height: 27px;">
+            <a @click="browsingType='general', menuOneH=31, menuTwoH=22" class="btns">GENEL</a>
+            <a @click="browsingType='face', menuOneH=44, menuTwoH=38" class="btns">YÜZ DETAYLARI</a>
+            <a @click="browsingType='hair', menuOneH=28, menuTwoH=22" class="btns">SAÇ</a>
+            <a @click="browsingType='other', menuOneH=31, menuTwoH=30" class="btns">DİĞER</a>
+          </div>
+
+          <div v-if="browsingType==='general'" class="genel">
+            <div style="    margin: 20px;margin-top: 13px;">
+                <div style="">
+                    <input id="loginPass" class="input100" maxlength="15" placeholder="Karakter adı girin" v-model="fName">
                   </div>
-                  <div style="border-bottom: solid rgba(255, 255, 255, 0.311) 2px; ">
-                    <input id="loginPass" class="input100" maxlength="15" placeholder="Enter a last name..." v-model="lName">
+                  <div style="margin-top: 5px;">
+                    <input id="loginPass" class="input100" maxlength="15" placeholder="Karakter soyadı girin" v-model="lName">
                   </div>
-            </div>
-            <div class="dropdown">
-              <button class="dropbtn">Change Sex</button>
-              <div class="dropdown-content">
-                <a @click="gender = 'male'" href="#">Male</a>
-                <a @click="gender = 'female'" href="#">Female</a>
-              </div>
-            </div>
-                <div class="slidescontainer" style="position:absolute;">
-                    <div class="subText" style="float:left;">Mother {{ mother }}</div>
-                    <input type="range" min="0" max="40" value="0" class="creationSliders"  v-model="mother">
+                  <div style="display: flex;flex-direction: row;justify-content: flex-end;    margin-top: 5px;">
+                  <a style="color: #6b99b1;" class="btns2" @click="gender = 'male'" href="#">Erkek</a>
+                  <a style="    margin-left:2px;color: rgb(163 72 72);" class="btns2" @click="gender = 'female'" href="#">Kadın</a>
                   </div>
-                  <div class="slidescontainer" style="margin-left: 16vw; position:absolute;">
-                    <div class="subText" style="float:left;">Father {{ father }}</div>
-                    <input type="range" min="0" max="40" value="0" class="creationSliders"  v-model="father">
-                  </div>
-                  <div class="mixContainer">
-                    <div class="subText" style="float:left; margin-top: 4vw;">Mother / Father Mix {{ mix }}%</div>
-                    <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="mix">
-                    <div class="subText" style="float:left; margin-top: 0.2vw;">Skin Mix {{ skinMix }}%</div>
-                    <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="skinMix">
-                  </div>
-            </div>
-            <div v-if="browsingType==='face'">
-              <div class="slidescontainer" style="position:absolute; line-height: 1.5vw;">
-                <div class="subText" style="float:left;">Nose Width {{ noseWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseWidth">
-                <div class="subText" style="float:left;">Nose Length	 {{ noseLength/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseLength">
-                <div class="subText" style="float:left;">Nose Tip {{ noseTip/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseTip">
-                <div class="subText" style="float:left;">Brow Height {{ browHeight/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="browHeight">
-                <div class="subText" style="float:left;">Cheekbone Height {{ cheekboneHeight/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="cheekboneHeight">
-                <div class="subText" style="float:left;">Cheeks Width {{ cheeksWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="cheeksWidth">
-                <div class="subText" style="float:left;">Lip Type {{ lips/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="lips">
-                <div class="subText" style="float:left;">Jaw Height {{ jawHeight/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="jawHeight">
-                <div class="subText" style="float:left;">Chin Position {{ chinPosition/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinPosition">
-                <div class="subText" style="float:left;">Chin Shape {{ chinShape/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinShape">
-              </div>
-              <div class="slidescontainer" style="margin-left: 15vw; position:absolute; line-height: 1.5vw;">
-                <div class="subText" style="float:left;">Nose Height {{ noseHeight/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseHeight">
-                <div class="subText" style="float:left;">Nose Bridge {{ noseBridge/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseBridge">
-                <div class="subText" style="float:left;">Nose Bridge Shift {{ noseBridgeShift/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseBridgeShift">
-                <div class="subText" style="float:left;">Brow Width {{ browWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="browWidth">
-                <div class="subText" style="float:left;">Cheekbone Width {{ cheekboneWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="cheekboneWidth">
-                <div class="subText" style="float:left;">Eye Type {{ eyes/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="eyes">
-                <div class="subText" style="float:left;">Jaw Width {{ jawWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="jawWidth">
-                <div class="subText" style="float:left;">Chin Length {{ chinLength/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinLength">
-                <div class="subText" style="float:left;">Chin Width {{ chinWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinWidth">
-                <div class="subText" style="float:left;">Neck Width {{ neckWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="neckWidth">
-              </div>
-              <div class="mixContainer">
-                <div class="subText" style="float:left; margin-top: 31vw">Eye Colour {{ eyeColour }}</div>
-                <input type="range" min="0" max="31" value="0" class="creationSliders"  v-model="eyeColour">
-              </div>
-            </div>
-            <div v-if="browsingType==='hair'">
-              <div class="mixContainer">
-                <div class="subText" style="float:left; margin-top: 1vw">Hair Style {{ hairStyle }}</div>
-                <input type="range" min="0" max="76" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="hairStyle">
-              </div>
-              <div class="slidescontainer" style="position:absolute; line-height: 1.5vw;">
-                <div class="subText" style="float:left;">Hair Colour {{ hairColour }}</div>
-                <input type="range" min="0" max="63" value="0" class="creationSliders"  v-model="hairColour">
-                <div class="subText" style="float:left;">Eyebrows Style	 {{ eyebrowsStyle }}</div>
-                <input type="range" min="0" max="33" value="0" class="creationSliders"  v-model="eyebrowsStyle">
-                <div class="subText" style="float:left;">Facial Hair Style {{ facialHairStyle }}</div>
-                <input type="range" min="-1" max="28" value="0" class="creationSliders"  v-model="facialHairStyle">
-              </div>
-              <div class="slidescontainer" style="margin-left: 18vw; position:absolute; line-height: 1.5vw;">
-                <div class="subText" style="float:left;">Hair Highlights {{ hairHighlights }}</div>
-                <input type="range" min="0" max="63" value="0" class="creationSliders"  v-model="hairHighlights">
-                <div class="subText" style="float:left;">Eyebrows Colour {{ eyebrowsColour }}</div>
-                <input type="range" min="0" max="63" value="0" class="creationSliders"  v-model="eyebrowsColour">
-                <div class="subText" style="float:left;">Facial Hair Colour {{ facialHairColour }}</div>
-                <input type="range" min="0" max="63" value="0" class="creationSliders"  v-model="facialHairColour">
-              </div>
-              <div class="mixContainer">
-                <div class="subText" style="float:left; margin-top: 11vw">Chest Hair Style {{ chestHairStyle }}</div>
-                <input type="range" min="0" max="16" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="chestHairStyle">
-              </div>
-            </div>
-            <div v-if="browsingType==='other'">
-              <div class="mixContainer">
-                <div class="subText" style="float:left; margin-top: 1vw">Blemishes {{ blemishes }}</div>
-                <input type="range" min="-1" max="12" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="blemishes">
-                <div class="subText" style="float:left; margin-top: 1vw">Ageing {{ ageing }}</div>
-                <input type="range" min="-1" max="14" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="ageing">
-              </div>
-              <div class="slidescontainer" style="position:absolute; line-height: 1.5vw;">
-                <div class="subText" style="float:left;">Blush Style {{ blushStyle }}</div>
-                <input type="range" min="0" max="33" value="0" class="creationSliders"  v-model="blushStyle">
-                <div class="subText" style="float:left;">Makeup	 {{ makeup }}</div>
-                <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="makeup">
-                <div class="subText" style="float:left;">Complexion {{ complexion }}</div>
-                <input type="range" min="0" max="11" value="0" class="creationSliders"  v-model="complexion">
-              </div>
-              <div class="slidescontainer" style="margin-left: 18vw; position:absolute; line-height: 1.5vw;">
-                <div class="subText" style="float:left;">Blush Colour {{ blushColour }}</div>
-                <input type="range" min="0" max="63" value="5" class="creationSliders"  v-model="blushColour">
-                <div class="subText" style="float:left;">Lipstick {{ lipstick }}</div>
-                <input type="range" min="0" max="10" value="0" class="creationSliders"  v-model="lipstick">
-                <div class="subText" style="float:left;">Moles / Freckles {{ molesFreckles }}</div>
-                <input type="range" min="0" max="18" value="0" class="creationSliders"  v-model="molesFreckles">
-              </div>
-              <div class="mixContainer">
-                <div class="subText" style="float:left; margin-top: 11vw">Sun Damage {{ sunDamage }}</div>
-                <input type="range" min="0" max="16" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="sunDamage">
-              </div>
-            </div>
-        </div>
-    </div>
-    <div class="buttonContainer">
-      <button class="creationButton" style="border:none;">Rotation ({{rot}}°)<input type="range" min="0" max="360" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="rot"></button>
-        <button @click="finishCharacter()" class="creationButton" style="margin-top: 4.5vw;">Create Character</button>
-    </div>
-</div>
+                </div>
+
+                <div class="secimler">
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">Anne <span style="color: #576163;">{{ mother }}</span></div>
+                          <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="mother">
+                      </div>
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">Baba <span style="color: #576163;">{{ father }}</span></div>
+                          <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="father">
+                      </div>
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">Anne Ten Rengi <span style="color: #576163;">{{ skinMother }}</span></div>
+                          <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="skinMother">
+                      </div>
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">Baba Ten Rengi <span style="color: #576163;">{{ skinFather }}</span></div>
+                          <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="skinFather">
+                      </div>
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">Yüz Karışımı <span style="color: #576163;">{{ mix }}%</span></div>
+                          <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="mix">
+                      </div>
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">Ten Rengi Karışımı <span style="color: #576163;">{{ skinMix }}%</span></div>
+                          <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="skinMix">
+                      </div>
+                </div>
+          </div>
+          <div>
+          <div style="background: #161616;color: #ebebeb;text-transform: uppercase;padding: 4px;display: flex;font-family: 'Archivo Black', sans-serif;justify-content: center;">Karakter Rotasyonu</div>
+          <div style="padding: 0px 15px;
+    background: #232323;
+    margin: 11px;
+    border-radius: 5px;"><input type="range" min="0" max="360" value="0" class="creationSliders" style="margin-top: 1vw;    margin-bottom: 1vw;"  v-model="rot"></div>
+          </div>
+
+          <button @click="finishCharacter()" class="bizmbuton">TAMAMLA</button>
+
+  </div>
 </template>
 
 
@@ -168,6 +82,8 @@ export default {
       lName: "",
       mother: 0,
       father: 0,
+      skinMother: 0,
+      skinFather: 0,
       mix: 0,
       skinMix: 0,
       noseWidth: 0,
@@ -239,7 +155,6 @@ export default {
           newType,
           this.father,
           oldType,
-          this.father,
           this.mix * 0.01,
           this.skinMix * 0.01
         );
@@ -250,8 +165,6 @@ export default {
       if (window.mp) {
         window.mp.trigger(
           "setHeadBlend:creator",
-          this.mother,
-          oldType,
           this.mother,
           oldType,
           this.mix * 0.01,
@@ -266,8 +179,6 @@ export default {
           "setHeadBlend:creator",
           this.mother,
           this.father,
-          this.mother,
-          this.father,
           oldType * 0.01,
           this.skinMix * 0.01
         );
@@ -278,8 +189,6 @@ export default {
       if (window.mp) {
         window.mp.trigger(
           "setHeadBlend:creator",
-          this.mother,
-          this.father,
           this.mother,
           this.father,
           this.mix * 0.01,
@@ -566,6 +475,75 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+.bizmbuton {
+  background: #b53434;
+    color: rgb(235, 235, 235);
+    text-transform: uppercase;
+    padding: 4px;
+    display: flex;
+    font-family: "Archivo Black", sans-serif;
+    justify-content: center;
+}
+.bizmbuton:hover {
+  background: #811515;
+}
+.genel {
+  overflow: auto;
+    height: 27vw;
+}
+.secimseysi {
+  margin: 20px;
+    margin-top: 0px;
+    background: #232323;
+    padding: 10px;
+    border-radius: 7px;
+}
+.ecreator_container {
+  position: absolute;
+    right: 1px;
+    display: flex;
+    flex-direction: column;
+    background: #1e1e1ee6;
+    margin: 49px;
+}
+.ecreator_header {
+  display: flex;
+  padding:10px;
+    flex-direction: column;
+}
+.btns {
+  padding: 4px 24px;
+    font-size: 13px;
+}
+.btns2 {
+  font-family: 'Poppins-Medium';
+    background: #232323;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 2px 6px;
+    
+}
+.btns2:hover {
+  background: #111111;
+}
+.input100 {
+  font-family: Poppins-Medium;
+    font-size: 11px;
+    color: #ffffff;
+    line-height: 1.2;
+    display: block;
+    background: #0a0a0a;
+    border-radius: 6px;
+    width: 100%;
+    height: 32px;
+    background: #232323;
+    padding: 0 7px 0 7px;
+}
+.btns:hover {
+  background: #811515;
+}
 /* The slider itself */
 .creationSliders {
   -webkit-appearance: none; /* Override default CSS styles */
@@ -587,9 +565,9 @@ export default {
 .creationSliders::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 17px; /* Set a specific slider handle width */
-  height: 17px; /* Slider handle height */
-  background: rgb(183, 119, 255); /* Green background */
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  background: #b53434; /* Green background */
   cursor: pointer; /* Cursor on hover */
   border-radius: 10px;
 }
@@ -602,12 +580,14 @@ export default {
 }
 
 .subText {
-  color: #ffffff;
-  font-family: "OSL";
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  text-align: center;
+  color: #9fa8ab;
+    font-family: Poppins-Medium;
+    font-weight: 400;
+    font-size: 11px;
+    text-align: center;
+    background: #161616;
+    padding: 4px;
+    border-radius: 6px;
 }
 
 .creationButton {

@@ -548,7 +548,6 @@ export default {
             }
             this.subView = 'none';
             this.appView = 'home';
-            this.$store.commit('chatActive', false);
         },
         closePhone() {
             this.show = false;
@@ -559,7 +558,6 @@ export default {
             }
             this.subView = 'none';
             this.appView = 'home';
-            this.$store.commit('chatActive', true);
         },
         fetchData(handle) {
             switch(handle) {
