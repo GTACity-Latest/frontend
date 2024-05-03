@@ -25,7 +25,8 @@ export default {
     KEY_ENTER: 13,
     KEY_ARR_UP: 38,
     KEY_ARR_DOWN: 40,
-    KEY_TAB: 9
+    KEY_TAB: 9,
+    KEY_ESC: 27
   },
 
   data() {
@@ -102,11 +103,16 @@ export default {
       if (!this.hudState) return;
 
       if(e.which === this.$options.keys.KEY_T) {
-        this.active = true, this.showChat = true
+        this.active = true, this.showChat = true;
+        this.$nextTick(() => {
+        this.scrollToBottom();
+      });
       }
 
-      if (e.which === this.$options.keys.KEY_ESC) {
-        this.active = false, this.showChat = false
+      if (e.which === this.$options.keys.KEY_ESC && this.showInput) {
+        this.enableChatInput(false);
+        e.preventDefault();
+        return;
       }
 
       if (
@@ -131,6 +137,9 @@ export default {
 
         this.countPos = 0;
         let text = this.inputText;
+        this.$nextTick(() => {
+        this.scrollToBottom();
+      });
         this.playerMessages.push(text);
         this.lastMsg = text;
 
@@ -212,6 +221,9 @@ export default {
     },
     scrollToBottom() {
       this.$refs.chatContainer.scrollTop = this.$refs.messageList.scrollHeight;
+      this.$refs.messageList.scrollTop = this.$refs.chatContainer.scrollHeight;
+      this.$refs.chatContainer.scrollTop = this.$refs.chatContainer.scrollHeight;
+      this.$refs.messageList.scrollTop = this.$refs.messageList.scrollHeight;
     }
   },
   created() {
@@ -337,7 +349,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(10, 10, 10, 0) !important; 
+  background: rgba(0, 0, 0, 0);
   border-radius: 20px;
 }
 </style>

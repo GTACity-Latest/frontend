@@ -5,9 +5,9 @@
   left: 15.9vw;">
     <div v-if="protectedArea" style="margin-top:5px;background:#17940c;border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
     <div style="margin-top:5px;background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(35, 150, 0) 0%, rgba(0, 0, 0, 0) 100%);border-left: 3px solid #047a00;" class="cont"><i class="fa-solid fa-wallet" style="    margin-right: 7px;"></i>${{  hudInfo[0].money.toLocaleString('en-US') }}</div>
-    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-user" style="    margin-right: 5px;"></i>{{ hudInfo[0].name }} ({{ hudInfo[0].id }})</div>
-    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-gauge-high" style="    margin-right: 7px;"></i>{{ hudInfo[0].fps }}</div>
-    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-compass" style="    margin-right: 7px;"></i>{{ hudInfo[0].rotation }}</div>
+    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-user" style="    margin-right: 5px;"></i>{{ hudInfo[0].cityName }} ({{ hudInfo[0].id }})</div>
+    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-gauge-high" style="    margin-right: 7px;"></i>{{ hudInfo[0].fps }} FPS</div>
+    <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-compass" style="    margin-right: 7px;"></i>{{ hudInfo[0].direction }}</div>
     <div style="margin-top:5px;height:fit-content;    padding: 5px;padding-right:28px;" class="cont"><i class="fa-solid fa-location-dot" style="    margin-right: 8px;font-size: 28px;"></i><div style="display: flex;
     flex-direction: column;"><span style="font-weight:bold;">{{  hudInfo[0].location }}</span><span style="    margin-top: -6px;
     font-size: 12px;
