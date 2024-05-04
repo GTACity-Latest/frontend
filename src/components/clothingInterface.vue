@@ -8,17 +8,65 @@
         <div style="color: white;font-family: 'Archivo Black', sans-serif; font-size: 23px;;text-transform: uppercase;font-weight: 600;">KIYAFET MAĞAZASI</div>
         <span @click="close()" class="exitbtn">X</span>
       </div>
-      <div style="display: flex;flex-wrap: wrap;    border-bottom: 2px #434343 solid;padding: 1px 10px;padding-bottom: 11px;">
+      <div style="display: flex;    flex-direction: column;border-bottom: 2px #434343 solid;padding: 1px 10px;padding-bottom: 11px;">
+        <div style="    display: flex;">
         <div @click="browsingType='Tops', componentId=11, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-shirt"></i><span style="font-size:12px;">Üst</span></div>
         <div @click="browsingType='Undershirts', componentId=8, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">İç Giyim</span></div>
         <div @click="browsingType='Bottoms', componentId=4, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-person-walking"></i><span style="font-size:12px;">Pantolon</span></div>
         <div @click="browsingType='Shoes', componentId=6, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-shoe-prints"></i><span style="font-size:12px;">Ayakkabı</span></div>
         <div @click="browsingType='Acces', componentId=7, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-headphones-simple"></i><span style="font-size:12px;">Aksesuar</span></div>
         <div @click="browsingType='Body', componentId=3, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-person"></i><span style="font-size:12px;">Vücut</span></div>
-        <div @click="browsingType='Head', componentId=0, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-hat-cowboy"></i><span style="font-size:12px;">Şapka</span></div>
+        <div @click="browsingType='Head', propId=0, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-hat-cowboy"></i><span style="font-size:12px;">Şapka</span></div>
+      </div>
+      <div style="    display: flex;">
+        <div @click="browsingType='Glasses', propId=1, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-glasses"></i><span style="font-size:12px;">Gözlük</span></div>
+        <div @click="browsingType='Ears', propId=2, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-ear-deaf"></i><span style="font-size:12px;">Küpe</span></div>
+        <div @click="browsingType='Watch', propId=6, resetTypeAndTexture()" class="icons"><i class="fa-regular fa-clock"></i><span style="font-size:12px;">Saat</span></div>
+        <div @click="browsingType='Bracelets', propId=7, resetTypeAndTexture()" class="icons"><i class="fa-brands fa-nfc-symbol"></i><span style="font-size:12px;">Bilezik</span></div>
         <div @click="browsingType='Vest', componentId=9, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">Zırh</span></div>
         <div @click="browsingType='Bags', componentId=5, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-bag-shopping"></i><span style="font-size:12px;">Çanta</span></div>
         <div @click="browsingType='Decals', componentId=10, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-hand"></i><span style="font-size:12px;">Decals</span></div>
+      </div>
+      </div>
+      <div v-if="browsingType==='Bracelets'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Bilezik <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Bilezik Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                  </div>
+      </div>
+      <div v-if="browsingType==='Watch'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Gözlük <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Gözlük Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                  </div>
+      </div>
+      <div v-if="browsingType==='Ears'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Küpe <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Küpe Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                  </div>
+      </div>
+      <div v-if="browsingType==='Glasses'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Gözlük <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Gözlük Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                  </div>
       </div>
       <div v-if="browsingType==='Tops'">
                   <div class="icsey">
@@ -78,12 +126,12 @@
       </div>
       <div v-if="browsingType==='Head'">
                   <div class="icsey">
-                    <div class="subText" style="float:left;">Şapka <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
-                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                    <div class="subText" style="float:left;">Şapka <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
                   </div>  
                   <div class="icsey">
-                    <div class="subText" style="float:left;">Şapka Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
-                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
+                    <div class="subText" style="float:left;">Şapka Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
                   </div>
       </div>
       <div v-if="browsingType==='Vest'">
@@ -128,9 +176,13 @@ export default {
       browsingType: 'Tops',
       type: 0,
       texture: 0,
+      propType: 0,
+      propTexture: 0,
       componentId: 11,
+      propId:0,
       rotation: 0,
-      clothesData: []
+      clothesData: [],
+      propData: []
     };
   },
   watch: {
@@ -149,11 +201,23 @@ export default {
         window.mp.trigger("setPlayer:clothes", this.componentId, oldType, this.texture);
       }
     },
+    propType(oldType) {
+      this.savePropsData(this.propId, oldType, this.texture);
+        if (window.mp) {
+        window.mp.trigger("setPlayer:clothes", this.propId, oldType, this.texture);
+      }
+    },
     // eslint-disable-next-line
     texture(oldType, newType) {
       this.saveClothesData(this.componentId, this.type, oldType);
       if (window.mp) {
         window.mp.trigger("setPlayer:clothes", this.componentId, this.type, oldType);
+      }
+    },
+    propTexture(oldType) {
+      this.savePropsData(this.propId, this.type, oldType);
+      if (window.mp) {
+        window.mp.trigger("setPlayer:props", this.propId, this.type, oldType);
       }
     },
     // eslint-disable-next-line
@@ -172,6 +236,8 @@ export default {
     resetTypeAndTexture() {
       this.type = 0;
       this.texture = 0;
+      this.propType = 0;
+      this.propTexture = 0;
     },
 
     saveClothesData(componentId, type, texture) {
@@ -180,6 +246,15 @@ export default {
         this.clothesData.splice(index, 1, { componentId, type, texture });
       }   else {       
         this.clothesData.push({ componentId, type, texture });
+      }
+    },
+
+    savePropsData(propId, type, texture) {
+      const index = this.clothesData.findIndex(data => data.propId === propId);
+      if (index !== -1) {
+        this.clothesData.splice(index, 1, { propId, type, texture });
+      }   else {       
+        this.clothesData.push({ propId, type, texture });
       }
     },
 
@@ -204,6 +279,12 @@ export default {
       const { componentId, type, texture } = data;
       if (window.mp) {
         window.mp.trigger('playerBuyClothes:client', componentId, type, texture);
+      }
+    }
+    for (const data of this.propData) {
+      const { propId, type, texture } = data;
+      if (window.mp) {
+        window.mp.trigger('playerBuyProps:client', propId, type, texture);
       }
     }
     }
@@ -258,9 +339,10 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 8px;
-    margin: 3px;
+    margin: 6px;
     background: #414141;
     border-radius: 6px;
+    width: 69px;
 }
 .icons:hover {
   color: #af4a4a;
