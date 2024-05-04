@@ -172,16 +172,6 @@ const store = new Vuex.Store({
 			}
 		},
 
-		updateModal(state, { icon, name, text, buttonText, buttonTwoText, buttonOne, buttonTwo, buttonOneArg, buttonTwoArg }) {
-			if (state.playerInfo.modalData.length > 0) {
-				state.playerInfo.modalData.splice(0, state.playerInfo.modalData.length)
-				state.playerInfo.modalData.push({ icon, name, text, buttonText, buttonTwoText, buttonOne, buttonTwo, buttonOneArg, buttonTwoArg })
-			}
-			else {
-				state.playerInfo.modalData.push({ icon, name, text, buttonText, buttonTwoText, buttonOne, buttonTwo, buttonOneArg, buttonTwoArg })
-			}
-		},
-
 		setCreds(state, { user, pass }) {
 			state.playerInfo.creds.push({ user, pass })
 		},
@@ -208,8 +198,8 @@ const store = new Vuex.Store({
 			}
 		},
 
-		addInventoryItem(state, { id, itemId, img, name, equipped }) {
-			state.playerInfo.inventoryItems.push({ id, itemId, name, img, equipped })
+		addInventoryItem(state, { id, cityitemid, img, name }) {
+			state.playerInfo.inventoryItems.push({ id, cityitemid, name, img })
 		},
 
 		setBanInfo(state, { username, IP, socialClub, reason, admin, issueDate, liftTime }) {
@@ -266,6 +256,15 @@ const store = new Vuex.Store({
 				return;
 			}
 			else if (state.playerInfo.playerStats.length == 0) { state.playerInfo.playerStats.push({ name, id, bank, cash, credits, phone, occupation, hours, salary, debt, vehicles, characters, houses }) }
+		},
+		updateModal(state, { itemadi, itemsayisi }) {
+			if (state.playerInfo.modalData.length > 0) {
+				state.playerInfo.modalData = []
+				state.playerInfo.modalData.push({ itemadi, itemsayisi })
+			}
+			else {
+				state.playerInfo.modalData.push({ itemadi, itemsayisi })
+			}
 		},
 
 		updateHud(state, { cityName, unix, id, voice, radio, location, players, money, locationTwo, direction, fps }) {
@@ -392,11 +391,6 @@ const store = new Vuex.Store({
 		reportsList: (state, getters) => {
 			return state.playerReports.activeReports;
 		},
-
-		inventoryList: (state, getters) => {
-			return state.playerInfo.inventoryItems;
-		},
-
 		menuList: (state, getters) => {
 			return state.listMenu.list.sort((a, b) => a.id - b.id);
 		},
@@ -445,6 +439,10 @@ const store = new Vuex.Store({
 
 		banInfo: (state, getters) => {
 			return state.playerInfo.banInfo;
+		},
+
+		inventoryList: (state, getters) => {
+			return state.playerInfo.inventoryItems;
 		},
 
 		getModalData: (state, getters) => {

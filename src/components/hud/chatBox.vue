@@ -2,7 +2,7 @@
   <div v-if="hudState">
     <div v-if="showChat" id="chat" ref="chatContainer">
       <ul id="chat_messages" ref="messageList">
-        <li v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()"></li>
+        <li style="overflow-wrap: break-word;" v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()"></li>
       </ul>
       <input v-show="showInput"  v-model="inputText" ref="input" id="chat_msg" type="text" />
       <li v-for="(item, cmd) in queryCmds" :key="'B' + cmd" class="suggestionDropDown">
@@ -345,7 +345,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 0.4vw;
+  width: 0vw;
 }
 
 ::-webkit-scrollbar-thumb {

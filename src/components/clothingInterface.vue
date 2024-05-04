@@ -275,19 +275,23 @@ export default {
         }
     },
     buyClothesForAll() {
-    for (const data of this.clothesData) {
-      const { componentId, type, texture } = data;
-      if (window.mp) {
+  for (const data of this.clothesData) {
+    const { componentId, type, texture } = data;
+    if (window.mp) {
+      setTimeout(() => {
         window.mp.trigger('playerBuyClothes:client', componentId, type, texture);
-      }
+      }, 100); // 100 milisaniye gecikme
     }
-    for (const data of this.propData) {
-      const { propId, type, texture } = data;
-      if (window.mp) {
+  }
+  for (const data of this.propData) {
+    const { propId, type, texture } = data;
+    if (window.mp) {
+      setTimeout(() => {
         window.mp.trigger('playerBuyProps:client', propId, type, texture);
-      }
+      }, 100); // 100 milisaniye gecikme
     }
-    }
+  }
+}
    }
 };
 </script>
