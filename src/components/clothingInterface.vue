@@ -9,16 +9,16 @@
         <span @click="close()" class="exitbtn">X</span>
       </div>
       <div style="display: flex;flex-wrap: wrap;    border-bottom: 2px #434343 solid;padding: 1px 10px;padding-bottom: 11px;">
-        <div @click="browsingType='Tops', componentId=11, resetPlayerClothes()" class="icons"><i class="fa-solid fa-shirt"></i><span style="font-size:12px;">Üst</span></div>
-        <div @click="browsingType='Undershirts', componentId=8, resetPlayerClothes()" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">İç Giyim</span></div>
-        <div @click="browsingType='Bottoms', componentId=4, resetPlayerClothes()" class="icons"><i class="fa-solid fa-person-walking"></i><span style="font-size:12px;">Pantolon</span></div>
-        <div @click="browsingType='Shoes', componentId=6, resetPlayerClothes()" class="icons"><i class="fa-solid fa-shoe-prints"></i><span style="font-size:12px;">Ayakkabı</span></div>
-        <div @click="browsingType='Acces', componentId=7, resetPlayerClothes()" class="icons"><i class="fa-solid fa-headphones-simple"></i><span style="font-size:12px;">Aksesuar</span></div>
-        <div @click="browsingType='Body', componentId=3, resetPlayerClothes()" class="icons"><i class="fa-solid fa-person"></i><span style="font-size:12px;">Vücut</span></div>
-        <div @click="browsingType='Head', componentId=0, resetPlayerClothes()" class="icons"><i class="fa-solid fa-hat-cowboy"></i><span style="font-size:12px;">Şapka</span></div>
-        <div @click="browsingType='Vest', componentId=9, resetPlayerClothes()" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">Zırh</span></div>
-        <div @click="browsingType='Bags', componentId=5, resetPlayerClothes()" class="icons"><i class="fa-solid fa-bag-shopping"></i><span style="font-size:12px;">Çanta</span></div>
-        <div @click="browsingType='Decals', componentId=10, resetPlayerClothes()" class="icons"><i class="fa-solid fa-hand"></i><span style="font-size:12px;">Decals</span></div>
+        <div @click="browsingType='Tops', componentId=11" class="icons"><i class="fa-solid fa-shirt"></i><span style="font-size:12px;">Üst</span></div>
+        <div @click="browsingType='Undershirts', componentId=8" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">İç Giyim</span></div>
+        <div @click="browsingType='Bottoms', componentId=4" class="icons"><i class="fa-solid fa-person-walking"></i><span style="font-size:12px;">Pantolon</span></div>
+        <div @click="browsingType='Shoes', componentId=6" class="icons"><i class="fa-solid fa-shoe-prints"></i><span style="font-size:12px;">Ayakkabı</span></div>
+        <div @click="browsingType='Acces', componentId=7" class="icons"><i class="fa-solid fa-headphones-simple"></i><span style="font-size:12px;">Aksesuar</span></div>
+        <div @click="browsingType='Body', componentId=3" class="icons"><i class="fa-solid fa-person"></i><span style="font-size:12px;">Vücut</span></div>
+        <div @click="browsingType='Head', componentId=0" class="icons"><i class="fa-solid fa-hat-cowboy"></i><span style="font-size:12px;">Şapka</span></div>
+        <div @click="browsingType='Vest', componentId=9" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">Zırh</span></div>
+        <div @click="browsingType='Bags', componentId=5" class="icons"><i class="fa-solid fa-bag-shopping"></i><span style="font-size:12px;">Çanta</span></div>
+        <div @click="browsingType='Decals', componentId=10" class="icons"><i class="fa-solid fa-hand"></i><span style="font-size:12px;">Decals</span></div>
       </div>
       <div v-if="browsingType==='Tops'">
                   <div class="icsey">
@@ -113,7 +113,7 @@
                   </div>
       </div>
     </div>
-    <span @click="buyClothes()" class="buybtn">SATIN AL</span>
+    <span @click="buyClothesForAll()" class="buybtn">SATIN AL</span>
 
   </div>
 </template>
@@ -130,19 +130,23 @@ export default {
       texture: 0,
       componentId: 11,
       rotation: 0,
+      clothesData: []
     };
   },
   watch: {
+
     // eslint-disable-next-line
     type(oldType, newType) {
         if (window.mp) {
         window.mp.trigger("setPlayer:clothes", this.componentId, oldType, this.texture);
+        this.saveClothesData(this.componentId, oldType, this.texture);
       }
     },
     // eslint-disable-next-line
     texture(oldType, newType) {
       if (window.mp) {
         window.mp.trigger("setPlayer:clothes", this.componentId, this.type, oldType);
+        this.saveClothesData(this.componentId, this.type, oldType);
       }
     },
     // eslint-disable-next-line
@@ -157,6 +161,16 @@ export default {
     ...mapMutations({})
   },
   methods: {
+    
+    saveClothesData(componentId, type, texture) {
+      const index = this.clothesData.findIndex(data => data.componentId === componentId);
+      if (index !== -1) {
+        this.clothesData.splice(index, 1, { componentId, type, texture });
+      }   else {       
+        this.clothesData.push({ componentId, type, texture });
+      }
+    },
+
     close() {
       if (window.mp) {
         window.mp.trigger("closeRoute");
@@ -172,6 +186,14 @@ export default {
         if(window.mp) {
           window.mp.trigger('playerBuyClothes:client', this.componentId, this.type, this.texture);
         }
+    },
+    buyClothesForAll() {
+    for (const data of this.clothesData) {
+      const { componentId, type, texture } = data;
+      if (window.mp) {
+        window.mp.trigger('playerBuyClothes:client', componentId, type, texture);
+      }
+    }
     }
    }
 };
