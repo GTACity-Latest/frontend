@@ -1,70 +1,121 @@
 <template>
-<div class="limiter" style="user-select:none;">
-    <div class="container-clothingStores">
-      <div class="clothingBase">
-        <div v-if="browsingType==='Tops'" class="clothingSliders">
-                <div class="slidecontainer">
-                    <div class="textSub">Type {{ type }}</div>
+  <div style="    display: flex;
+    flex-direction: column;
+    align-items: flex-end;">
+
+    <div style="background: rgb(53 53 53);margin: 38px;    border-radius: 5px;">
+      <div style="background: rgb(45 45 45);padding: 8px;margin-bottom: 11px;    border-radius: 5px 5px 0px 0px;    display: flex;justify-content: space-between;align-items: center;">
+        <div style="color: white;font-family: 'Archivo Black', sans-serif; font-size: 23px;;text-transform: uppercase;font-weight: 600;">KIYAFET MAĞAZASI</div>
+        <span @click="close()" class="exitbtn">X</span>
+      </div>
+      <div style="display: flex;flex-wrap: wrap;    border-bottom: 2px #434343 solid;padding: 1px 10px;padding-bottom: 11px;">
+        <div @click="browsingType='Tops', componentId=11, resetPlayerClothes()" class="icons"><i class="fa-solid fa-shirt"></i><span style="font-size:12px;">Üst</span></div>
+        <div @click="browsingType='Undershirts', componentId=8, resetPlayerClothes()" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">İç Giyim</span></div>
+        <div @click="browsingType='Bottoms', componentId=4, resetPlayerClothes()" class="icons"><i class="fa-solid fa-person-walking"></i><span style="font-size:12px;">Pantolon</span></div>
+        <div @click="browsingType='Shoes', componentId=6, resetPlayerClothes()" class="icons"><i class="fa-solid fa-shoe-prints"></i><span style="font-size:12px;">Ayakkabı</span></div>
+        <div @click="browsingType='Acces', componentId=7, resetPlayerClothes()" class="icons"><i class="fa-solid fa-headphones-simple"></i><span style="font-size:12px;">Aksesuar</span></div>
+        <div @click="browsingType='Body', componentId=3, resetPlayerClothes()" class="icons"><i class="fa-solid fa-person"></i><span style="font-size:12px;">Vücut</span></div>
+        <div @click="browsingType='Head', componentId=0, resetPlayerClothes()" class="icons"><i class="fa-solid fa-hat-cowboy"></i><span style="font-size:12px;">Şapka</span></div>
+        <div @click="browsingType='Vest', componentId=9, resetPlayerClothes()" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">Zırh</span></div>
+        <div @click="browsingType='Bags', componentId=5, resetPlayerClothes()" class="icons"><i class="fa-solid fa-bag-shopping"></i><span style="font-size:12px;">Çanta</span></div>
+        <div @click="browsingType='Decals', componentId=10, resetPlayerClothes()" class="icons"><i class="fa-solid fa-hand"></i><span style="font-size:12px;">Decals</span></div>
+      </div>
+      <div v-if="browsingType==='Tops'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Üst <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
                     <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
-                    <div class="textSub">Top Texture  {{ texture }}</div>
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Üst Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
                     <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
-                    <div class="textSub">Rotate {{ rotation }}°</div>
-                    <input type="range" min="0" max="360" value="0" class="slider" id="myRange" v-model="rotation">
                   </div>
-            </div>
-            <div v-if="browsingType==='Undershirts'" class="clothingSliders">
-                <div class="slidecontainer">
-                    <div class="textSub">Undershirt {{ type }}</div>
+      </div>
+      <div v-if="browsingType==='Undershirts'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">İç Giyim <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
                     <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
-                    <div class="textSub">Undershirt Texture  {{ texture }}</div>
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">İç Giyim Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
                     <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
-                    <div class="textSub">Rotate {{ rotation }}°</div>
-                    <input type="range" min="0" max="360" value="0" class="slider" id="myRange" v-model="rotation">
                   </div>
-            </div>
-            <div v-if="browsingType==='Bottoms'" class="clothingSliders">
-                <div class="slidecontainer">
-                    <div class="textSub">Bottom {{ type }}</div>
-                    <input type="range" min="0" max="143" value="0" class="slider" id="myRange" v-model="type">
-                    <div class="textSub">Bottom Texture  {{ texture }}</div>
+      </div>
+      <div v-if="browsingType==='Bottoms'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Pantolon <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Pantolon Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
                     <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
-                    <div class="textSub">Rotate {{ rotation }}°</div>
-                    <input type="range" min="0" max="360" value="0" class="slider" id="myRange" v-model="rotation">
                   </div>
-            </div>
-            <div v-if="browsingType==='Shoes'" class="clothingSliders">
-                <div class="slidecontainer">
-                    <div class="textSub">Shoes {{ type }}</div>
-                    <input type="range" min="0" max="101" value="0" class="slider" id="myRange" v-model="type">
-                    <div class="textSub">Shoes Texture  {{ texture }}</div>
+      </div>
+      <div v-if="browsingType==='Shoes'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Ayakkabı <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Ayakkabı Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
                     <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
-                    <div class="textSub">Rotate {{ rotation }}°</div>
-                    <input type="range" min="0" max="360" value="0" class="slider" id="myRange" v-model="rotation">
                   </div>
-            </div>
-            <div v-if="browsingType==='Torsos'" class="clothingSliders">
-                <div class="slidecontainer">
-                    <div class="textSub">Torso Type {{ type }}</div>
-                    <input type="range" min="0" max="196" value="0" class="slider" id="myRange" v-model="type">
-                    <div class="textSub">Rotate {{ rotation }}°</div>
-                    <input type="range" min="0" max="360" value="0" class="slider" id="myRange" v-model="rotation">
-                    </div>
-            </div>
-            <div class="clothingList">
-                <img :src="require('../assets/img/clothingStores.png')" width="150" style="margin-top: 1vw;" />
-                <div class="textBase"><b>Clothing Shop</b></div>
-                <ul class="navOne">
-                    <li class="navTwo"><a @click="browsingType='Tops', componentId=11, resetPlayerClothes()">Tops</a></li>
-                    <li class="navTwo"><a @click="browsingType='Undershirts', componentId=8, resetPlayerClothes()">Undershirts</a></li>
-                    <li class="navTwo"><a @click="browsingType='Bottoms', componentId=4, resetPlayerClothes()">Bottoms</a></li>
-                    <li class="navTwo"><a @click="browsingType='Shoes', componentId=6, resetPlayerClothes()">Shoes</a></li>
-                    <button class="purchaseBtn" @click="buyClothes()">Purchase</button>
-                    <button class="purchaseBtn" style="margin-top: 0.2vw" @click="close()">Exit</button>
-                </ul>
-            </div>
-        </div>
+      </div>
+      <div v-if="browsingType==='Acces'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Aksesuar <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Aksesuar Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
+                  </div>
+      </div>
+      <div v-if="browsingType==='Body'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Vücut <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>  
+      </div>
+      <div v-if="browsingType==='Head'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Şapka <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Şapka Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
+                  </div>
+      </div>
+      <div v-if="browsingType==='Vest'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Zırh <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Zırh Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
+                  </div>
+      </div>
+      <div v-if="browsingType==='Bags'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Çanta <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Çanta Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
+                  </div>
+      </div>
+      <div v-if="browsingType==='Decals'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Decals <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>
+      </div>
     </div>
-</div>
+    <span @click="buyClothes()" class="buybtn">SATIN AL</span>
+
+  </div>
 </template>
 
 <script>
@@ -128,6 +179,61 @@ export default {
 
 
 <style>
+.buybtn {
+  margin-right: 38px;
+    margin-top: -31px;
+    border-radius: 5px;
+    font-weight: 500;
+    background: #cf5450;
+    font-family: 'Poppins-Medium';
+    PADDING: 5px 53px;
+    color: white;
+}
+.buybtn:hover {
+  background: #792a27;
+  cursor:pointer;
+  transition: 0.2s;
+}
+.subText {
+  font-family: 'Poppins-Medium';
+    font-weight: 400;
+    font-size: 14px;
+}
+.icsey {
+  margin: 17px;
+    padding: 12px;
+    background: #474747;
+    border-radius: 6px;
+}
+.exitbtn {
+  color: rgb(238, 238, 238);
+    font-size: 12px;
+    padding: 2px 9px;
+    background: #9f3838;
+    border-radius: 3px;
+    font-weight: bold;
+}
+.exitbtn:hover {
+  background: #4b1a1a;
+  color: rgb(167, 167, 167);
+}
+.icons {
+  color: #ababab;
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    margin: 3px;
+    background: #414141;
+    border-radius: 6px;
+}
+.icons:hover {
+  color: #af4a4a;
+  background:rgb(46, 46, 46);
+  transition: 0.2s;
+  cursor: pointer;
+}
 .navOne {
   list-style-type: none;
   margin: 0;
@@ -199,7 +305,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 12px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -214,7 +320,7 @@ export default {
   font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
   font-weight: 550;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.5vw;
   margin-left: 14vw;
   --notchSize: 20px;
@@ -231,7 +337,7 @@ export default {
   width: 23vw;
   border-top: solid rgba(220, 171, 255, 20) 6px;
   height: 22vw;
-  border-radius: 15px;
+  border-radius: 12px;
   /*background-color: rgba(0, 0, 0, 0.85);*/
   color: rgba(10, 10, 10, 0.644);
   background: -webkit-linear-gradient(
@@ -285,6 +391,7 @@ export default {
   opacity: 0.6; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
   transition: opacity 0.2s;
+  border-radius: 8px;
 }
 
 /* Mouse-over effects */
@@ -298,7 +405,7 @@ export default {
   appearance: none;
   width: 17px; /* Set a specific slider handle width */
   height: 17px; /* Slider handle height */
-  background: rgb(183, 119, 255); /* Green background */
+  background: rgb(189, 82, 82); /* Green background */
   cursor: pointer; /* Cursor on hover */
   border-radius: 10px;
 }
@@ -306,7 +413,6 @@ export default {
 .slider::-moz-range-thumb {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #04aa6d; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 </style>

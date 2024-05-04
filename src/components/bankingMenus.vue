@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div v-if="confirmScreen" style="text-align:center;">
-                        <p style="color:white;font-family:'Poppins-Medium'; font-size:15px; line-height:2vw; text-align:center; padding:10px;">Banka hesabından<font color="#118C4F"> $500</font> çekmek istediğine emin misin?</p>
+                        <p style="color:white;font-family:'Poppins-Medium'; font-size:15px; line-height:2vw; text-align:center; padding:10px;">Banka hesabından<font color="#118C4F"> ${{enteredCash.toLocaleString('en-US')}}</font> çekmek istediğine emin misin?</p>
                         <button @click="confirmScreen = false" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500;  line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw; margin-top:1vw;">Geri Dön</button>
                         <button @click="withdrawCash()" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500; line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw; margin-top:1vw; margin-left:1vw;">Onayla</button>
                     </div>
