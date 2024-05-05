@@ -213,9 +213,9 @@ export default {
       }
     },
     propType(oldType) {
-      this.savePropsData(this.propId, oldType, this.texture);
+      this.savePropsData(this.propId, oldType, this.propTexture);
         if (window.mp) {
-        window.mp.trigger("setPlayer:props", this.propId, oldType, this.texture);
+        window.mp.trigger("setPlayer:props", this.propId, oldType, this.propTexture);
       }
     },
     // eslint-disable-next-line
@@ -226,9 +226,9 @@ export default {
       }
     },
     propTexture(oldType) {
-      this.savePropsData(this.propId, this.type, oldType);
+      this.savePropsData(this.propId, this.propType, oldType);
       if (window.mp) {
-        window.mp.trigger("setPlayer:props", this.propId, this.type, oldType);
+        window.mp.trigger("setPlayer:props", this.propId, this.propType, oldType);
       }
     },
     // eslint-disable-next-line
@@ -260,12 +260,12 @@ export default {
       }
     },
 
-    savePropsData(propId, type, texture) {
-      const index = this.clothesData.findIndex(data => data.propId === propId);
+    savePropsData(propId, propType, propTexture) {
+      const index = this.propData.findIndex(data => data.propId === propId);
       if (index !== -1) {
-        this.clothesData.splice(index, 1, { propId, type, texture });
+        this.propData.splice(index, 1, { propId, propType, propTexture });
       }   else {       
-        this.clothesData.push({ propId, type, texture });
+        this.propData.push({ propId, propType, propTexture });
       }
     },
 
@@ -297,15 +297,19 @@ export default {
         }
     });
 
-    for (const data of this.propData) {
-      const { propId, type, texture } = data;
-    if (window.mp) {
-        setTimeout(() => {
-          window.mp.trigger('playerBuyProps:client', propId, type, texture);
-        }, 100); // 100 milisaniye gecikme
-      }
+    this.propData.forEach((data, index) => {
+      console.log(`Index ${index}:`, data);
+
+        const { propId, propType, propTexture } = data;
+
+        if (window.mp) {
+            // Her bir veri için farklı bir gecikme süresi ayarla
+            setTimeout(() => {
+                window.mp.trigger('playerBuyProps:client', propId, propType, propTexture);
+            }, index * 100); // Her veri için 100 milisaniye gecikme ekle
+        }
+    });
     }
-  }
    }
 };
 </script>

@@ -3,16 +3,15 @@
   <div style="    position: absolute;display: flex;width: 100%;flex-direction: column;margin-left:auto;margin-top: 8vw;margin-left: 25%;">
     <div style="    display: flex;">
     <div style="display:flex;align-items: center;justify-content: space-between;font-family: 'Archivo Black';background: #b53434;text-transform: uppercase;color: white;width: 284px;padding:4px;border-radius: 4px 4px 0px 0px;">
-      <span>Eira Test</span>
-      <span style="font-family: Poppins-Medium;color: #c98181;font-size: 13px;">{{ gridItems }}/50</span>
+      <span>{{ hudInfo[0].cityName }}</span>
+      <span style="font-family: Poppins-Medium;color: #c98181;font-size: 13px;">{{ inventoryItems.length }}/50</span>
     </div>
-    <div style="display:flex;align-items: center;margin-left:5px;justify-content: space-between;font-weight:bold;background: #b53434;text-transform: uppercase;color: white;width: 284px;padding:4px;border-radius: 4px 4px 0px 0px;">
+    <div v-if="clickedIndices.length > 0" style="display:flex;align-items: center;margin-left:5px;justify-content: space-between;font-weight:bold;background: #b53434;text-transform: uppercase;color: white;width: 284px;padding:4px;border-radius: 4px 4px 0px 0px;">
       <div>
-        <span class="tst">KULLAN</span>
         <span class="tst">TAŞI</span>
         <span class="tst">SİL</span>
       </div>
-      <span style="font-family: Poppins-Medium;color: #c98181;font-size: 13px;">SEÇİLİ :{{ gridItems }}</span>
+      <span style="font-family: Poppins-Medium;color: #c98181;font-weight:normal;text-transform:none;font-size:13px;">Seçili: {{ clickedIndices.length }}/{{ inventoryItems.length }}</span>
     </div>
   </div>
 <div style="display: flex;">
@@ -28,10 +27,6 @@
         <div>
           <span style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Karakter</span>
           <div class="layout">
-
-           <div> <li v-for="item in inventoryItems" :key="item.id">
-        {{ item.name }}
-      </li></div>
 
           </div>
 
@@ -49,14 +44,14 @@
           <span style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Envanter</span>
           <div class="layout" style="">
 
-            <div v-for="x in gridItems" :key="x">
+            <div v-for="x in inventoryItems" :key="x">
               <div>
                 <div class="itemcnt" @click="handleClick(x)" :class="{ active: isxClicked(x) }">
 
                 <div style="">
                   <img src="./utils//inventory//img//assaultrifle.png" height="10" width="50" style="margin-left: 17px;margin-right: 17px;">
                 </div>
-                  <p style="color: #c9c9c9;font-size: 12px;display: flex;flex-direction: column;margin-top:2px;">Item ismi<span style="color: gray;font-size: 11px;margin-top: -7px;">#232</span></p>
+                  <p style="color: #c9c9c9;font-size: 12px;display: flex;flex-direction: column;margin-top:2px;">{{ x.name }}<span style="color: gray;font-size: 11px;margin-top: -7px;">#{{  x.id  }}</span></p>
                 </div>
               </div>
             </div>
@@ -92,7 +87,7 @@ export default {
   },
   computed: {
     ...mapMutations(['clearInventory']),
-    ...mapGetters({ inventoryItems: 'inventoryList' }),
+    ...mapGetters({ inventoryItems: 'inventoryList', hudInfo: "hudInfo" }),
   },
   methods: {
     handler: function(e) {
@@ -122,13 +117,26 @@ export default {
 
 <style>
 .tst {
-  color: #ebebeb;
-    background: #7f2020;
+    color: #dbdbdb;
+    background: #6b1d1d;
     padding: 1px 3px;
     font-size: 12px;
     font-family: 'Archivo Black';
     border-radius: 2px;
     margin-right: 5px;
+}
+.tst2 {
+  color: #d3d3d3;
+    background: #2e2e2e;
+    padding: 1px 3px;
+    font-size: 12px;
+    font-family: 'Archivo Black';
+    border-radius: 2px;
+    margin-right: 5px;
+}
+.tst2:hover {
+  color: #999999;
+    background: #535353;
 }
 .tst:hover {
   background: #3f1313;
