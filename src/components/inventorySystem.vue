@@ -44,12 +44,12 @@
           <span style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Envanter</span>
           <div class="layout" style="">
 
-            <div v-for="x in inventoryItems" :key="x">
+            <div v-for="x in inventoryList" :key="x">
               <div>
                 <div class="itemcnt" @click="handleClick(x)" :class="{ active: isxClicked(x) }">
 
                 <div style="">
-                  <img src="./utils//inventory//img//assaultrifle.png" height="10" width="50" style="margin-left: 17px;margin-right: 17px;">
+                  <img :src="x.img" height="10" width="50" style="margin-left: 17px;margin-right: 17px;">
                 </div>
                   <p style="color: #c9c9c9;font-size: 12px;display: flex;flex-direction: column;margin-top:2px;">{{ x.name }}<span style="color: gray;font-size: 11px;margin-top: -7px;">#{{  x.id  }}</span></p>
                 </div>
@@ -85,11 +85,26 @@ export default {
    this.itemsCount = this.inventoryItems.length;
    console.log('Clicked indices:', this.clickedIndices);
   },
+  
   computed: {
-    ...mapMutations(['clearInventory']),
     ...mapGetters({ inventoryItems: 'inventoryList', hudInfo: "hudInfo" }),
-  },
+    delayedinventoryList() {
+    // `methods` içindeki `fetchDelayedInventoryList` fonksiyonunu kullanarak gecikmeli bir şekilde `inventoryList` verisini alıyoruz
+    return this.fetchDelayedInventoryList();
+  }
+},
   methods: {
+
+    async fetchDelayedInventoryList() {
+    // Burada bir gecikme ayarlayabilirsiniz
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // 2 saniye bekleme
+
+    // `inventoryList` verisini almak için bir yöntem tanımlayın
+    // Örnek olarak `this.inventoryItems` kullanıyoruz
+    return this.inventoryItems;
+  },
+
+    ...mapMutations(['clearInventory']),
     handler: function(e) {
         console.log(e.x, e.y)
         e.preventDefault();
