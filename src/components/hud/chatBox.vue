@@ -2,9 +2,9 @@
   <div v-if="hudState">
     <div v-if="showChat" id="chat" ref="chatContainer">
       <ul id="chat_messages" ref="messageList">
-        <li style="overflow-wrap: break-word;" v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()"></li>
+        <li style="    word-break: break-all;" v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()"></li>
       </ul>
-      <input v-show="showInput"  v-model="inputText" ref="input" id="chat_msg" type="text" />
+      <input maxlength="240" v-show="showInput"  v-model="inputText" ref="input" id="chat_msg" type="text" />
       <li v-for="(item, cmd) in queryCmds" :key="'B' + cmd" class="suggestionDropDown">
         <ul class="itemSel" v-html="item"></ul>
       </li>
@@ -135,11 +135,35 @@ export default {
           return this.enableChatInput(false);
         }
 
+        if (this.inputText === ":D") {
+          this.inputText = "/me kahkaha atar.";
+        }
+
+        if (this.inputText === ":P") {
+          this.inputText = "/me dil çıkartır.";
+        }
+
+        if (this.inputText === ":(") {
+          this.inputText = "/me somurtur.";
+        }
+
+        if (this.inputText === ":)") {
+          this.inputText = "/me gülümser.";
+        }
+
+        if (this.inputText === ":O") {
+          this.inputText = "/me şaşırır.";
+        }
+
+        if (this.inputText === ";)") {
+          this.inputText = "/me göz kırpar.";
+        }
+
         this.countPos = 0;
         let text = this.inputText;
         this.$nextTick(() => {
         this.scrollToBottom();
-      });
+        });
         this.playerMessages.push(text);
         this.lastMsg = text;
 

@@ -22,12 +22,14 @@ import bankingMenus from './components/bankingMenus.vue';
 import lockPicking from './components/hud/lockPicking.vue';
 import clientHud from './components/hud/clientHud.vue';
 import phoneSystem from './components/hud/phoneSystem.vue';
+import fuelScreen from './components/hud/fuelScreen.vue';
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
         { path: '/phone', component: phoneSystem},
+        { path: '/fuel', component: fuelScreen},
         { path: '/hud', component: clientHud},
         { path: '/listmenu', component: thisList},
         { path: '/reports', component: reportMenu},

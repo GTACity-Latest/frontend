@@ -17,6 +17,7 @@
         <div @click="browsingType='Acces', componentId=7, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-headphones-simple"></i><span style="font-size:12px;">Aksesuar</span></div>
         <div @click="browsingType='Body', componentId=3, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-person"></i><span style="font-size:12px;">Vücut</span></div>
         <div @click="browsingType='Head', propId=0, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-hat-cowboy"></i><span style="font-size:12px;">Şapka</span></div>
+        <div @click="browsingType='Mask', componentId=1, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-mask"></i><span style="font-size:12px;">Maske</span></div>
       </div>
       <div style="    display: flex;">
         <div @click="browsingType='Glasses', propId=1, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-glasses"></i><span style="font-size:12px;">Gözlük</span></div>
@@ -27,6 +28,16 @@
         <div @click="browsingType='Bags', componentId=5, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-bag-shopping"></i><span style="font-size:12px;">Çanta</span></div>
         <div @click="browsingType='Decals', componentId=10, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-hand"></i><span style="font-size:12px;">Decals</span></div>
       </div>
+      </div>
+      <div v-if="browsingType==='Mask'">
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Maske <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
+                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                  </div>  
+                  <div class="icsey">
+                    <div class="subText" style="float:left;">Maske Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>
+                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="texture">
+                  </div>
       </div>
       <div v-if="browsingType==='Bracelets'">
                   <div class="icsey">
@@ -204,7 +215,7 @@ export default {
     propType(oldType) {
       this.savePropsData(this.propId, oldType, this.texture);
         if (window.mp) {
-        window.mp.trigger("setPlayer:clothes", this.propId, oldType, this.texture);
+        window.mp.trigger("setPlayer:props", this.propId, oldType, this.texture);
       }
     },
     // eslint-disable-next-line
@@ -275,23 +286,26 @@ export default {
         }
     },
     buyClothesForAll() {
-  for (const data of this.clothesData) {
-    const { componentId, type, texture } = data;
+    this.clothesData.forEach((data, index) => {
+        const { componentId, type, texture } = data;
+
+        if (window.mp) {
+            // Her bir veri için farklı bir gecikme süresi ayarla
+            setTimeout(() => {
+                window.mp.trigger('playerBuyClothes:client', componentId, type, texture);
+            }, index * 100); // Her veri için 100 milisaniye gecikme ekle
+        }
+    });
+
+    for (const data of this.propData) {
+      const { propId, type, texture } = data;
     if (window.mp) {
-      setTimeout(() => {
-        window.mp.trigger('playerBuyClothes:client', componentId, type, texture);
-      }, 100); // 100 milisaniye gecikme
+        setTimeout(() => {
+          window.mp.trigger('playerBuyProps:client', propId, type, texture);
+        }, 100); // 100 milisaniye gecikme
+      }
     }
   }
-  for (const data of this.propData) {
-    const { propId, type, texture } = data;
-    if (window.mp) {
-      setTimeout(() => {
-        window.mp.trigger('playerBuyProps:client', propId, type, texture);
-      }, 100); // 100 milisaniye gecikme
-    }
-  }
-}
    }
 };
 </script>
