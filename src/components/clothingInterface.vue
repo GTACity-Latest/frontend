@@ -10,23 +10,23 @@
       </div>
       <div style="display: flex;    flex-direction: column;border-bottom: 2px #434343 solid;padding: 1px 10px;padding-bottom: 11px;">
         <div style="    display: flex;">
-        <div @click="browsingType='Tops', componentId=11, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-shirt"></i><span style="font-size:12px;">Üst</span></div>
-        <div @click="browsingType='Undershirts', componentId=8, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">İç Giyim</span></div>
-        <div @click="browsingType='Bottoms', componentId=4, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-person-walking"></i><span style="font-size:12px;">Pantolon</span></div>
-        <div @click="browsingType='Shoes', componentId=6, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-shoe-prints"></i><span style="font-size:12px;">Ayakkabı</span></div>
-        <div @click="browsingType='Acces', componentId=7, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-headphones-simple"></i><span style="font-size:12px;">Aksesuar</span></div>
-        <div @click="browsingType='Body', componentId=3, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-person"></i><span style="font-size:12px;">Vücut</span></div>
-        <div @click="browsingType='Head', propId=0, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-hat-cowboy"></i><span style="font-size:12px;">Şapka</span></div>
-        <div @click="browsingType='Mask', componentId=1, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-mask"></i><span style="font-size:12px;">Maske</span></div>
+        <div @click="browsingType='Tops', componentId=11" class="icons"><i class="fa-solid fa-shirt"></i><span style="font-size:12px;">Üst</span></div>
+        <div @click="browsingType='Undershirts', componentId=8" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">İç Giyim</span></div>
+        <div @click="browsingType='Bottoms', componentId=4" class="icons"><i class="fa-solid fa-person-walking"></i><span style="font-size:12px;">Pantolon</span></div>
+        <div @click="browsingType='Shoes', componentId=6" class="icons"><i class="fa-solid fa-shoe-prints"></i><span style="font-size:12px;">Ayakkabı</span></div>
+        <div @click="browsingType='Acces', componentId=7" class="icons"><i class="fa-solid fa-headphones-simple"></i><span style="font-size:12px;">Aksesuar</span></div>
+        <div @click="browsingType='Body', componentId=3" class="icons"><i class="fa-solid fa-person"></i><span style="font-size:12px;">Vücut</span></div>
+        <div @click="browsingType='Head', propId=0" class="icons"><i class="fa-solid fa-hat-cowboy"></i><span style="font-size:12px;">Şapka</span></div>
+        <div @click="browsingType='Mask', componentId=1" class="icons"><i class="fa-solid fa-mask"></i><span style="font-size:12px;">Maske</span></div>
       </div>
       <div style="    display: flex;">
-        <div @click="browsingType='Glasses', propId=1, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-glasses"></i><span style="font-size:12px;">Gözlük</span></div>
-        <div @click="browsingType='Ears', propId=2, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-ear-deaf"></i><span style="font-size:12px;">Küpe</span></div>
-        <div @click="browsingType='Watch', propId=6, resetTypeAndTexture()" class="icons"><i class="fa-regular fa-clock"></i><span style="font-size:12px;">Saat</span></div>
-        <div @click="browsingType='Bracelets', propId=7, resetTypeAndTexture()" class="icons"><i class="fa-brands fa-nfc-symbol"></i><span style="font-size:12px;">Bilezik</span></div>
-        <div @click="browsingType='Vest', componentId=9, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">Zırh</span></div>
-        <div @click="browsingType='Bags', componentId=5, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-bag-shopping"></i><span style="font-size:12px;">Çanta</span></div>
-        <div @click="browsingType='Decals', componentId=10, resetTypeAndTexture()" class="icons"><i class="fa-solid fa-hand"></i><span style="font-size:12px;">Decals</span></div>
+        <div @click="browsingType='Glasses', propId=1" class="icons"><i class="fa-solid fa-glasses"></i><span style="font-size:12px;">Gözlük</span></div>
+        <div @click="browsingType='Ears', propId=2" class="icons"><i class="fa-solid fa-ear-deaf"></i><span style="font-size:12px;">Küpe</span></div>
+        <div @click="browsingType='Watch', propId=6" class="icons"><i class="fa-regular fa-clock"></i><span style="font-size:12px;">Saat</span></div>
+        <div @click="browsingType='Bracelets', propId=7" class="icons"><i class="fa-brands fa-nfc-symbol"></i><span style="font-size:12px;">Bilezik</span></div>
+        <div @click="browsingType='Vest', componentId=9" class="icons"><i class="fa-solid fa-vest"></i><span style="font-size:12px;">Zırh</span></div>
+        <div @click="browsingType='Bags', componentId=5" class="icons"><i class="fa-solid fa-bag-shopping"></i><span style="font-size:12px;">Çanta</span></div>
+        <div @click="browsingType='Decals', componentId=10" class="icons"><i class="fa-solid fa-hand"></i><span style="font-size:12px;">Decals</span></div>
       </div>
       </div>
       <div v-if="browsingType==='Mask'">
@@ -42,41 +42,41 @@
       <div v-if="browsingType==='Bracelets'">
                   <div class="icsey">
                     <div class="subText" style="float:left;">Bilezik <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
-                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                    <input type="range" min="-1" max="392" value="0" class="slider" id="myRange" v-model="propType">
                   </div>  
                   <div class="icsey">
                     <div class="subText" style="float:left;">Bilezik Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
-                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                    <input type="range" min="-1" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
                   </div>
       </div>
       <div v-if="browsingType==='Watch'">
                   <div class="icsey">
                     <div class="subText" style="float:left;">Gözlük <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
-                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                    <input type="range" min="-1" max="392" value="0" class="slider" id="myRange" v-model="propType">
                   </div>  
                   <div class="icsey">
                     <div class="subText" style="float:left;">Gözlük Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
-                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                    <input type="range" min="-1" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
                   </div>
       </div>
       <div v-if="browsingType==='Ears'">
                   <div class="icsey">
                     <div class="subText" style="float:left;">Küpe <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
-                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                    <input type="range" min="-1" max="392" value="0" class="slider" id="myRange" v-model="propType">
                   </div>  
                   <div class="icsey">
                     <div class="subText" style="float:left;">Küpe Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
-                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                    <input type="range" min="-1" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
                   </div>
       </div>
       <div v-if="browsingType==='Glasses'">
                   <div class="icsey">
                     <div class="subText" style="float:left;">Gözlük <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
-                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                    <input type="range" min="-1" max="392" value="0" class="slider" id="myRange" v-model="propType">
                   </div>  
                   <div class="icsey">
                     <div class="subText" style="float:left;">Gözlük Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
-                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                    <input type="range" min="-2" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
                   </div>
       </div>
       <div v-if="browsingType==='Tops'">
@@ -138,11 +138,11 @@
       <div v-if="browsingType==='Head'">
                   <div class="icsey">
                     <div class="subText" style="float:left;">Şapka <span style="color: rgb(189 82 82);font-size: 11px;">{{ propType }} / 392</span></div>
-                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="propType">
+                    <input type="range" min="-2" max="392" value="0" class="slider" id="myRange" v-model="propType">
                   </div>  
                   <div class="icsey">
                     <div class="subText" style="float:left;">Şapka Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ propTexture }} / 10</span></div>
-                    <input type="range" min="0" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
+                    <input type="range" min="-2" max="10" value="0" class="slider" id="myRange" v-model="propTexture">
                   </div>
       </div>
       <div v-if="browsingType==='Vest'">
@@ -242,76 +242,86 @@ export default {
     ...mapGetters({}),
     ...mapMutations({})
   },
-  methods: {
+ 
     
-    resetTypeAndTexture() {
+    methods: {
+  resetTypeAndTexture() {
+    setTimeout(() => {
       this.type = 0;
       this.texture = 0;
       this.propType = 0;
       this.propTexture = 0;
-    },
+    }, 100); // Gecikmeyi istediğiniz şekilde ayarlayın
+  },
 
-    saveClothesData(componentId, type, texture) {
-      const index = this.clothesData.findIndex(data => data.componentId === componentId);
+  saveClothesData(componentId, type, texture) {
+    const index = this.clothesData.findIndex(data => data.componentId === componentId);
+    setTimeout(() => {
       if (index !== -1) {
         this.clothesData.splice(index, 1, { componentId, type, texture });
-      }   else {       
+      } else {
         this.clothesData.push({ componentId, type, texture });
       }
-    },
+    }, index * 100); // Gecikmeyi ayarlayın
+  },
 
-    savePropsData(propId, propType, propTexture) {
-      const index = this.propData.findIndex(data => data.propId === propId);
+  savePropsData(propId, propType, propTexture) {
+    const index = this.propData.findIndex(data => data.propId === propId);
+    setTimeout(() => {
       if (index !== -1) {
         this.propData.splice(index, 1, { propId, propType, propTexture });
-      }   else {       
+      } else {
         this.propData.push({ propId, propType, propTexture });
       }
-    },
+    }, index * 100); // Gecikmeyi ayarlayın
+  },
 
-    close() {
+  close() {
+    setTimeout(() => {
       if (window.mp) {
         window.mp.trigger("closeRoute");
-        window.mp.trigger("reset:clothes")
+        window.mp.trigger("reset:clothes");
       }
-    },
-    resetPlayerClothes() {
-        if(window.mp) {
-            window.mp.trigger("reset:clothes")
-        }
-    },
-    buyClothes() {
-        if(window.mp) {
-          window.mp.trigger('playerBuyClothes:client', this.componentId, this.type, this.texture);
-        }
-    },
-    buyClothesForAll() {
-    this.clothesData.forEach((data, index) => {
-        const { componentId, type, texture } = data;
+    }, 100); // Gecikmeyi ayarlayın
+  },
 
+  resetPlayerClothes() {
+    setTimeout(() => {
+      if (window.mp) {
+        window.mp.trigger("reset:clothes");
+      }
+    }, 100); // Gecikmeyi ayarlayın
+  },
+
+  buyClothes() {
+    setTimeout(() => {
+      if (window.mp) {
+        window.mp.trigger('playerBuyClothes:client', this.componentId, this.type, this.texture);
+      }
+    }, 100); // Gecikmeyi ayarlayın
+  },
+
+  buyClothesForAll() {
+    this.clothesData.forEach((data, index) => {
+      const { componentId, type, texture } = data;
+      setTimeout(() => {
         if (window.mp) {
-            // Her bir veri için farklı bir gecikme süresi ayarla
-            setTimeout(() => {
-                window.mp.trigger('playerBuyClothes:client', componentId, type, texture);
-            }, index * 100); // Her veri için 100 milisaniye gecikme ekle
+          window.mp.trigger('playerBuyClothes:client', componentId, type, texture);
         }
+      }, index * 100); // Her veri için gecikme ayarlayın
     });
 
     this.propData.forEach((data, index) => {
-      console.log(`Index ${index}:`, data);
-
-        const { propId, propType, propTexture } = data;
-
+      const { propId, propType, propTexture } = data;
+      setTimeout(() => {
         if (window.mp) {
-            // Her bir veri için farklı bir gecikme süresi ayarla
-            setTimeout(() => {
-                window.mp.trigger('playerBuyProps:client', propId, propType, propTexture);
-            }, index * 100); // Her veri için 100 milisaniye gecikme ekle
+          window.mp.trigger('playerBuyProps:client', propId, propType, propTexture);
         }
+      }, index * 100); // Her veri için gecikme ayarlayın
     });
-    }
-   }
-};
+  } 
+}
+}
 </script>
 
 

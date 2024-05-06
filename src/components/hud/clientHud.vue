@@ -131,13 +131,12 @@ body {
   user-select: none;
 }
 .pmrp {
-  color: rgb(255, 255, 255) !important;
-  background: -webkit-linear-gradient(right, #030303b0, #00000067);
-  border-radius: 0px 0px 5px 5px;
-  border-top: solid rgba(220, 171, 255, 20) 6px;
-  box-shadow: 0 5px 30px 0px rgba(2, 0, 0, 1);
-
-  --notchSize: 15px;
+    color: rgb(229 229 229) !important;
+    border-radius: 2px;
+    border-top: solid #cf5450 4px;
+    background: #373737;
+    font-family: Inter;
+    font-size: 14px;
 }
 
 #heal

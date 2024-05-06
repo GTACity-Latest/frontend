@@ -4,7 +4,7 @@
     <div style="    display: flex;">
     <div style="display:flex;align-items: center;justify-content: space-between;font-family: 'Archivo Black';background: #b53434;text-transform: uppercase;color: white;width: 284px;padding:4px;border-radius: 4px 4px 0px 0px;">
       <span>{{ hudInfo[0].cityName }}</span>
-      <span style="font-family: Poppins-Medium;color: #c98181;font-size: 13px;">{{ inventoryItems.length }}/50</span>
+      <span v-if="inventoryItems.length > 0" style="font-family: Poppins-Medium;color: #c98181;font-size: 13px;">{{ inventoryItems.length }}/50</span>
     </div>
     <div v-if="clickedIndices.length > 0" style="display:flex;align-items: center;margin-left:5px;justify-content: space-between;font-weight:bold;background: #b53434;text-transform: uppercase;color: white;width: 284px;padding:4px;border-radius: 4px 4px 0px 0px;">
       <div>
@@ -42,9 +42,9 @@
       <div style="margin-top:7px;">
         <div>
           <span style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Envanter</span>
-          <div class="layout" style="">
+          <div v-if="inventoryItems.length > 0" class="layout" style="">
 
-            <div v-for="x in inventoryList" :key="x">
+            <div v-for="x in inventoryItems" :key="x">
               <div>
                 <div class="itemcnt" @click="handleClick(x)" :class="{ active: isxClicked(x) }">
 
@@ -55,9 +55,8 @@
                 </div>
               </div>
             </div>
-
           </div>
-
+          <div v-if="inventoryItems.length <1"> <span style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Envanterinde hiç eşya bulunmuyor.</span></div>
         </div>
 
       </div>
@@ -88,22 +87,8 @@ export default {
   
   computed: {
     ...mapGetters({ inventoryItems: 'inventoryList', hudInfo: "hudInfo" }),
-    delayedinventoryList() {
-    // `methods` içindeki `fetchDelayedInventoryList` fonksiyonunu kullanarak gecikmeli bir şekilde `inventoryList` verisini alıyoruz
-    return this.fetchDelayedInventoryList();
-  }
-},
-  methods: {
-
-    async fetchDelayedInventoryList() {
-    // Burada bir gecikme ayarlayabilirsiniz
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // 2 saniye bekleme
-
-    // `inventoryList` verisini almak için bir yöntem tanımlayın
-    // Örnek olarak `this.inventoryItems` kullanıyoruz
-    return this.inventoryItems;
   },
-
+  methods: {
     ...mapMutations(['clearInventory']),
     handler: function(e) {
         console.log(e.x, e.y)

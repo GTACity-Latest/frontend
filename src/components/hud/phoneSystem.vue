@@ -30,74 +30,70 @@
                             <div style="background-image:linear-gradient(to bottom right, rgb(255, 189, 8), rgb(255, 97, 29)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:0vw;"><img src='./assets/safari.png'>
                                 <p style="color:white; margin-top: 0.5vw; font-weight:500; font-size:11px; text-align:center;">Safari</p>
                                 </div>
+                                <div @click="openApp('banking')" style="background-image:linear-gradient(to bottom right, rgb(41, 8, 255), rgb(195, 29, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-building-columns" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
+                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Banka</p>
+                            </div>
                             <div @click="openApp('settings')" style="background-color:rgb(150, 150, 150); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><img src='./assets/settings.png'>
                                 <p style="color:white;    margin-top: 0.5vw; font-weight:500; font-size:11px; text-align:center;">Ayarlar</p>
                             </div>
                             <div style="background-image:linear-gradient(to bottom right, rgb(8, 169, 255), rgb(29, 48, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-car" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
                                 <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Araçlar</p>
                             </div>
-                            <div @click="openApp('banking')" style="background-image:linear-gradient(to bottom right, rgb(41, 8, 255), rgb(195, 29, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-building-columns" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Banka</p>
-                            </div>
                         </div>
                     </div>
 
                     <div v-if="appView === 'phone'">
-                        <div style="background-color: rgb(40,40,40); text-align:center; margin-left:.5vw; margin-right:.5vw; padding:.5vw; border-radius:10px; margin-top:.4vw;">
-                            <p style="color:rgba(199, 199, 199, 0.853);">Phone <i class="fa-solid fa-phone"></i></p>
-                        </div>
-
-                        <div v-if="subView === 'keypad'" style="background-color: rgb(40,40,40); text-align:center; margin-left:.5vw; margin-right:.5vw; padding:.5vw; margin-top:.5vw; border-radius:10px 10px 0px 0px; border-bottom: solid 1px rgb(30,30,30);">
+                        <div v-if="subView === 'keypad'" style="background-color: rgb(18 18 18); text-align:center; margin-left:.5vw; margin-right:.5vw; padding:.5vw;margin-top: 5vw; border-radius:10px 10px 0px 0px; border-bottom: solid 1px rgb(30,30,30);">
                             <p style="color:rgba(199, 199, 199, 0.853);">{{phoneNum.length > 0 ? phoneNum.join('') : "..."}}</p>
                         </div>
 
-                        <div v-if="subView === 'keypad'" style="background-color: rgb(40,40,40); text-align:center; margin-left:.5vw; margin-right:.5vw; padding:.5vw; border-radius:0px 0px 10px 10px;">
+                        <div v-if="subView === 'keypad'" style="background-color: rgb(18 18 18); text-align:center; margin-left:.5vw; margin-right:.5vw; padding:.5vw; border-radius:0px 0px 10px 10px;">
                             <div>
                                 <div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px;">
-                                        <p @click="enterPhoneNum(1)" style="margin-top:.1vw; font-size:20px;">1</p>
+                                    <div style="display:inline-block;    background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;">
+                                        <p @click="enterPhoneNum(1)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">1</p>
                                     </div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px; margin-left:1vw;">
-                                        <p @click="enterPhoneNum(2)" style="margin-top:.1vw; font-size:20px;">2</p>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;margin-left: 0.5vw;">
+                                        <p @click="enterPhoneNum(2)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">2</p>
                                     </div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px; margin-left:1vw;">
-                                        <p @click="enterPhoneNum(3)" style="margin-top:.1vw; font-size:20px;">3</p>
-                                    </div>
-                                </div>
-
-                                <div style="margin-top:1vw;">
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px;">
-                                        <p @click="enterPhoneNum(4)" style="margin-top:.1vw; font-size:20px;">4</p>
-                                    </div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px; margin-left:1vw;">
-                                        <p @click="enterPhoneNum(5)" style="margin-top:.1vw; font-size:20px;">5</p>
-                                    </div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px; margin-left:1vw;">
-                                        <p @click="enterPhoneNum(6)" style="margin-top:.1vw; font-size:20px;">6</p>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;margin-left: 0.5vw;">
+                                        <p @click="enterPhoneNum(3)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">3</p>
                                     </div>
                                 </div>
 
                                 <div style="margin-top:1vw;">
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px;">
-                                        <p @click="enterPhoneNum(7)" style="margin-top:.1vw; font-size:20px;">7</p>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;">
+                                        <p @click="enterPhoneNum(4)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">4</p>
                                     </div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px; margin-left:1vw;">
-                                        <p @click="enterPhoneNum(8)" style="margin-top:.1vw; font-size:20px;">8</p>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;margin-left: 0.5vw;">
+                                        <p @click="enterPhoneNum(5)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">5</p>
                                     </div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px; margin-left:1vw;">
-                                        <p @click="enterPhoneNum(9)" style="margin-top:.1vw; font-size:20px;">9</p>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;margin-left: 0.5vw;">
+                                        <p @click="enterPhoneNum(6)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">6</p>
                                     </div>
                                 </div>
 
                                 <div style="margin-top:1vw;">
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px;">
-                                        <p @click="removeNum()" style="margin-top:.1vw; font-size:20px;"><i class="fa-solid fa-delete-left" style="color:rgba(255, 0, 0, 0.767);"></i></p>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;">
+                                        <p @click="enterPhoneNum(7)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">7</p>
                                     </div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px; margin-left:1vw;">
-                                        <p @click="enterPhoneNum(0)" style="margin-top:.1vw; font-size:20px;">0</p>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;margin-left: 0.5vw;">
+                                        <p @click="enterPhoneNum(8)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">8</p>
                                     </div>
-                                    <div style="display:inline-block; background-color: rgb(30,30,30); height:2vw; width:2vw; border-radius:10px; margin-left:1vw;">
-                                        <p @click="phoneCall()" style="margin-top:.1vw; font-size:20px;"><i class="fa-solid fa-square-check" style="color:rgb(8, 175, 86);"></i></p>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;margin-left: 0.5vw;">
+                                        <p @click="enterPhoneNum(9)" style="margin-top:.1vw; font-size:20px;color: #bbbbbb;">9</p>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:1vw;">
+                                    <div style="display:inline-block;    background-color: rgb(191 53 53);height: 2.5vw;width: 2.5vw;border-radius: 28px;display: inline-flex;align-items: center;justify-content: center;">
+                                        <p @click="removeNum()" style="margin-top:.1vw; font-size:17px;color: #bbbbbb;"><i class="fa-solid fa-delete-left" style="color:rgb(235 235 235);"></i></p>
+                                    </div>
+                                    <div style="display:inline-block; background-color: rgb(51 51 51);height: 2.5vw;width: 2.5vw;border-radius: 28px;margin-left: 0.5vw;display: inline-flex;align-items: center;justify-content: center;">
+                                        <p @click="enterPhoneNum(0)" style="margin-top:.1vw; font-size:20px;margin-top: -1px;color: #bbbbbb;">0</p>
+                                    </div>
+                                    <div style="display: inline-block;background-color: rgba(117, 189, 122, 0.86);height: 2.5vw;width: 2.5vw;border-radius: 28px;margin-left: 0.5vw;display: inline-flex;align-items: center;justify-content: center;">
+                                        <p @click="phoneCall()" style="margin-top:.1vw; font-size:17px;color: #bbbbbb;"><i class="fa-solid fa-phone" style="color:rgb(235 235 235);"></i></p>
                                     </div>
                                 </div>
                             </div>
@@ -105,20 +101,21 @@
 
                         <div v-if="subView === 'recents'">
                             <div style="margin-left:.5vw; margin-right:.5vw;">
-                                <div style="background-color:rgb(60,60,60); padding:.5vw; border-radius:10px 10px 0px 0px; margin-top:.7vw; height:1.8vw;">
-                                    <p style="color:rgba(199, 199, 199, 0.853);">Recent Phone Calls</p>
+                                <div style="background-color:rgb(47 47 47); padding:.5vw; border-radius:6px 6px 0px 0px; margin-top:.7vw; height:1.8vw;">
+                                    <p style="color:rgba(199, 199, 199, 0.853);"><i style="font-size: 13px;    margin-right: 4px;" class="fa-solid fa-clock-rotate-left"></i>Son Aramalar</p>
                                 </div>
-                                <div v-if="phoneRecents.length > 0" style="background-color:rgb(60,60,60); height:12.5vw; overflow:scroll; overflow-x:hidden; border-radius:0px 0px 10px 10px;">
+                                <div v-if="phoneRecents.length > 0" style="background-color:rgb(47 47 47); height:12.5vw; overflow:scroll; overflow-x:hidden; border-radius:0px 0px 10px 10px;">
                                     <div v-for="x in phoneRecents[0]" :key="x.id" style="margin-left:.5vw;">
                                         <div style="height:2.5vw; margin-top:.3vw;">
                                             <p>{{x.log}}<font style="float:right; margin-right:.5vw; font-size:13px;"><i @click="subView = 'keypad', phoneNum.length = 0, phoneNum.push(x.number), phoneCall()" class="fa-solid fa-phone" style="transform:rotate(-100deg); color:#118C4F;"></i></font></p>
-                                            <p style="font-size:11px;">{{formatUnix(x.time)}}</p>
+                                            <p style="font-size:11px;margin-top: -6px;">{{formatUnix(x.time)}}</p>
                                         </div>
                                     </div>
-                                    <div v-if="phoneRecents[0].length == 0" style="background-color:rgb(60,60,60); height:12.5vw; text-align:center; border-radius:0px 0px 10px 10px;">
-                                        <p>Nothing to see.</p>
-                                    </div>
                                 </div>
+                                <div v-if="phoneRecents[0].length == 0" style="background-color:rgb(60,60,60); height:12.5vw; text-align:center; border-radius:0px 0px 10px 10px;">
+                                        <p>Arama kaydı bulunamadı.</p>
+                                    </div>
+
                             </div>
                         </div>
 
@@ -127,36 +124,36 @@
 
                         </div>
 
-                        <div style="background-color: rgb(40,40,40); text-align:center; margin-left:.5vw; margin-right:.5vw; padding:.5vw; border-radius:10px; margin-top:.5vw;">
+                        <div style="border-top: 2px solid #1e1e1e;text-align: center;margin-left: 0.5vw;margin-right: 0.5vw;padding: 0.5vw;border-radius: 3px;position: absolute;bottom: 15px;width: 93%;">
                             <div style="display:inline-block; margin-right:1vw;">
                                 <p style="color:rgba(199, 199, 199, 0.853);">
                                 </p>
-                                <font @click="subView = 'keypad'" style="font-size:12px; color:rgba(199, 199, 199, 0.853);" :style="subView === 'keypad' ? 'border-bottom: solid 3px grey;' : ''">Keypad</font>
+                                <font @click="subView = 'keypad'" style="display: flex;font-size: 11px;color: rgba(199, 199, 199, 0.855);flex-direction: column;" :style="subView === 'keypad' ? 'color: rgb(117 189 122 / 86%);' : ''"><i style="font-size: 13px;" class="fa-solid fa-phone"></i><span>Ara</span></font>
                             </div>
                             <div style="display:inline-block">
                                 <p style="color:rgba(199, 199, 199, 0.853);">
                                 </p>
-                                <font @click="subView = 'recents', fetchData('recentCalls')" style="font-size:12px; color:rgba(199, 199, 199, 0.853);" :style="subView === 'recents' ? 'border-bottom: solid 3px grey;' : ''">Recents</font>
+                                <font @click="subView = 'recents', fetchData('recentCalls')" style="display: flex;font-size: 11px;color: rgba(199, 199, 199, 0.855);flex-direction: column;" :style="subView === 'recents' ? 'color: rgb(117 189 122 / 86%);' : ''"><i style="font-size: 13px;" class="fa-solid fa-clock-rotate-left"></i><span>Aramalar</span></font>
                             </div>
                             <div style="display:inline-block; margin-left:1vw;">
                                 <p style="color:rgba(199, 199, 199, 0.853);">
                                 </p>
-                                <font @click="subView = 'contacts'" style="font-size:12px; color:rgba(199, 199, 199, 0.853);" :style="subView === 'contacts' ? 'border-bottom: solid 3px grey;' : ''">Contacts</font>
+                                <font @click="subView = 'contacts'" style="display: flex;font-size: 11px;color: rgba(199, 199, 199, 0.855);flex-direction: column;" :style="subView === 'contacts' ? 'color: rgb(117 189 122 / 86%);' : ''"><i style="font-size: 13px;" class="fa-solid fa-address-book"></i><span>Rehber</span></font>
                             </div>
                         </div>
 
                     </div>
 
-                    <div v-if="appView === 'settings'">
-                        <div style="background-color: rgb(40,40,40); text-align:center; margin-left:.5vw; margin-right:.5vw; padding:.5vw; border-radius:10px; margin-top:.5vw;">
-                            <p style="color:rgba(199, 199, 199, 0.853);">Settings <i class="fa-solid fa-gear"></i></p>
+                    <div style="" v-if="appView === 'settings'">
+                        <div style="background-color: rgb(31 31 31);border-bottom: 2px solid #595959; text-align:left; margin-left:.5vw; margin-right:.5vw;     padding: 1px; margin-top:.5vw;">
+                            <p style="color:rgba(199, 199, 199, 0.853);"><i class="fa-solid fa-gear"></i> Ayarlar</p>
                         </div>
 
-                        <div style="background-color: rgb(40,40,40); margin-left:.5vw; margin-right:.5vw; padding:.5vw; border-radius:10px; margin-top:1vw;">
+                        <div style="background-color: rgb(31 31 31); margin-left:.5vw; margin-right:.5vw; padding:.5vw; border-radius:10px; margin-top:1vw;">
                             <div v-if="settingsData.length > 0" style="margin-top:.2vw;">
 
                                 <div style="border-top: solid 3px grey;">
-                                    <p style="color:white; font-size:13px; margin-top:0.3vw; margin-bottom:.3vw;">Silent Mode</p>
+                                    <p style="color:white; font-size:13px; margin-top:0.3vw; margin-bottom:.3vw;">Sessiz Mod</p>
                                     <label class="switch">
                                         <input type="checkbox" v-model="silentMode">
                                         <span class="slider round"></span>
@@ -164,7 +161,7 @@
                                 </div>
 
                                 <div style="border-top: solid 3px grey;">
-                                    <p style="color:white; font-size:13px; margin-top:0.3vw; margin-bottom:.3vw;">Wallpaper</p>
+                                    <p style="color:white; font-size:13px; margin-top:0.3vw; margin-bottom:.3vw;">Arkaplan</p>
                                     <label class="switch">
                                         <input type="checkbox" v-model="wallpaper">
                                         <span class="slider round"></span>
@@ -172,7 +169,7 @@
                                 </div>
 
                                 <div style="border-bottom: solid 3px grey; border-top: solid 3px grey;">
-                                    <p style="color:white; font-size:13px; margin-top:0.3vw; margin-bottom:.3vw;">Lightmode</p>
+                                    <p style="color:white; font-size:13px; margin-top:0.3vw; margin-bottom:.3vw;">Aydınlık Mod</p>
                                     <label class="switch">
                                         <input type="checkbox" v-model="lightmode">
                                         <span class="slider round"></span>
@@ -186,141 +183,100 @@
                         </div>
                     </div>
 
-                    <div v-if="appView === 'banking'">
+                    <div v-if="appView === 'banking'" >
                         <div>
                             <div v-if="appData.length == 0" style="text-align:center;">
                                 <loadingSpinner/>
                             </div>
                             <div v-else-if="subView === 'none'" style="margin-left:.5vw; margin-right:.5vw;">
-                                <div style="background-color:rgb(40,40,40); padding:.5vw; border-radius:15px; margin-top:1vw;">
-                                    <p style="color:rgba(199, 199, 199, 0.853);">Welcome Back, {{appData[0].characterName}}</p>
+                                <div style="background-color:rgb(241 241 241); padding:.5vw; border-radius:7px; margin-top:1vw;">
+                                    <p style="color: rgb(55 55 55 / 86%);font-weight: bold;font-size: 12px;">Yeniden hoş geldin <span style="color: rgb(85 167 84);">{{appData[0].characterName}}</span>!</p>
                                 </div>
-                                <div>
-                                    <div style="background-color:rgb(40,40,40); margin-top:.8vw; height:2vw; border-radius:10px;">
-                                        <p style="margin-left:1vw; margin-right:1vw; padding-top:.4vw;"><font style="float:left">Balance</font><font style="float:right; color:#118C4F;">${{appData[0].moneyAmount.toLocaleString('en-US')}}</font></p>
+                                <div style="">
+                                    <div style="background-color:rgb(241 241 241);color: rgb(55 55 55 / 86%);font-weight: bold; margin-top:.8vw; height:1.5vw; border-radius:7px;">
+                                        <p style="margin-left:0.5vw;font-size: 12px; margin-right:0.5vw; padding-top:.2vw;"><font style="float:left">Bakiye</font><font style="float:right; color:#118C4F;">${{appData[0].moneyAmount.toLocaleString('en-US')}}</font></p>
                                     </div>
 
-                                    <div style="background-color:rgb(40,40,40); margin-top:.3vw; height:2vw; border-radius:10px;">
-                                        <p style="margin-left:1vw; margin-right:1vw; padding-top:.4vw;"><font style="float:left">Cash</font><font style="float:right; color:#118C4F;">${{appData[0].cashAmount.toLocaleString('en-US')}}</font></p>
+                                    <div style="background-color:rgb(241 241 241);color: rgb(55 55 55 / 86%);font-weight: bold; margin-top:.3vw; height:1.5vw; border-radius:7px;">
+                                        <p style="margin-left:0.5vw;font-size: 12px; margin-right:0.5vw; padding-top:.2vw;"><font style="float:left">Nakit</font><font style="float:right; color:#118C4F;">${{appData[0].cashAmount.toLocaleString('en-US')}}</font></p>
                                     </div>
 
-                                    <div @click="subView = 'sendMoney'" style="background-color:rgb(40,40,40); margin-top:.3vw; height:2vw; border-radius:10px; text-align:center;">
+                                    <div @click="subView = 'sendMoney'" style="background-color: rgb(33 85 37);color: rgb(55 55 55 / 86%); margin-top:.3vw; height:2vw; border-radius:6px; text-align:center;">
                                         <div style="text-align:center; padding-top:.2vw;">
-                                            <p style="font-size:18px;">Send money <i class="fa-solid fa-paper-plane"></i></p>
+                                            <p style="font-weight:bold;font-size:18px;    color: #d1d1d1;">Transfer Yap <i class="fa-solid fa-paper-plane"></i></p>
                                         </div>
                                     </div>
 
-                                    <div style="background-color:rgb(40,40,40); margin-top:.5vw; border-radius:10px;">
+                                    <div style="background-color:rgb(158 207 166); margin-top:.5vw; border-radius:6px;">
                                         <div>
-                                            <p style="margin-left:1vw; margin-right:1vw; padding-top:.4vw;"><font style="float:left">Recent Activity</font></p>
+                                            <p style="margin-left:0.5vw;font-size: 12px;font-weight:bold;color: #215525; margin-right:1vw; padding-top:.2vw;"><font style="float:left"><i style="margin-right:3px;margin-top:1px;" class="fa-solid fa-clock-rotate-left"></i>Son Transferler</font></p>
                                         </div>
-                                        <div v-if="appData[0].bankingLogs" style="background-color:rgb(60,60,60); margin-top:1.5vw; height:5.5vw; overflow:hidden;">
+                                        <div v-if="appData[0].bankingLogs" style="background-color: rgb(219 219 219);margin-top: 1.5vw;height: 11.5vw;border-radius: 0px 0px 6px 6px;overflow: auto;">
                                             <div v-for="x in JSON.parse(appData[0].bankingLogs)" :key="x.id" style="margin-left:.5vw;">
                                                 <div style="height:1vw; margin-top:.3vw;">
-                                                    <p>{{x.actionName}}<font style="float:right; margin-right:.5vw; font-size:13px;" :style="{'color': x.type === 0 ? 'red' : '#118C4F'}">{{x.type === 0 ? `-$${x.moneyAmount.toLocaleString('en-US')}` : `+$${x.moneyAmount.toLocaleString('en-US')}`}}</font></p>
-                                                </div>
+                                                    <p style="font-weight:bold;font-size:12px;display: flex;justify-content: space-between;width: 100%;">{{x.actionName}}<font style="float:right; margin-right:.5vw; font-size:13px;" :style="{'color': x.type === 0 ? 'red' : '#118C4F'}">{{x.type === 0 ? `-$${x.moneyAmount.toLocaleString('en-US')}` : `+$${x.moneyAmount.toLocaleString('en-US')}`}}</font></p>
+                                                </div>                         
                                             </div>
-                                        </div>
-                                        <div style="float:right; font-size:14px; margin-top:.2vw;">
-                                            <button @click="subView = 'bankActivity'" style="color:rgb(134, 134, 134); font-weight:600;">View All <i class="fa-sharp fa-solid fa-arrow-right"></i></button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div v-if="subView === 'bankActivity' && appData.length > 0">
-                                <div style="background-color:rgb(40,40,40); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw;">
-                                    <div>
-                                        <p style="margin-left:1vw; margin-right:1vw; padding-top:.4vw;"><font style="float:left">All Transactions ({{JSON.parse(appData[0].bankingLogs).length}})</font></p>
-                                    </div>
-                                    <div v-if="appData[0].bankingLogs.length > 0" style="background-color:rgb(60,60,60); margin-top:1.5vw; height:16.5vw; overflow:scroll; overflow-x:hidden;">
-                                        <div v-for="x in JSON.parse(appData[0].bankingLogs)" :key="x.id" style="margin-left:.5vw;">
-                                            <div style="height:2.5vw; margin-top:.3vw;">
-                                                <p>{{x.actionName}}<font style="float:right; margin-right:.5vw; font-size:13px;" :style="{'color': x.type === 0 ? 'red' : '#118C4F'}">{{x.type === 0 ? `-$${x.moneyAmount.toLocaleString('en-US')}` : `+$${x.moneyAmount.toLocaleString('en-US')}`}}</font></p>
-                                                <p style="font-size:11px;">{{formatUnix(x.time)}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div v-else style="background-color:rgb(60,60,60); margin-top:1.5vw; height:18vw; text-align:center;">
-                                        <p>You don't have any transactions</p>
-                                    </div>
-                                    <div style="float:left; font-size:14px; margin-top:.2vw;">
-                                        <button @click="subView = 'none'" style="color:rgb(134, 134, 134); font-weight:600;"><i class="fa-sharp fa-solid fa-arrow-left"></i> Go Back</button>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div v-if="subView === 'sendMoney' && appData.length > 0">
-                                <div style="background-color:rgb(40,40,40); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw;">
-                                    <div style="text-align:center; padding:.5vw;">
-                                        <p>Send money <i class="fa-solid fa-paper-plane"></i></p>
-                                    </div>
-                                </div>
-                                <div>
-
-                                </div>
-                                <div style="background-color:rgb(40,40,40); margin-right:.5vw; margin-left:.5vw; height:6.9vw; border-radius:10px; padding-top:.5vw; margin-top:1vw;">
-                                    <div style="background-color:rgba(62, 62, 62, 0.635); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
-                                        <div style="text-align:center; font-size:13px;">
-                                            <input class="phoneInput" style="background-color:transparent; color:white;" maxlength="15" placeholder="Enter players name" v-model="selectedPlayer">
-                                        </div>
-                                    </div>
-                                    <div style="background-color:rgba(62, 62, 62, 0.635); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
-                                        <div style="text-align:center; font-size:13px;">
-                                            <input class="phoneInput" style="background-color:transparent; color:white;" maxlength="15" placeholder="Enter Money Amount" v-model="moneyEntered">
-                                        </div>
-                                    </div>
-                                    <p style="margin-left:.5vw;">3% Tax Rate</p>
-                                </div>
-
-                                <div style="background-color:rgb(40,40,40); margin-right:.5vw; margin-left:.5vw; height:4vw; border-radius:10px; padding-top:.5vw; margin-top:1vw;">
-                                    <div class="confirmBtn" style="background-color:rgba(0, 255, 4, 0.308); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
-                                        <div style="text-align:center; font-size:13px;">
-                                            <button @click="subView = 'moneyConfirm', formatName()" style="font-weight:600; color:rgba(255, 255, 255, 0.497);">Send Money</button>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div style="font-size:13px; margin-left:.5vw; margin-top:.2vw;">
-                                    <button @click="subView = 'none'" style="color:rgb(134, 134, 134); font-weight:600;"><i class="fa-sharp fa-solid fa-arrow-left"></i> Go Back</button>
+                                    <button @click="subView = 'none'" style="color:rgb(235 235 235);font-weight:600;"><i style="background: #164d16;padding: 3px;border-radius: 10px;margin-left: 4px;" class="fa-sharp fa-solid fa-arrow-left"></i> Geri Dön</button>
+                                </div>
+                                <div style=" margin-right:.5vw; margin-left:.5vw; height:6.9vw; border-radius:6px; padding-top:.5vw;">
+                                    <div style="background-color:rgb(241 241 241); margin-top:.5vw; border-radius:6px; margin-left:.5vw; margin-right:0.5vw; padding:.4vw; ">
+                                        <div style="text-align:left;font-size: 11px;">
+                                            <input class="phoneInput" style="background-color:transparent; color: rgb(55 55 55 / 86%);font-weight: bold;" maxlength="15" placeholder="Karakter Adı Girin" v-model="selectedPlayer">
+                                        </div>
+                                    </div>
+                                    <div style="background-color:rgb(241 241 241); margin-top:.5vw; border-radius:6px; margin-left:.5vw; margin-right:0.5vw; padding:.4vw; ">
+                                        <div style="text-align:left; font-size:11px;">
+                                            <input class="phoneInput" style="background-color:transparent; color: rgb(55 55 55 / 86%);font-weight: bold;" maxlength="15" placeholder="Transfer Miktarı Girin" v-model="moneyEntered">
+                                        </div>
+                                    </div>
+                                    <p style="    margin-left: 0.6vw;font-size: 11px;font-weight: bold;color: green;">3% Vergi Oranı</p>
+                                </div>
+
+                                <div style="margin-right:.5vw; margin-left:.5vw; height:4vw;padding-top:.5vw;">
+                                    <div class="confirmBtn" style="background-color:rgb(30 81 30); margin-top:.5vw; border-radius:6px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
+                                        <div style="text-align:center; font-size:13px;">
+                                            <button @click="subView = 'moneyConfirm', formatName()" style="font-weight:600;color: rgb(197 197 197);">Transfer Yap</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div v-if="subView === 'moneyConfirm'">
-                                <div style="background-color:rgb(40,40,40); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw;">
-                                    <div style="text-align:center; padding:.5vw;">
-                                        <p>Send money <i class="fa-solid fa-paper-plane"></i></p>
-                                    </div>
-                                </div>
-                                <div>
-
-                                </div>
-                                <div style="background-color:rgb(40,40,40); margin-right:.5vw; margin-left:.5vw; height:8vw; border-radius:10px; padding-top:.5vw; margin-top:1vw;">
-                                    <div style="background-color:rgba(62, 62, 62, 0.635); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
-                                        <div style="font-size:13px;">
-                                            <p>Recipient <font style="float:right;">{{selectedPlayer}}</font></p>
-                                        </div>
-                                        <div style="font-size:13px;">
-                                            <p>Total <font style="float:right; color:#118C4F;">${{Math.floor(moneyEntered).toLocaleString('en-US')}}</font></p>
-                                        </div>
-                                        <div style="font-size:13px;">
-                                            <p>Tax Total <font style="float:right; color:#118C4F;">${{Math.floor(moneyEntered - moneyEntered/1.03).toLocaleString('en-US')}}</font></p>
-                                        </div>
-                                        <div style="font-size:13px;">
-                                            <p>After Tax <font style="float:right; color:#118C4F;">${{Math.floor(moneyEntered/1.03).toLocaleString('en-US')}}</font></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div style="background-color:rgb(40,40,40); margin-right:.5vw; margin-left:.5vw; height:4vw; border-radius:10px; padding-top:.5vw; margin-top:1vw;">
-                                    <div class="confirmBtn" style="background-color:rgba(0, 255, 4, 0.308); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
-                                        <div style="text-align:center; font-size:13px;">
-                                            <button @click="sendMoney(), subView = 'sendMoney'" style="font-weight:600; color:rgba(255, 255, 255, 0.497);">Confirm</button>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div style="font-size:13px; margin-left:.5vw; margin-top:.2vw;">
-                                    <button @click="subView = 'sendMoney'" style="color:rgb(134, 134, 134); font-weight:600;"><i class="fa-sharp fa-solid fa-arrow-left"></i> Go Back</button>
+                                    <button @click="subView = 'sendMoney'" style="color:rgb(235 235 235);font-weight:600;"><i style="background: #164d16;padding: 3px;border-radius: 10px;margin-left: 4px;" class="fa-sharp fa-solid fa-arrow-left"></i> Geri Dön</button>
                                 </div>
+                                <div style="margin-right:.5vw; margin-left:.5vw; height:8vw; border-radius:10px; padding-top:.5vw; margin-top:1vw;">
+                                    <div style="    background-color: rgb(229 229 229);font-weight: bold; margin-top:.5vw; border-radius:6px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
+                                        <div style="font-size:13px;">
+                                            <p>Alıcı <font style="float:right;">{{selectedPlayer}}</font></p>
+                                        </div>
+                                        <div style="font-size:13px;background: #b3b3b3;padding: 0px 6px;border-radius: 3px;">
+                                            <p style="font-size: 12px;">Toplam <font style="float:right; color:#118C4F;">${{Math.floor(moneyEntered).toLocaleString('en-US')}}</font></p>
+                                        </div>
+                                        <div style="font-size:13px;background: #b3b3b3;padding: 0px 6px;border-radius: 3px;margin-top:4px;">
+                                            <p style="font-size: 12px;">Toplam Vergi <font style="float:right; color:#118C4F;">${{Math.floor(moneyEntered - moneyEntered/1.03).toLocaleString('en-US')}}</font></p>
+                                        </div>
+                                        <div style="font-size:13px;background: #b3b3b3;padding: 0px 6px;border-radius: 3px;margin-top:4px;">
+                                            <p style="font-size: 12px;">Vergi Sonrası Toplam <font style="float:right; color:#118C4F;">${{Math.floor(moneyEntered/1.03).toLocaleString('en-US')}}</font></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-right:.5vw; margin-left:.5vw; height:4vw; border-radius:10px; padding-top:.5vw; margin-top:1vw;">
+                                    <div class="confirmBtn" style="background-color:rgb(30 81 30); margin-top:.5vw; border-radius:10px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
+                                        <div style="text-align:center; font-size:13px;">
+                                            <button @click="sendMoney(), subView = 'sendMoney'" style="font-weight:600; color: rgb(197 197 197);">Onayla</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
 
                         </div>
@@ -450,7 +406,7 @@ export default {
                 {
                     window.mp.trigger('serverFunctionCEF', 'updateAppData', 'banking');
                     this.phoneOpen = {
-                        'background-color': 'rgb(31,31,31)',
+                        'background-color': 'rgb(85 167 84)',
                         'background-image': 'none',
                         'margin-top': "17.5vw",
                     }
@@ -470,7 +426,7 @@ export default {
                 case 'phone':
                 {
                     this.phoneOpen = {
-                        'background-color': 'rgb(31,31,31)',
+                        'background-color': 'rgb(18, 18, 18)',
                         'background-image': 'none',
                         'margin-top': "17.5vw",
                     }
