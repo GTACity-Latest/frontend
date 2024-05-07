@@ -3,12 +3,13 @@
           <h1></h1>
           <div class="container-login100" style="overflow-x: hidden; overflow-y: hidden;">
             <div class="listMenu">
-                <menu-button :menu="'list'" style="position:absolute; color:rgb(255, 255, 255); width: 32vw;"></menu-button>
-                <div class="head1"><i :class="name.icon"></i> {{ name.name }}<a></a><p style="margin-top:0.1vw">{{name.subText}}</p></div>
-                        <div style="overflow:scroll; height:18vw; overflow-x: hidden; margin-top:0vw">
-                            <b v-for="lm in list" :key="lm.id">
-                                <div class="insert">
-                                  <button class="subIndex" style="float: left;">{{getIndex(lm.id)}}</button><b v-html="lm.name"></b><button v-if="lm.button" class="selectButton" @click="clickHandler(lm.funcs, lm.id)" style="float: right;">Select</button>
+                <menu-button :menu="'list'" style="position: absolute;color: rgb(255, 255, 255);width: 650px;display: flex;font-size: 16px;margin-top: 8px;padding-right: 12px;justify-content: flex-end;"></menu-button>
+                <div style="text-transform: uppercase;" class="head1"><i :class="name.icon"></i> {{ name.name }}<a></a><p style="margin-top: -8px;text-transform: none;color: #976464;font-size: 12px;">{{name.subText}}</p></div>
+                        <div style="overflow:scroll;     height: 455px; overflow-x: hidden; margin-top:0vw">                     
+                              <b v-for="lm in list" :key="lm.id">
+                                <div @click="clickHandler(lm.funcs, lm.id)" class="insert">
+                                  <button class="subIndex" style="float: left;">{{getIndex(lm.id)}}</button>
+                                  <b  style="font-size: 13px;color: #b7b7b7;margin-top: -1px;padding-left: 5px;display: flex;" v-html="lm.name"></b>
                               </div>
                               </b>
                         </div>
@@ -114,36 +115,40 @@ th, tr {
 
 .subIndex {
   border-right: solid rgb(183, 119, 255) 3px;
-  color: #fffffffb;
-  transition-duration: 0.4s;
-  font-family: "OSL";
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-weight: 650;
-  font-size: 16px;
-  width: 2vw;
-  line-height: 3vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: rgba(122, 122, 122, 0.251);
+    color: #fffffffb;
+    transition-duration: 0.4s;
+    font-family: "OSL";
+    font-family: 'Poppins-Regular';
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    float: left;
+    line-height: 29px;
+    margin-left: -6px;
+    padding: 0px 7px;
+    width: fit-content;
+    border: none;
+    background: #3d3d3d;
+    margin-top: -2px;
 }
 .insert {
-  background: -webkit-linear-gradient(right, #4b4b4b, #818181);
-  color: #fff;
-  height: 3vw;
-  /*font-family: 'OSL';*/
-  font-family: "OSL";
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-weight: 400;
-  src: url("../assets/fonts/OSL.ttf") format("truetype");
-  text-align: center;
-  margin-top: 0.3vw;
-  font-size: 18px;
-  line-height: 3vw;
-  --notchSize: 10px;
-  background-color: #000000f9;
-  background-image: url("../assets/img/diagmonds.png");
+    /* background: -webkit-linear-gradient(right, #4b4b4b, #818181); */
+    background: black;
+    color: #fff;
+    height: 29px;
+    /* font-family: 'OSL'; */
+    font-family: "OSL";
+    font-family: 'Poppins-Regular';
+    font-weight: 400;
+    src: url(http://localhost:3000/fonts/OSL.36ff7a66.ttf) format("truetype");
+    margin-top: 4px;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: left;
+    margin-left: 4px;
 }
 
 .selectButton {
@@ -191,54 +196,39 @@ th, tr {
 
 .listMenu {
   opacity: 1;
-  width: 17vw;
-  border-top: solid rgb(183, 119, 255) 5px;
+  width: 650px;
   /*border-right: solid rgba(255, 255, 255, 0.311) 2px;
     border-left: solid rgba(255, 255, 255, 0.311) 2px;
     border-radius: 10px;
     */
-  height: 25vw;
+  height: 500px;
   /*border-image: linear-gradient(45deg, rgba(220, 171, 255, 20), rgba(220, 171, 255, 90)) 1;*/
   /*background-color: rgba(0, 0, 0, 0.85);*/
   color: rgba(10, 10, 10, 0.644);
-  background: -webkit-linear-gradient(
-    right,
-    rgba(10, 10, 10, 0.944),
-    rgba(1, 1, 1, 0.651)
-  );
+  background: #181818;
   position: absolute;
-  margin-top: 11vw;
-  margin-left: 70vw;
-
   --notchSize: 20px;
-  /*
-    background-color: #000000ec;
-    background-image: url("../assets/img/diagmonds.png");
-*/
-  background: transparent;
+  border-radius: 5px;
 }
 
 .head1 {
-  color: #fff;
-  font-family: "OSL";
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-weight: 1000;
-  text-align: center;
-  font-size: 23px;
-  background: -webkit-linear-gradient(
-    left,
-    rgba(10, 10, 10, 0.115),
-    rgba(1, 1, 1, 0.651)
-  );
-  padding: 1vw;
-  padding-bottom: 0.5vw;
-  padding-top: 0.7vw;
-  text-align: left;
-  border-bottom: solid rgb(183, 119, 255) 3px;
-  box-shadow: 0 0 30px rgba(183, 119, 255, 0.69);
+   
+    color: #fff;
+    font-family: "OSL";
+    font-family: Archivo Black;
+    font-weight: 1000;
+    text-align: center;
+    font-size: 20px;
+    /* background: -webkit-linear-gradient(left, rgba(10, 10, 10, 0.115), rgba(1, 1, 1, 0.651)); */
+    padding: 4px 6px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: left;
+    border-radius: 5px 5px 0px 0px;
+    /* box-shadow: 0 0 30px rgba(183, 119, 255, 0.69); */
+    background: #6b1d1d;
+    /* background-image: url(data:image/png;base64,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); */
 
-  background-color: #000000f9;
-  background-image: url("../assets/img/diagmonds.png");
 }
 
 th {

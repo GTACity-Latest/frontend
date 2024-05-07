@@ -239,8 +239,8 @@
                                     <p style="    margin-left: 0.6vw;font-size: 11px;font-weight: bold;color: green;">3% Vergi Oranı</p>
                                 </div>
 
-                                <div style="margin-right:.5vw; margin-left:.5vw; height:4vw;padding-top:.5vw;">
-                                    <div class="confirmBtn" style="background-color:rgb(30 81 30); margin-top:.5vw; border-radius:6px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
+                                <div style="margin-right:.5vw; margin-left:.5vw; height:4vw;padding-top:.3vw;">
+                                    <div class="confirmBtn" style="background-color:rgb(30 81 30);border-radius:6px; margin-left:.5vw; margin-right:0.5vw; padding:.5vw; ">
                                         <div style="text-align:center; font-size:13px;">
                                             <button @click="subView = 'moneyConfirm', formatName()" style="font-weight:600;color: rgb(197 197 197);">Transfer Yap</button>
                                         </div>

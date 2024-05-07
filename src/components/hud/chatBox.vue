@@ -2,7 +2,8 @@
   <div v-if="hudState">
     <div v-if="showChat" id="chat" ref="chatContainer">
       <ul id="chat_messages" ref="messageList">
-        <li style="    word-break: break-all;" v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()"></li>
+        <li style="    word-break: break-all;" v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()">
+        </li>
       </ul>
       <input maxlength="240" v-show="showInput"  v-model="inputText" ref="input" id="chat_msg" type="text" />
       <li v-for="(item, cmd) in queryCmds" :key="'B' + cmd" class="suggestionDropDown">
@@ -289,9 +290,9 @@ html {
   opacity: 1;
   padding: 0;
   margin: 0;
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-weight: 510;
-  font-size: 16px;
+  font-family: Arial;
+  font-weight: 700;
+  font-size: 15px;
   background-color: transparent;
   user-select: none;
   -webkit-touch-callout: none; /* iOS Safari */
@@ -327,13 +328,6 @@ html {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-size: 14px;
     margin-left: 15px;
-}
-
-@media screen and (min-height: 1080px) {
-  #chat {
-    font-size: 18px !important;
-    font-weight: 700;
-  }
 }
 
 #chat ul#chat_messages {
