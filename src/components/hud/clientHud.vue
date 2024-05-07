@@ -3,7 +3,7 @@
     <div style="position: absolute;
   bottom:18px;
   left: 15.9vw;">
-    <div v-if="protectedArea" style="margin-top:5px;background:#17940c;border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
+    <div v-if="protectedArea" style="margin-top:5px;background: rgb(93 161 87);border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
     <div style="margin-top:5px;background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(35, 150, 0) 0%, rgba(0, 0, 0, 0) 100%);border-left: 3px solid #047a00;" class="cont"><i class="fa-solid fa-wallet" style="    margin-right: 7px;"></i>${{  hudInfo[0].money.toLocaleString('en-US') }}</div>
     <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-user" style="    margin-right: 5px;"></i>{{ hudInfo[0].cityName }} ({{ hudInfo[0].id }})</div>
     <div style="margin-top:5px;" class="cont"><i class="fa-solid fa-gauge-high" style="    margin-right: 7px;"></i>{{ hudInfo[0].fps }} FPS</div>
@@ -21,8 +21,9 @@
     align-items: flex-end;">
   <span style="    display: flex;
     justify-content: flex-end;padding: 6px;padding-left:28px;
-    border-radius: 7px;background: linear-gradient(-90deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);border-right: 3px solid #2f2f2f;">
-    <div style="font-family: 'Roboto', sans-serif;font-weight: 500;display: flex;flex-direction: column;color:white;align-items: flex-end;margin-right: 3px;">
+    border-radius: 7px;background: linear-gradient(280deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);
+    border-right: 3px solid #2d2d2d;">
+    <div style="font-family: 'Poppins-Medium', sans-serif;font-weight: 600;display: flex;flex-direction: column;color:white;align-items: flex-end;margin-right: 3px;">
       <span style="font-size: 21px;
     font-weight: 900;
     line-height: 17px;
@@ -31,7 +32,8 @@
     color: lightgrey;">gtacity.com.tr</span>
     </div>
     <img style="width: 50px;" src="./assets/dclogo.png"></span>
-  <div style="height:fit-content;margin-top:5px;background: linear-gradient(-90deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);border-left:none; border-right: 3px solid #2f2f2f;padding-right:5px;padding-left:20px;" class="cont">
+  <div style="height:fit-content;margin-top:5px;background: linear-gradient(280deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);
+    border-right: 3px solid #2d2d2d;border-left:none;padding-right:5px;padding-left:20px;" class="cont">
   <div style="    display: flex;flex-direction: column;align-items: flex-end;    margin: 3px;">
     <span style="font-size: 21px;
     font-weight: 900;
