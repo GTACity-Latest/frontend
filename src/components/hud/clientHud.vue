@@ -87,15 +87,15 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 .cont {
   background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);
-    color: rgb(255, 255, 255);
-    font-family: "Roboto", sans-serif;
+    color: rgb(239 239 239);
+    font-family: 'Poppins-Regular';
+    font-weight: 600;
     width: fit-content;
     height: 29px;
     border-radius: 6px;
     padding-right: 27px;
-    font-size: 15px;
-    font-weight: 500;
-    border-left: 3px solid #313131;
+    font-size: 14px;
+    border-left: 3px solid #2d2d2d;
     padding-left: 3px;
     display: flex;
     align-items: center;
