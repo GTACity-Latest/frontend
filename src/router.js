@@ -24,11 +24,13 @@ import clientHud from './components/hud/clientHud.vue';
 import phoneSystem from './components/hud/phoneSystem.vue';
 import fuelScreen from './components/hud/fuelScreen.vue';
 import Notifications from './components/Notifications.vue';
+import altMenu from './components/hud/altMenu.vue';
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
+        { path: '/altmenu', component: altMenu},
         { path: '/notif', component: Notifications},
         { path: '/phone', component: phoneSystem},
         { path: '/fuel', component: fuelScreen},

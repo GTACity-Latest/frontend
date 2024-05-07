@@ -1,24 +1,42 @@
 <template>
     <div v-if="hudState && keys[0].alt" style="position:absolute;">
         <div class="buttons" style="margin-top:28vw; margin-left:1.5vw; ">
-            <div style="margin-top:1vw;">
-                <p style="color:white;"><font style="background-color:transparent; padding:.3vw; border-radius:10px; border: solid 1px white; padding-left:.5vw; padding-right:.5vw; font-weight:600; box-shadow: 2px 2px 23px 0px rgb(0, 0, 0);">X</font> <font style="margin-left:.5vw; ">Puts hands up / Cancels Animation</font></p>
+            <div style="margin-top:.5vw;">
+                <p style="color:white;display:flex;align-items: center;font-family: 'Poppins-Regular';font-weight: bold;background: #232323;width: fit-content;    border-radius: 4px;">
+                <font style="    background: #b53434;font-weight: 600;padding: 2px 7px;    border-radius: 3px 0px 0px 3px;">F2</font>
+                <font style="margin-left: 0.5vw;margin-right: 0.5vw;font-size: 11px;color: #838383;">İmleci Göster</font>
+                </p>
             </div>
-            <div style="margin-top:1.5vw;">
-                <p style="color:white;"><font style="background-color:transparent; padding:.3vw; border-radius:10px; border: solid 1px white; padding-left:.5vw; padding-right:.5vw; font-weight:600; box-shadow: 2px 2px 23px 0px rgb(0, 0, 0);">ALT</font> <font style="margin-left:.5vw;">Brings up anim menu</font></p>
+            <div style="margin-top:.5vw;">
+                <p style="color:white;display:flex;align-items: center;font-family: 'Poppins-Regular';font-weight: bold;background: #232323;width: fit-content;    border-radius: 4px;">
+                <font style="    background: #b53434;font-weight: 600;padding: 2px 7px;    border-radius: 3px 0px 0px 3px;">O</font>
+                <font style="margin-left: 0.5vw;margin-right: 0.5vw;font-size: 11px;color: #838383;">Oyuncu Listesi</font>
+                </p>
             </div>
-            <div style="margin-top:1.5vw;">
-                <p style="color:white;"><font style="background-color:transparent; padding:.3vw; border-radius:10px; border: solid 1px white; padding-left:.5vw; padding-right:.5vw; font-weight:600; box-shadow: 2px 2px 23px 0px rgb(0, 0, 0);">F2</font> <font style="margin-left:.5vw;">Toggle Cursor</font></p>
+            <div style="margin-top:.5vw;">
+                <p style="color:white;display:flex;align-items: center;font-family: 'Poppins-Regular';font-weight: bold;background: #232323;width: fit-content;    border-radius: 4px;">
+                <font style="    background: #b53434;font-weight: 600;padding: 2px 7px;    border-radius: 3px 0px 0px 3px;">X</font>
+                <font style="margin-left: 0.5vw;margin-right: 0.5vw;font-size: 11px;color: #838383;">Animasyon Durdur</font>
+                </p>
             </div>
-            <div style="margin-top:1.5vw;">
-                <p style="color:white;"><font style="background-color:transparent; padding:.3vw; border-radius:10px; border: solid 1px white; padding-left:.5vw; padding-right:.5vw; font-weight:600; box-shadow: 2px 2px 23px 0px rgb(0, 0, 0);">F5</font> <font style="margin-left:.5vw;">Help Menu</font></p>
+            <div style="margin-top:.5vw;">
+                <p style="color:white;display:flex;align-items: center;font-family: 'Poppins-Regular';font-weight: bold;background: #232323;width: fit-content;    border-radius: 4px;">
+                <font style="    background: #b53434;font-weight: 600;padding: 2px 7px;    border-radius: 3px 0px 0px 3px;">ALT</font>
+                <font style="margin-left: 0.5vw;margin-right: 0.5vw;font-size: 11px;color: #838383;">Yardım Menüsü</font>
+                </p>
             </div>
-            <div v-if="keys[0].staff > 0" style="margin-top:1.5vw;">
-                <p style="color:white;"><font style="background-color:transparent; padding:.3vw; border-radius:10px; border: solid 1px rgb(255, 33, 33); padding-left:.5vw; padding-right:.5vw; font-weight:600; box-shadow: 2px 2px 23px 0px rgb(0, 0, 0);">F4</font> <font style="margin-left:.5vw; color:rgb(255, 255, 255);">Toggles No clip</font></p>
+            <div v-if="keys[0].staff > 0" style="margin-top:.5vw;">
+                <p style="color:white;display:flex;align-items: center;font-family: 'Poppins-Regular';font-weight: bold;background: #232323;width: fit-content;    border-radius: 4px;">
+                <font style="    background: #b53434;font-weight: 600;padding: 2px 7px;    border-radius: 3px 0px 0px 3px;">F4</font>
+                <font style="margin-left: 0.5vw;margin-right: 0.5vw;font-size: 11px;color: rgb(181 52 52);">Noclip</font>
+                </p>
             </div>
-            <div v-if="keys[0].staff > 0" style="margin-top:1.5vw;">
-                <p style="color:white;"><font style="background-color:transparent; padding:.3vw; border-radius:10px; border: solid 1px rgb(255, 33, 33); padding-left:.5vw; padding-right:.5vw; font-weight:600; box-shadow: 2px 2px 23px 0px rgb(0, 0, 0);">F9</font> <font style="margin-left:.5vw; color:rgb(255, 255, 255);">Opens Admin System</font></p>
-            </div>
+            <div v-if="keys[0].staff > 0" style="margin-top:.5vw;">
+                <p style="color:white;display:flex;align-items: center;font-family: 'Poppins-Regular';font-weight: bold;background: #232323;width: fit-content;    border-radius: 4px;">
+                <font style="    background: #b53434;font-weight: 600;padding: 2px 7px;    border-radius: 3px 0px 0px 3px;">F9</font>
+                <font style="margin-left: 0.5vw;margin-right: 0.5vw;font-size: 11px;color: rgb(181 52 52);">Admin Paneli</font>
+                </p>
+            </div>            
         </div>
     </div>
 </template>
