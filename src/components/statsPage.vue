@@ -3,10 +3,10 @@
         <div>
         <div class="container-login100" style="user-select: none;">
             <div class="wraps-login100" style="padding-bottom: 54px;">
-                <div class="headPageStat" style="font-size: 1vw; padding-left: 1vw;background: -webkit-linear-gradient(right, rgb(149 0 0), rgb(171 0 0));"><i class="fa-solid fa-circle-info"></i> İstatistikler
-                  <menu-button style="    width: 28vw; position:absolute;"/>
+                <div class="headPageStat" style="font-size: 15px; padding-left: 5px;background: #b53434;">İSTATİSTİKLER
+                  <menu-button style="font-size: 14px;width: 459px; position:absolute;"/>
                 </div>
-                <div class="login100-form-title" v-for="stat in playerStats" :key="stat.id">
+                <div v-for="stat in playerStats" :key="stat.id" class="login100-form-title">
                         <div class="inserst" style="overflow:scroll;    height: 37vw; overflow-x: hidden; margin-top: 2.2vw;">
 
                           <div id="c1" class="statInsert"><i class="fa-solid fa-person" style="color: rgb(177, 177, 177); float: left; margin-top: 7px;margin-left: 7px;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.3vw;"> Karakter Adı </b><b id="cname1" style="float: right;margin-right: 11px;margin-top: -0.3vw;"> {{stat.name}} </b>
@@ -116,16 +116,12 @@ export default {
   .headPageStat {
     color: #fff;
     font-family: "OSL";
-    font-family: Poppins-Medium;
-    font-size: 12px;
-    background: -webkit-linear-gradient(
-      left,
-      rgba(10, 10, 10, 0.115),
-      rgba(1, 1, 1, 0.651)
-    );
-    padding: 0.1vw;
+    font-family: Archivo Black;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 2px 4px;
+    border-radius: 5px 5px 0px 0px;
     text-align: left;
-    line-height: 2.2vw;
     color: #ffffff;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
@@ -370,30 +366,29 @@ export default {
     margin-left: 0.4vw;
     color: #fff;
     height: 1.5vw;
-    /* font-family: 'OSL'; */
-    border-radius: 10px;
+    border-radius: 4px;
     font-family: "OSL";
-    font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
+    font-family: 'Poppins-Regular';
+    padding-top: 1px;
     font-weight: 350;
     text-align: center;
-    margin-top: 0.5vw;
+    margin-top: 0.3vw;
     font-size: 0.7vw;
     line-height: 2vw;
   }
 
   .wraps-login100 {
-    width: 23vw;
+    width: 379px;
     border-left: none;
     border-right: none;
-    background: -webkit-linear-gradient(right, rgba(10, 10, 10, 1), rgba(1, 1, 1, 0.851));
-    height: 26vw;
+    height: 525px;
     align-content: center;
+    border-radius: 5px;
     float: center;
     margin-left: 39vw;
     text-align: center;
     --notchSize: 20px;
-    background-color: #000000ec;
-    background-image: url("./auth/assets/image/diagmonds.png");
+    background-color: #252525;
   }
 
   .btn {
@@ -429,7 +424,5 @@ export default {
     line-height: 1;
     text-align: center;
     margin-top: -2vw;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-      1px 1px 0 #000;
   }
 </style>

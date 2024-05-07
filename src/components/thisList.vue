@@ -114,7 +114,6 @@ th, tr {
 }
 
 .subIndex {
-  border-right: solid rgb(183, 119, 255) 3px;
     color: #fffffffb;
     transition-duration: 0.4s;
     font-family: "OSL";

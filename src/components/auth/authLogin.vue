@@ -5,9 +5,8 @@
               
                 <div class="wrap-login100">
                   <div class="headerSelect">
-                  <span>GTA CITY
-                    <span style="font-size: 11px;color: #c5c5c5;font-weight: 500;">Bilgilerini girerek oyun sunucusuna giriş yapabilirsin.</span>
-                  </span><img style="width: 40px;" src="./assets/image/dclogo.png"></div>
+                  <span><img style="width: 50px;" src="./assets/image/dclogo.png">
+                  </span></div>
                   <div class="p-l-55 p-r-55 p-b-54">
                   <form class="login100-form validate-form" id="auth-form" @submit.prevent="add()">
 
@@ -20,8 +19,6 @@
                             <div class="label-input100" style="color: #fff;"><i style="margin-right: 4px;" class="fa-solid fa-lock"></i> Şifre</div>
                             <input id="loginPass" class="input100" type="password" placeholder="Şifrenizi girin" v-model="password">
                             <div class="focus-input100"></div>
-                        </div>
-                        <div class="text-right p-t-8 p-b-31">
                         </div>
                         <b style="display: none;"><a @click="register()" style="color: rgb(209, 209, 209); text-decoration:none">Don't have an account yet? Register now</a><br></b>
                         <br>
@@ -228,17 +225,16 @@ html {
   color: #fff;
     font-family: "OSL";
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     font-family: Poppins-Regular, sans-serif;
     border-bottom: 0px solid black;
     font-weight: 600;
     text-align: center;
     font-size: 16px;
-    background: -webkit-linear-gradient(right, rgb(149 0 0), rgb(171 0 0));
+    background: #b53434;
     padding: 1vw;
-    padding-bottom: 0.5vw;
-    padding-top: 0.7vw;
+    padding-bottom: 0.2vw;
+    padding-top: 0.2vw;
     text-align: left;
     margin-bottom: 2vw;
 }
@@ -402,7 +398,7 @@ iframe {
 [ login ]*/
 
 .container-login100 {
-  opacity: 0.78;
+  opacity: 1;
   width: 100%;
   min-height: 120vh;
   display: flex;
@@ -439,16 +435,10 @@ iframe {
   width: 500px;
   border-left: none;
   border-right: none;
-  background: -webkit-linear-gradient(
-    right,
-    rgba(1, 1, 1, 0.651),
-    rgba(10, 10, 10, 0.944)
-  );
+  background: #373737;
   overflow: hidden;
+  border-radius: 6px;
   margin-top: -10vw;
-  --notchSize: 20px;
-  background-color: #000000ec;
-  background-image: url("./assets/image/diagmonds.png");
 }
 
 @keyframes fadein2 {
@@ -527,24 +517,25 @@ iframe {
 }
 
 .label-input100 {
-  background: #060606;
+  background: #252525;
     width: fit-content;
-    color: rgb(255, 255, 255);
+    color: rgb(207, 207, 207) !important;
     display: flex;
     align-items: center;
-    padding: 0px 4px;
-    margin-left: 5px;
-    border-radius: 10px 10px 0px 0px;
+    font-weight: bold;
+    padding: 2px 4px;
+    font-size:10px;
+    border-radius: 6px 6px 0px 0px;
 }
 
 .input100 {
   font-family: Poppins-Medium;
-  font-size: 16px;
+  font-size: 14px;
   color: #ffffff;
   line-height: 1.2;
   display: block;
-  background: #0a0a0a;
-    border-radius: 6px;
+  background: #252525;
+    border-radius: 0px 6px 6px 6px;
   width: 100%;
   height: 55px;
   padding: 0 7px 0 7px;
@@ -646,11 +637,7 @@ iframe {
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #850000;
-  background: -webkit-linear-gradient(right, #ca75ff, #dcabff);
-  background: -o-linear-gradient(right, #ca75ff, #dcabff);
-  background: -moz-linear-gradient(right, #ca75ff, #dcabff);
-  background: linear-gradient(right, #ca75ff, #dcabff);
+  background: #b53434;
   top: 0;
   left: -100%;
   -webkit-transition: all 0.4s;

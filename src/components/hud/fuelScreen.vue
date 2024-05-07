@@ -2,12 +2,12 @@
 <Transition name="slide-fade">
     <div v-if="showDisplay" class="displayBack" style="position:absolute;">
         <div class="liters">
-            <p class="subTextTitle">Liters</p>
-            <p><font class="digiFont" style="margin-left:3vw;">{{ liters }}</font></p>
+            <p class="subTextTitle">Lİtre</p>
+            <font class="digiFont" style="padding: 1px 4px;">{{ liters }}</font>
         </div>
         <div class="salePrice" style="margin-top:0.5vw;">
-            <p class="subTextTitle">Sale $</p>
-            <p><font class="digiFont" style="margin-left:3vw;">{{ formatNum(salePrice) }}</font></p>
+            <p class="subTextTitle">Fİyat</p>
+            <font class="digiFont" style="    padding: 1px 4px;color: rgb(43 167 53);">${{ formatNum(salePrice) }}</font>
         </div>
     </div>
 </Transition>
@@ -74,9 +74,8 @@ export default {
   }
 
 .displayBack {
-    background-color: rgba(128, 128, 128, 0.711);
-    width: 18%;
-    text-align: center;
+
+    width: 10%;
     margin-top: 28vw;
     min-height: 4vw;
     border-radius: 10px;
@@ -86,24 +85,26 @@ export default {
 
 .digiFont {
     font-family: "digital-counter-7", sans-serif;
-    font-size: 20px;
-    font-weight: 680;
-    color:rgba(0, 0, 0, 0.616);
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    font-weight: 500;
+    color:rgb(223, 223, 223);
 }
 
 .subTextTitle {
-    background-color: rgba(0, 0, 0, 0.603);
+    background-color: rgb(193 67 67);
     color:white;
-    width: 30%;
-    height: inherit;
-    position: absolute;
-    border-radius: 10px 5px 0px;
-    line-height: 2vw;
+    border-radius: 5px 5px 0px 0px;
+    font-family: 'Archivo Black';
+    font-weight: 600;
+    padding: 0px 3px;
+    text-transform: uppercase;
 }
 
 .liters, .salePrice {
-    height: 2vw;
-    background-color: rgba(90,96,84, 0.8);
-    border-radius: 10px;
+    background-color: rgb(49 49 49);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
 </style>
