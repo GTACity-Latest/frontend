@@ -1,7 +1,7 @@
 <template>
         <div id="header" style="user-select: none;">
           <h1></h1>
-          <div class="container-login100" style="overflow-x: hidden; overflow-y: hidden;">
+          <div class="container-login100" style="overflow-x: hidden;opacity: 1; overflow-y: hidden;">
             <div class="listMenu">
                 <menu-button :menu="'list'" style="position: absolute;color: rgb(255, 255, 255);width: 650px;display: flex;font-size: 16px;margin-top: 8px;padding-right: 12px;justify-content: flex-end;"></menu-button>
                 <div style="text-transform: uppercase;" class="head1"><i :class="name.icon"></i> {{ name.name }}<a></a><p style="margin-top: -8px;text-transform: none;color: #976464;font-size: 12px;">{{name.subText}}</p></div>

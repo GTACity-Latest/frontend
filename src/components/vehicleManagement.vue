@@ -1,15 +1,15 @@
 <template>
     <div>
-        <div class="uiBase" style="position:absolute; margin-left:1vw; margin-top:16vw; background-color:transparent; background-image: url('...');" :style="{ 'width': browsingType === 'home' ? 17+'vw' : 25+'vw', 'height': baseMenuHeight}">
-            <menuButton style="position:absolute;" :style="{'margin-left': browsingType === 'home' ? 15.7+'vw' : 23.6+'vw'}"/>
-            <h2 class="textHeader" style="background-color: #000000b1; background-image: url('../assets/img/diagmonds.png');"><i class="fa-solid fa-car"></i> {{ browsingType === 'home' ? 'Management' : browsingType }}<p>For your vehicle {{formatName(JSON.parse(vehicleData[0].vehicleData).modelName)}} [{{JSON.parse(vehicleData[0].vehicleData).plate}}]</p></h2>
+        <div class="uiBase" style="position:absolute; margin-left:1vw; margin-top:16vw; background-color:transparent;height:fit-content;width: fit-content; background-image: url('...');">
+            <h2 class="textHeader" style="display: flex;align-items: center;justify-content: space-between;"><span><i style="margin-top:1px;" class="fa-solid fa-car"></i> {{ browsingType === 'home' ? 'Araç Yönetimi' : browsingType }}
+                <p style="text-transform: none;color: #e1e1e1;font-size: 12px;margin-top: -5px;">{{formatName(JSON.parse(vehicleData[0].vehicleData).modelName)}} [{{JSON.parse(vehicleData[0].vehicleData).plate}}]</p></span><menuButton style="margin-left:50px;" /></h2>
             <div v-if="browsingType === 'home'">
-                <ul class="navOne" style="width:17vw;">
-                    <li class="navTwo" style="text-align:center; background-color:rgba(0, 0, 0, 0.628); padding:0.3vw;"><a @click="browsingType='Vehicle Keys'"><i class="fa-solid fa-key"></i> Vehicle Keys</a></li>
-                    <li class="navTwo" style="text-align:center; margin-top:0.5vw; background-color:rgba(0, 0, 0, 0.628); padding:0.3vw;"><a @click="browsingType='Vehicle Location'"><i class="fa-sharp fa-solid fa-location-dot"></i> Vehicle Location</a></li>
-                    <li class="navTwo" style="text-align:center; margin-top:0.5vw; background-color:rgba(0, 0, 0, 0.628); padding:0.3vw;"><a @click="browsingType='Vehicle Stats'"><i class="fa-solid fa-list"></i> Vehicle Stats</a></li>
-                    <li class="navTwo" style="text-align:center; margin-top:0.5vw; background-color:rgba(0, 0, 0, 0.628); padding:0.3vw;"><a @click="browsingType='Sell Vehicle'"><i class="fa-solid fa-dollar-sign"></i> Sell Vehicle</a></li>
-                    <button @click="listReturn()" class="modButton" style="opacity:0.8; margin-top:0.5vw; width:17vw;">Back to list</button>
+                <ul class="navOne" style="width: 100%;margin-top: 0px;padding: 6px;background: #555555;width: 100%;">
+                    <li class="navTwo"><a @click="browsingType='Vehicle Keys'"><i class="fa-solid fa-key"></i> Araç Anahtarları</a></li>
+                    <li class="navTwo" ><a @click="browsingType='Vehicle Location'"><i class="fa-sharp fa-solid fa-location-dot"></i> Araç Konumu</a></li>
+                    <li class="navTwo" ><a @click="browsingType='Vehicle Stats'"><i class="fa-solid fa-list"></i> Araç Bilgileri</a></li>
+                    <li class="navTwo" ><a @click="browsingType='Sell Vehicle'"><i class="fa-solid fa-dollar-sign"></i> Aracı Sat</a></li>
+                    <button @click="listReturn()" class="modButton">Geri Dön</button>
                 </ul>
             </div>
             <div v-if="browsingType === 'Vehicle Keys'">
@@ -266,13 +266,59 @@ export default {
 </script>
 
 <style scoped>
-
-.navTwo:hover {
-    color: rgb(141, 255, 141);
+.uiBase{
+    position: absolute;
+    margin-left: 1vw;
+    margin-top: 16vw;
+    width: 17vw;
+    height: 19vw;
+    clip-path: none;
+    border: none;
+    opacity: 1;
+}
+.textHeader {
+    background: #bf4c4c;
+    font-family: 'Archivo Black';
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 1px 5px;
+    margin: 0px;
+    border-radius: 3px 3px 0px 0px;
+}
+.navOne {
+    border-radius: 0px 0px 4px 4px;
+    height:fit-content;
+}
+.navTwo {
+    font-family: 'Poppins-Medium';
+    background-color: rgb(45 45 45);
+    padding: 2px 7px;
+    font-size: 14px;
+    margin-bottom:5px;
+    border: none;
+    border-radius: 3px;
+    text-align: left;
 }
 
+.navTwo:hover {
+    color: #bf4c4c;
+    cursor: pointer;
+}
+.modButton {
+    opacity: 0.8;
+    margin-top: 0.5vw;
+    /* width: 17vw; */
+    width: 100%;
+    clip-path: none;
+    border: none;
+    background: #bf4c4c;
+    padding: 2px;
+    font-family: 'Poppins-Medium';
+    font-weight: 500;
+    font-size: 12px;
+}
 .modButton:hover {
-    border-top: solid 6px rgb(141, 255, 141);
+    background: #6b1c1c;
 }
 
 td {
