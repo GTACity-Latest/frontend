@@ -4,12 +4,12 @@
           <div class="container-login100" style="overflow-x: hidden;opacity: 1; overflow-y: hidden;">
             <div class="listMenu">
                 <menu-button :menu="'list'" style="position: absolute;color: rgb(255, 255, 255);width: 650px;display: flex;font-size: 16px;margin-top: 8px;padding-right: 12px;justify-content: flex-end;"></menu-button>
-                <div style="text-transform: uppercase;" class="head1"><i :class="name.icon"></i> {{ name.name }}<a></a><p style="margin-top: -8px;text-transform: none;color: #976464;font-size: 12px;">{{name.subText}}</p></div>
+                <div style="text-transform: uppercase;" class="head1"> {{ name.name }}<a></a><p style="margin-top: -8px;text-transform: none;color: #976464;font-size: 12px;">{{name.subText}}</p></div>
                         <div style="overflow:scroll;     height: 455px; overflow-x: hidden; margin-top:0vw">                     
                               <b v-for="lm in list" :key="lm.id">
                                 <div @click="clickHandler(lm.funcs, lm.id)" class="insert">
-                                  <button class="subIndex" style="float: left;">{{getIndex(lm.id)}}</button>
-                                  <b  style="font-size: 13px;color: #b7b7b7;margin-top: -1px;padding-left: 5px;display: flex;" v-html="lm.name"></b>
+                                  <button class="subIndex" style="float: left;width: 35px;">{{getIndex(lm.id)}}</button>
+                                  <b style="font-size: 13px;color: #b7b7b7;margin-top: -1px;padding-left: 5px;display: flex;" v-html="lm.name"></b>
                               </div>
                               </b>
                         </div>
@@ -130,12 +130,12 @@ th, tr {
     padding: 0px 7px;
     width: fit-content;
     border: none;
-    background: #3d3d3d;
+    background: #474747;
     margin-top: -2px;
 }
 .insert {
     /* background: -webkit-linear-gradient(right, #4b4b4b, #818181); */
-    background: black;
+    background: #292929;
     color: #fff;
     height: 29px;
     /* font-family: 'OSL'; */
