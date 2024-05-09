@@ -8,7 +8,7 @@
     </div>
     <div v-if="clickedIndices.length > 0" style="display:flex;align-items: center;margin-left:5px;justify-content: space-between;font-weight:bold;background: #b53434;text-transform: uppercase;color: white;width: 504px;padding-right:4px;border-radius: 4px 4px 0px 0px;">
       <div style="display: flex;height: 100%;">
-        <span @click="showInputField" class="tst" style="margin-right:0px;">BAŞKASINA AKTAR</span>
+        <span @click="handleConfirm" class="tst" style="margin-right:0px;">BAŞKA OYUNCUYA AKTAR</span>
         <span v-if="showSpan" style="display:flex;align-items: center;background: #1c1c1c;font-size: 13px;font-weight: 500;">
           <input style="    width: 41px;
     padding: 0px 0px 0px 3px;
@@ -133,9 +133,9 @@ export default {
       // Ayrıca burada istediğiniz işlemleri gerçekleştirin
       this.clickedIndices.forEach(x => {
         // esyaver fonksiyonunu çalıştırın ve givenId ve clickedId'yi geçirin
-        console.log('Test', x.id, this.givenId);
+        console.log('Test', x.id);
         if (window.mp) {
-        window.mp.trigger('esyaver', x.id, this.givenId);
+        window.mp.trigger('esyaver:client', x.id);
         }
       });
 

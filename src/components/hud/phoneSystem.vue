@@ -8,7 +8,7 @@
                     <div style="text-align:center; margin-left:.5vw; margin-right:.5vw;">
                         <div v-if="notifMsg && notifIcon" style="text-align:center;">
                             <div style="margin-top:.5vw; height:1vw; margin-right:vw; text-align:center; border-radius:20px;">
-                                <p style="color:white; border-radius:20px;" class="backdrop-blur-xl bg-white/30 ..."><i :class="notifIcon"></i> {{notifMsg}}</p>
+                                <p style="color:white; border-radius:20px;" class="backdrop-blur-xl bg-white/30 ..."><i :class="notifIcon"></i> </p>
                             </div>
                         </div>
                     </div>
@@ -18,7 +18,7 @@
                             <p style="border-radius:50%; background-color:rgba(95, 95, 95, 0.462); width:1vw; height:.5vw; width:.5vw; margin-top:.3vw; margin-left:.5vw; position:absolute;"></p>
                             <p style="border-radius:50%; background-color:rgba(95, 95, 95, 0.462); width:1vw; height:.5vw; width:.5vw; margin-top:.3vw;     margin-left: 5.6vw;position:absolute; border: solid 3px rgba(128, 128, 128, 0.497);"></p>
                             <div>
-                                <p style="color: white;position: absolute;margin-left: -2.3vw;font-size: 11px;margin-top: 1px;font-weight: 500;"><font>{{phoneData[0].time}}</font></p>
+                                <p style="color: white;position: absolute;margin-left: -2.3vw;font-size: 11px;margin-top: 1px;font-weight: 500;"><font>05:26</font></p>
                                 <p v-if="silentMode" style="color:white; position:absolute; margin-left:-1vw; font-size:13px; font-weight:600; color:orange;"><font><i class="fa-solid fa-bell-slash"></i></font></p>
                                 <p style="color:white; margin-left:7.9vw; font-size:12px;"><font><i class="fa-solid fa-battery-full"></i></font></p>
                             </div>
@@ -38,6 +38,11 @@
                             </div>
                             <div style="background-image:linear-gradient(to bottom right, rgb(8, 169, 255), rgb(29, 48, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-car" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
                                 <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Araçlar</p>
+                            </div>
+                        </div>
+                        <div class="apps" style="display:block;">
+                            <div @click="openApp('testApp')" style="text-align:center;background-image:linear-gradient(to bottom right, rgb(41, 8, 255), rgb(195, 29, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-building-columns" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
+                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Banka</p>
                             </div>
                         </div>
                     </div>
