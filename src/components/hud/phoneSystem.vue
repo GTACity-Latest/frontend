@@ -18,7 +18,7 @@
                             <p style="border-radius:50%; background-color:rgba(95, 95, 95, 0.462); width:1vw; height:.5vw; width:.5vw; margin-top:.3vw; margin-left:.5vw; position:absolute;"></p>
                             <p style="border-radius:50%; background-color:rgba(95, 95, 95, 0.462); width:1vw; height:.5vw; width:.5vw; margin-top:.3vw;     margin-left: 5.6vw;position:absolute; border: solid 3px rgba(128, 128, 128, 0.497);"></p>
                             <div>
-                                <p style="color: white;position: absolute;margin-left: -2.3vw;font-size: 11px;margin-top: 1px;font-weight: 500;"><font>05:26</font></p>
+                                <p style="color: white;position: absolute;margin-left: -2.3vw;font-size: 11px;margin-top: 1px;font-weight: 500;"><font>{{phoneData[0].time}}</font></p>
                                 <p v-if="silentMode" style="color:white; position:absolute; margin-left:-1vw; font-size:13px; font-weight:600; color:orange;"><font><i class="fa-solid fa-bell-slash"></i></font></p>
                                 <p style="color:white; margin-left:7.9vw; font-size:12px;"><font><i class="fa-solid fa-battery-full"></i></font></p>
                             </div>
@@ -26,24 +26,62 @@
                     </button>
 
                     <div v-if="appView === 'home'" class="homePage" style="margin-top:1vw;">
-                        <div class="apps" style=" text-align:center; display:block;">
+                        <div class="apps" style="display: flex;justify-content: flex-start;margin-left: 0.8vw;">
                             <div style="background-image:linear-gradient(to bottom right, rgb(255, 189, 8), rgb(255, 97, 29)); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:0vw;"><img src='./assets/safari.png'>
-                                <p style="color:white; margin-top: 0.5vw; font-weight:500; font-size:11px; text-align:center;">Safari</p>
+                                <p style="color:white;font-weight:500; font-size:11px; text-align:center;">Safari</p>
                                 </div>
-                                <div @click="openApp('banking')" style="background-image:linear-gradient(to bottom right, rgb(41, 8, 255), rgb(195, 29, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-building-columns" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Banka</p>
+                                <div @click="openApp('banking')" style="    text-align: center;background-image:linear-gradient(to bottom right, rgb(41, 8, 255), rgb(195, 29, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-building-columns" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
+                                <p style="color:white; margin-top:.4vw; font-weight:500; font-size:11px; text-align:center;">Banka</p>
                             </div>
                             <div @click="openApp('settings')" style="background-color:rgb(150, 150, 150); width:2.4vw; height:2.4vw; border-radius:10px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><img src='./assets/settings.png'>
-                                <p style="color:white;    margin-top: 0.5vw; font-weight:500; font-size:11px; text-align:center;">Ayarlar</p>
+                                <p style="color:white;font-weight:500; font-size:11px; text-align:center;">Ayarlar</p>
                             </div>
-                            <div style="background-image:linear-gradient(to bottom right, rgb(8, 169, 255), rgb(29, 48, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-car" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Araçlar</p>
+                            <div style="    text-align: center;background-image:linear-gradient(to bottom right, rgb(8, 169, 255), rgb(29, 48, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-car" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
+                                <p style="color:white; margin-top:.4vw; font-weight:500; font-size:11px; text-align:center;">Araçlar</p>
                             </div>
                         </div>
-                        <div class="apps" style="display:block;">
-                            <div @click="openApp('testApp')" style="text-align:center;background-image:linear-gradient(to bottom right, rgb(41, 8, 255), rgb(195, 29, 255)); width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:1vw;"><i class="fa-solid fa-building-columns" style="font-size:1.4vw; margin-top:.4vw; color:rgb(255, 255, 255);"></i>
-                                <p style="color:white; margin-top:.8vw; font-weight:500; font-size:11px; text-align:center;">Banka</p>
+                        <div class="apps" style="display: flex;justify-content: flex-start;margin-left: 0.8vw;margin-top:1.2vw;">
+                            <div @click="openApp('testApp')" class="huhu" style="text-align:center; width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:0vw;"><Icon icon="emojione:cat-face" width="2.0vw"  style="margin-left: 3px;margin-top: 2px;" />
+                                <p style="color:white; margin-top:.5vw; font-weight:500; font-size:11px; text-align:center;">Catty</p>
                             </div>
+                        </div>
+                    </div>
+
+                    <div v-if="appView === 'testApp'" class="testapp" style="    margin-top: 5px;">
+                        <div v-if="subView === 'testHome' || !matched">
+                        <span style="    display: flex;align-items: center;    margin: 0px 18px;background: #cbcbcb;padding: 3px;font-weight: bold;color: rgb(76, 83, 89);width: fit-content;border-radius: 4px;">
+                            <Icon icon="emojione:cat-face" width="2vw"  style="padding:3px;border-radius:3px;margin-left: 3px;margin-top: 2px;" />
+                            <span style="padding: 0.3vw;margin-top: 2px;margin-right: 2px;border-radius: 3px;font-size:23px;">Catty</span>
+                        </span>
+                        <span style="margin: 8px 20px;display: flex;font-size: 10px;font-weight: bold;color: #4c5359;">Catty'e hoş geldin! Hemen şimdi cinsiyet tercihi yapıp rastgele insanlarla mesajlaşmaya başlayabilirsin!</span>
+                        <span style="    padding: 1vw;
+    font-size: 11px;
+    width: 100%;
+    display: flex;">
+                            <input style="    width: 100%;
+    border-radius: 3px;
+    padding: 4px;
+    background: #cbcbcb;
+    font-weight: bold;" type="text"  placeholder="Rumuz belirle">
+    
+    <select style="    background: #4b4b4b;
+    color: #cbcbcb;
+    font-weight: bold;    border-radius: 0px 3px 3px 0px;" name="gender" id="gender-select">
+    <option value="">Cinsiyetini seç</option>
+    <option value="male">Erkek</option>
+    <option value="female">Kadın</option>
+    </select></span>
+    <span style="    padding: 1vw;font-size: 11px;width: 100%;display: flex;margin-top: -1.5vw;">
+        <select style="background: #4b4b4b;color: #cbcbcb;font-weight: bold;border-radius: 3px;padding: 4px;width: 100%;" name="gender" id="gender-select">
+            <option value="">Eşleşmek istediğin cinsiyeti seç</option>
+            <option value="male">Erkek</option>
+            <option value="female">Kadın</option>
+            <option value="both">İkisi de</option>
+        </select>
+    </span>
+    <span style="    padding: 1vw;font-size: 11px;width: 100%;display: flex;margin-top: -1.5vw;">
+        <button class="btn">EŞLEŞ</button>
+    </span>
                         </div>
                     </div>
 
@@ -315,6 +353,7 @@
 </template>
 
 <script>
+import { Icon } from '@iconify/vue2';
 import loadingSpinner from '../loadingSpinner.vue';
 import { mapGetters } from 'vuex';
 
@@ -347,7 +386,8 @@ export default {
         ...mapGetters({ phoneRecents: 'getPhoneRecents' }),
     },
     components: {
-        loadingSpinner
+        loadingSpinner,
+        Icon
     },
     watch: {
         settingsData(oldType) {
@@ -426,6 +466,17 @@ export default {
                         'margin-top': "17.5vw",
                     }
                     this.appView = 'settings';
+                    break;
+                }
+                case 'testApp':
+                {
+                    this.phoneOpen = {
+                        'background-color': '#e3e3e3',
+                        'background-image': 'none',
+                        'margin-top': "17.5vw",
+                    }
+                    this.appView = 'testApp';
+                    this.subView = 'testHome';
                     break;
                 }
                 case 'phone':
@@ -535,6 +586,19 @@ export default {
 </script>
 
 <style scoped>
+.btn {
+    background: rgb(203 203 203);color: rgb(75 75 75);font-size: 17px;font-weight: bold;border-radius: 3px;padding: 4px;width: 100%;
+}
+.btn:hover {
+    background: rgb(100, 100, 100);color: rgb(216, 216, 216);
+}
+.huhu {
+    background:white;
+}
+.huhu:hover {
+    background: rgb(180, 180, 180);
+    transition: 0.5s;
+}
 
 * {
     transition-duration: .4s;
@@ -589,9 +653,6 @@ textarea:focus, input:focus{
 
   .phoneInput::after {
     color: #ffffff;
-  }
-
-  .phoneInput::before {
   }
 
   .confirmBtn:hover {

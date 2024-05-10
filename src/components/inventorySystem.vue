@@ -1,6 +1,10 @@
 <template>
-<div>
-  <div style="    position: absolute;display: flex;width: 100%;flex-direction: column;margin-left:auto;margin-top: 8vw;margin-left: 25%;">
+<div style="    display: flex;
+    justify-content: center;">
+  <div style="    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10vw;">
     <div style="    display: flex;">
     <div style="display:flex;align-items: center;justify-content: space-between;font-family: 'Archivo Black';background: #b53434;text-transform: uppercase;color: white;width: 284px;padding:4px;border-radius: 4px 4px 0px 0px;">
       <span>{{ hudInfo[0].cityName }}</span>
@@ -20,6 +24,7 @@
     color: rgb(129, 129, 129);" type="text" v-model="givenId" placeholder="ID">
           <span @click="handleConfirm" style="    background: #44893c;color: #e3e3e3;padding: 6px;margin-left: 3px;font-family: 'Archivo Black';font-weight: bold;">ONAYLA</span>
         </span>
+        <span @click="deleteItem" class="tst" style="margin-left:4px;margin-right:0px;">SİL</span>
       </div>
       <span style="font-family: Poppins-Medium;color: #c98181;font-weight:normal;text-transform:none;font-size:13px;">Seçili: {{ clickedIndices.length }}/{{ inventoryItems.length }}</span>
     </div>
@@ -139,11 +144,23 @@ export default {
         }
       });
 
+      
+      mapGetters({inventoryItems: 'inventoryList'});
       this.showSpan = false;
 
       
       // Diğer işlemler için bir fonksiyon çağırabilirsiniz
       // Örneğin: this.confirmAction();
+    },
+    deleteItem() {
+      this.clickedIndices.forEach(x => {
+        // esyaver fonksiyonunu çalıştırın ve givenId ve clickedId'yi geçirin
+        console.log('Test', x.id);
+        if (window.mp) {
+        window.mp.trigger('esyasil:client', x.id);
+        }
+      });
+      mapGetters({ inventoryItems: 'inventoryList'});
     }
   }
 }
