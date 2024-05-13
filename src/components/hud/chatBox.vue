@@ -1,7 +1,7 @@
 <template>
-  <div v-if="hudState">
+  <div :class="{ 'ssmod-active': isSsmodActive }" v-if="hudState">
     <div v-if="showChat" id="chat" ref="chatContainer">
-      <ul id="chat_messages" :class="{ 'ssmod-active': isSsmodActive }" ref="messageList">
+      <ul id="chat_messages" ref="messageList">
         <li style="    word-break: break-all;" v-for="(item, message) in reversedMessages" :key="'B' + message" v-html="item.toString()">
         </li>
       </ul>
@@ -294,7 +294,10 @@ export default {
 
   <style scoped>
   .ssmod-active {
-    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: black;
   }
 *,
 body,

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="uiBase" style="position:absolute; margin-left:1vw; margin-top:16vw; background-color:transparent;height:fit-content;width: fit-content; background-image: url('...');">
+        <div class="uiBase" style="position:absolute; margin-left:1vw; margin-top:16vw; background-color:transparent;height:fit-content;    width: 308px;background-image: url('...');">
             <h2 class="textHeader" style="display: flex;align-items: center;justify-content: space-between;"><span><i style="margin-top:1px;" class="fa-solid fa-car"></i> {{ browsingType === 'home' ? 'Araç Yönetimi' : browsingType }}
                 <p style="text-transform: none;color: #e1e1e1;font-size: 12px;margin-top: -5px;">{{formatName(JSON.parse(vehicleData[0].vehicleData).modelName)}} [{{JSON.parse(vehicleData[0].vehicleData).plate}}]</p></span><menuButton style="margin-left:50px;" /></h2>
             <div v-if="browsingType === 'home'">
@@ -13,113 +13,91 @@
                 </ul>
             </div>
             <div v-if="browsingType === 'Vehicle Keys'">
-                <div style="background-color:rgba(0, 0, 0, 0.428); padding:0.3vw; border-radius:10px">
+                <div style="background-color:rgb(63 63 63); padding:0.3vw;     border-radius: 0px 0px 5px 5px;">
                     <div v-if="!keyAdd" style="overflow:scroll; height:12vw; overflow-x: hidden; margin-top:0vw">
-                        <b v-for="key in keyHolders" :key="key.id">
+                        <b v-for="key in keyHolders" :key="key.id" >
                             <div class="insert">
-                              <button class="subIndex" style="float: left; width:3.5vw;">#{{key.id}}</button><b>{{key.nickName}}</b><button @click="deleteKey(key.id)" class="modButton delete" style="float: right; line-height:1.5vw; height:3vw; width:5vw; border-top: solid 4px red;"><i class="fa-solid fa-trash" style="color:red;"></i></button>
+                              <button class="subIndex" style="float: left;">#{{key.id}}</button><span style="    font-size: 13px;position: absolute;margin-left: 4px;margin-top: -1px;">{{key.nickName}}</span>
+                              <button @click="deleteKey(key.id)" style="float: right;font-size:13px;    color: #bf4c4c;font-weight:bold;">Geri al</button>
                           </div>
                         </b>
+
                         <b v-if="!keyHolders || keyHolders.length == 0">
                             <div style="text-align:center">
-                                <p style="color:white; padding:1vw; font-size:15px; font-weight:100;">You have not given this vehicle's keys to anyone yet.</p>
+                                <p style="color:white; padding:1vw; font-size: 13px; font-weight:100;">Aracınızın anahtarı kimsede bulunmuyor.</p>
                             </div>
                         </b>
                     </div>
                     <div v-if="keyAdd">
                         <div style="text-align:center;">
-                            <p style="color:white">Giving a player your vehicle's keys allows them to unlock the vehicle. You can remove their access at any time via vehicle keys sub menu.</p>
+                            <p style="color:white;font-size: 13px;">İstediğin zaman verdiğin anahtarı geri alabilirsin.</p>
                         </div>
-                        <div style="border-bottom: solid rgba(255, 255, 255, 0.311) 2px;">
-                            <input class="input100" maxlength="15" placeholder="Player ID" style="border-bottom: solid rgba(255, 255, 255, 0.311) 1px;" v-model="keyUserId">
+                        <div style="">
+                            <input class="input100" maxlength="15" placeholder="Oyuncu ID" v-model="keyUserId">
                         </div>
-                        <div style="border-bottom: solid rgba(255, 255, 255, 0.311) 2px;">
-                            <input class="input100" maxlength="30" placeholder="Nickname" style="border-bottom: solid rgba(255, 255, 255, 0.311) 1px;" v-model="keyNickName">
+                        <div style="">
+                            <input class="input100" maxlength="30" placeholder="Karakter Adı"  v-model="keyNickName">
                         </div>
                     </div>
                     <div v-if="!keyAdd" style="text-align:center; margin-top:0.5vw;">
-                        <button @click="keyAdd = true" class="modButton" style="border-top:none;">Give keys to player</button>
-                        <button @click="browsingType = 'home'" class="modButton" style="margin-left:1vw; border-top:none;">Go Back</button>
+                        <button @click="keyAdd = true" class="modButton" style="border-top:none;">Anahtar Ver</button>
+                        <button @click="browsingType = 'home'" class="modButton" style="margin-top:3px;border-top:none;">Geri Dön</button>
                     </div>
-                    <div v-else style="text-align:center; margin-top:0.5vw;">
-                        <button @click="addUserKey(keyUserId, keyNickName)" class="modButton" style="border-top:none;">Confirm Selection</button>
-                        <button @click="keyAdd = false" class="modButton" style="margin-left:1vw; border-top:none;">Go Back</button>
+                    <div v-else style="text-align:center; margin-top:0.2vw;">
+                        <button @click="addUserKey(keyUserId, keyNickName)" class="modButton" style="border-top:none;">Onayla</button>
+                        <button @click="keyAdd = false" class="modButton" style="border-top:none;">Geri Dön</button>
                     </div>
                 </div>
             </div>
             <div v-if="browsingType === 'Vehicle Location'">
-                <div style="background-color:rgba(0, 0, 0, 0.428); padding:0.3vw; border-radius:10px">
+                <div style="background-color:rgb(63 63 63); padding:0.3vw;     border-radius: 0px 0px 5px 5px;">
                     <div v-if="JSON.parse(vehicleData[0].vehicleData).spawned == 1" style="text-align:center; margin-top:0.5vw;">
-                        <p style="color:white; padding:1vw; font-size:15px; ">Your vehicle was found in the world you can reveal its location by pinging it below.</p>
-                        <button @click="pingVehicleLocation()" class="modButton" style="border-top:none;">Ping Location</button>
-                        <button @click="browsingType = 'home'" class="modButton" style="margin-left:1vw; border-top:none;">Go Back</button>
+                        <p style="color:white; padding:4px; font-size:13px; ">Aracın dışarıda, aşağıdaki butondan yerini görüntüleyebilirsin.</p>
+                        <button @click="pingVehicleLocation()" class="modButton" style="border-top:none;">Haritada İşaretle</button>
+                        <button @click="browsingType = 'home'" class="modButton" style="margin-top:3px;border-top:none;">Geri Dön</button>
                     </div>
-                    <div v-else style="text-align:center;">
-                        <p style="color:white; padding:1vw; font-size:15px; ">Your vehicle could not be found check parking or the insurance.</p>
-                        <button @click="browsingType = 'home'" class="modButton" style="border-top:none;">Go Back</button>
+                    <div  style="text-align:center;">
+                        <p style="color:white; padding:4px; font-size:13px; ">Aracın garajda veya sigorta şirketinde.</p>
+                        <button @click="browsingType = 'home'" class="modButton" style="border-top:none;">Geri Dön</button>
                     </div>
                 </div>
             </div>
             <div v-if="browsingType === 'Vehicle Stats'">
-                <div style="background-color:rgba(0, 0, 0, 0.428); padding:0.3vw; border-radius:10px;">
-                    <div v-if="!showPerformance">
+                <div style="background-color:rgb(63 63 63); padding:0.3vw;     border-radius: 0px 0px 5px 5px;">
+                    <div>
                     <div class="insert">
-                        <b><font style="float:left; margin-left:1vw;">Fuel Level</font> <font style="float:right; margin-right:1vw;">{{Math.trunc(JSON.parse(vehicleData[0].vehicleData).fuelLevel)}}%</font></b>
-                    </div>
-                    <div class="insert">
-                        <b><font style="float:left; margin-left:1vw;">Distance Travelled</font> <font style="float:right; margin-right:1vw;">{{Math.floor(JSON.parse(vehicleData[0].vehicleData).distance)}}KM</font></b>
+                        <button class="subIndex" style="float: left;">Benzin</button><span style="    font-size: 13px;position: absolute;margin-left: 4px;margin-top: -1px;">{{Math.trunc(JSON.parse(vehicleData[0].vehicleData).fuelLevel)}}%</span>
                     </div>
                     <div class="insert">
-                        <b><font style="float:left; margin-left:1vw;">Last Active</font> <font style="float:right; margin-right:1vw;">{{timeFormat(JSON.parse(vehicleData[0].vehicleData).lastActive)}}</font></b>
+                        <button class="subIndex" style="float: left;">Kilometre</button><span style="    font-size: 13px;position: absolute;margin-left: 4px;margin-top: -1px;">{{Math.floor(JSON.parse(vehicleData[0].vehicleData).distance)}}KM</span>
                     </div>
                     <div class="insert">
-                        <b><font style="float:left; margin-left:1vw;">Creation Date</font> <font style="float:right; margin-right:1vw;">{{timeFormat(JSON.parse(vehicleData[0].vehicleData).createdAt)}}</font></b>
+                        <button class="subIndex" style="float: left;">Son Aktivite</button><span style="    font-size: 13px;position: absolute;margin-left: 4px;margin-top: -1px;">{{timeFormat(JSON.parse(vehicleData[0].vehicleData).lastActive)}}</span>
                     </div>
+                    <div class="insert">
+                        <button class="subIndex" style="float: left;">Trafiğe Çıkış Tarihi</button><span style="    font-size: 13px;position: absolute;margin-left: 4px;margin-top: -1px;">{{timeFormat(JSON.parse(vehicleData[0].vehicleData).createdAt)}}</span>
                     </div>
-
-                    <div v-if="showPerformance && vPerformance.length > 0">
-                        <p style="color:white; margin-left:1vw; margin-top:0vw; font-weight:600;">Engine</p>
-                        <div style="background-color:rgb(0, 0, 0); margin-left:1vw; margin-right:1vw; border-radius:10px;">
-                            <div style="padding:0.5vw; margin-top:0.4vw; border-radius:10px; max-width:100%;" :style="{ 'width': vPerformance[0].engine+'%', 'background-color': 'rgba(183, 119, 255, 0.69)' }"> <p style="text-align:center; color:white;">{{vPerformance[0].engine}}%</p></div>
-                        </div>
-                        <p style="color:white; margin-left:1vw; margin-top:0.6vw; font-weight:600;">Acceleration</p>
-                        <div style="background-color:rgb(0, 0, 0); margin-left:1vw; margin-right:1vw; border-radius:10px;">
-                            <div style="padding:0.5vw; margin-top:0.4vw; border-radius:10px; max-width:100%;" :style="{ 'width': vPerformance[0].acceleration+'%', 'background-color': 'rgba(183, 119, 255, 0.69)' }"> <p style="text-align:center; color:white;">{{vPerformance[0].acceleration}}%</p></div>
-                        </div>
-                        <p style="color:white; margin-left:1vw; margin-top:0.6vw; font-weight:600;">Brakes</p>
-                        <div style="background-color:rgb(0, 0, 0); margin-left:1vw; margin-right:1vw; border-radius:10px;">
-                            <div style="padding:0.5vw; margin-top:0.4vw; border-radius:10px; max-width:100%;" :style="{ 'width': vPerformance[0].brakes+'%', 'background-color': 'rgba(183, 119, 255, 0.69)' }"> <p style="text-align:center; color:white;">{{vPerformance[0].brakes}}%</p></div>
-                        </div>
-                        <p style="color:white; margin-left:1vw; margin-top:0.6vw; font-weight:600;">Top Speed</p>
-                        <div style="background-color:rgb(0, 0, 0); margin-left:1vw; margin-right:1vw; border-radius:10px;">
-                            <div style="padding:0.5vw; margin-top:0.4vw; border-radius:10px; max-width:100%;" :style="{ 'width': vPerformance[0].topSpeed+'%', 'background-color': 'rgba(183, 119, 255, 0.69)' }"> <p style="text-align:center; color:white;">{{vPerformance[0].topSpeed}}%</p></div>
-                        </div>
-                    </div>
-
-                    <div v-else-if="showPerformance && vPerformance.length == 0">
-                        <p style="color:white;">This vehicle's performance stats were not found in the database.</p>
                     </div>
 
                     <div style="text-align:center; margin-top:0.8vw;">
-                        <button @click="showPerformance ? showPerformance = false : browsingType = 'home'" class="modButton" style="border-top:none; margin-right:1vw;">Go Back</button>
-                        <button v-if="!showPerformance" @click="loadPerformanceData(), showPerformance = true" class="modButton" style="border-top:none;">More Stats</button>
+                        <button @click="showPerformance ? showPerformance = false : browsingType = 'home'" class="modButton" style="border-top:none; margin-right:1vw;">Geri Dön</button>
                     </div>
                 </div>
             </div>
             <div v-if="browsingType === 'Sell Vehicle'">
-                <div style="background-color:rgba(0, 0, 0, 0.428); padding:0.3vw; border-radius:10px">
+                <div style="background-color:rgb(63 63 63); padding:0.3vw;     border-radius: 0px 0px 5px 5px;">
                     <div style="text-align:center">
-                        <p style="color:white">To sell this vehicle both you and the person you are selling it to must both be inside of it.</p>
+                        <p style="color:white">Aracı satacağınız kişi ve kendiniz aracın içinde olmalısınız.</p>
                     </div>
-                    <div style="border-bottom: solid rgba(255, 255, 255, 0.311) 2px;">
-                        <input class="input100" maxlength="15" placeholder="Player ID" v-model="keyUserId">
+                    <div style="">
+                        <input class="input100" maxlength="15" placeholder="Oyuncu ID" v-model="keyUserId">
                     </div>
-                    <div style="border-bottom: solid rgba(255, 255, 255, 0.311) 2px;">
-                        <input class="input100" maxlength="15" placeholder="Enter a price" v-model="vehicleSellPrice">
+                    <div style="">
+                        <input class="input100" maxlength="15" placeholder="Fiyat" v-model="vehicleSellPrice">
                     </div>
                     <div style="text-align:center; margin-top:1vw;">
-                        <button @click="browsingType = 'home'" class="modButton" style="border-top:none; margin-right:1vw;">Go Back</button>
-                        <button @click="sellVehicle(keyUserId)" class="modButton" style="border-top:none; margin-right:1vw;">Sell Vehicle</button>
+                        <button @click="browsingType = 'home'" class="modButton" style="border-top:none; margin-right:1vw;">Geri Dön</button>
+                        <button @click="sellVehicle(keyUserId)" class="modButton" style="border-top:none;margin-top:3px; margin-right:1vw;">Sat</button>
                     </div>
                 </div>
 
@@ -173,7 +151,7 @@ export default {
         if (userId.length == 0 || userId == -1 || userNick.length == 0 || userId.match(/\W/) || userNick.length > 15 || containsNumbers(userNick) || !containsNumbers(userId)) {
             global.gui.notify.clearAll();
             global.gui.notify.showNotification(
-                "Ensure that the confirmed selection credentials are valid.",
+                "Girmiş olduğun değerlerin doğru olduğundan emin ol.",
                 false,
                 true,
                 6000,
@@ -242,7 +220,7 @@ export default {
         if (userId.length == 0 || userId == -1 || userId.match(/\W/) || !containsNumbers(userId) || !containsNumbers(this.vehicleSellPrice) || this.vehicleSellPrice.match(/\W/)) {
             global.gui.notify.clearAll();
             global.gui.notify.showNotification(
-                "Ensure that the confirmed selection credentials are valid.",
+                "Girmiş olduğun değerlerin doğru olduğundan emin ol.",
                 false,
                 true,
                 6000,
@@ -266,6 +244,52 @@ export default {
 </script>
 
 <style scoped>
+.subIndex {
+    color: #fffffffb;
+    transition-duration: 0.4s;
+    font-family: "OSL";
+    font-family: 'Poppins-Regular';
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    float: left;
+    line-height: 29px;
+    margin-left: -6px;
+    padding: 0px 7px;
+    width: fit-content;
+    border: none;
+    background: #676767;
+    border-radius: 3px;
+    margin-top: -2px;
+}
+.insert {
+    /* background: -webkit-linear-gradient(right, #4b4b4b, #818181); */
+    background: #292929;
+    color: #fff;
+    height: 29px;
+    /* font-family: 'OSL'; */
+    font-family: "OSL";
+    font-family: 'Poppins-Regular';
+    font-weight: 400;
+    src: url(http://localhost:3000/fonts/OSL.36ff7a66.ttf) format("truetype");
+    margin-top: 4px;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: left;
+    margin-left: 4px;
+}
+.input100 {
+    height: fit-content;
+    border: none;
+    /* margin: 10px 0px; */
+    padding: 6px;
+    background: #252525;
+    font-size: 13px;
+    margin-top:3px;
+}
 .uiBase{
     position: absolute;
     margin-left: 1vw;
@@ -305,7 +329,7 @@ export default {
     cursor: pointer;
 }
 .modButton {
-    opacity: 0.8;
+    opacity: 1;
     margin-top: 0.5vw;
     /* width: 17vw; */
     width: 100%;
