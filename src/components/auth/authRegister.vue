@@ -520,16 +520,15 @@ iframe {
 
 .input100 {
   font-family: Poppins-Medium;
-  font-size: 16px;
-  color: #ffffff;
-  line-height: 1.2;
-  display: block;
-  background: #0a0a0a;
+    font-size: 16px;
+    color: #dbdbdb;
+    line-height: 1.2;
+    display: block;
+    background: #0a0a0a;
     border-radius: 6px;
-  width: 100%;
-  height: 55px;
-  background: transparent;
-  padding: 0 7px 0 7px;
+    width: 100%;
+    height: 55px;
+    background: #1e1e1e;
 }
 
 /*---------------------------------------------*/

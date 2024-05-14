@@ -153,6 +153,10 @@ export default {
           this.inputText = "/me dil çıkartır.";
         }
 
+        if (this.inputText === "31") {
+          this.inputText = "/me oturup ağlamaya başlar.";
+        }
+
         if (this.inputText === ":(") {
           this.inputText = "/me somurtur.";
         }

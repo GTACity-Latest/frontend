@@ -2,24 +2,14 @@
     <div class="limiter">
         <div>
         <div class="container-login100" style="user-select: none;">
-            <div class="wraps-login100" style="padding-bottom: 54px;">
-                <div class="banHeaderTxt"><i class="fa-sharp fa-solid fa-circle-exclamation"></i> Access Denied</div>
-                <div class="login100-form-title" v-for="bans in banInfo" :key="bans.id">
-                        <div class="inserts" style="overflow:scroll; height:27vw; overflow-x: hidden; margin-top: 1.5vw;">
-                            <div id="c1" class="character"><i class="fa-solid fa-user" style="color: rgb(177, 177, 177); float: left; margin-top: 0.5vw; margin-left: 0.3vw;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.1vw;"> Username </b><b id="cname1" style="float: right; margin-right: 2vw; margin-top: -0.1vw;"> {{banInfo[0].username}} </b>
-                            </div>
-                            <div id="c1" class="character"><i class="fa-solid fa-computer" style="color: rgb(177, 177, 177); float: left; margin-top: 0.5vw; margin-left: 0.3vw;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.1vw;"> IP Address </b><b id="cname1" style="float: right; margin-right: 2vw; margin-top: -0.1vw;"> {{replaceWithAsterisk(banInfo[0].IP)}} </b>
-                            </div>
-                            <div id="c1" class="character"><i class="fa-solid fa-user-group" style="color: rgb(177, 177, 177); float: left; margin-top: 0.5vw; margin-left: 0.3vw;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.1vw;"> Social Club </b><b id="cname1" style="float: right; margin-right: 2vw; margin-top: -0.1vw;"> {{banInfo[0].socialClub}} </b>
-                            </div>
-                            <div id="c1" class="character"><i class="fa-solid fa-book" style="color: rgb(177, 177, 177); float: left; margin-top: 0.5vw; margin-left: 0.3vw;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.1vw;"> Reason </b><b id="cname1" style="float: right; margin-right: 2vw; margin-top: -0.1vw;"> {{banInfo[0].reason}} </b>
-                            </div>
-                            <div id="c1" class="character"><i class="fa-solid fa-shield" style="color: rgb(177, 177, 177); float: left; margin-top: 0.5vw; margin-left: 0.3vw;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.1vw;"> Administrator </b><b id="cname1" style="float: right; margin-right: 2vw; margin-top: -0.1vw;"> {{banInfo[0].admin}} </b>
-                            </div>
-                            <div id="c1" class="character"><i class="fa-solid fa-calendar-days" style="color: rgb(177, 177, 177); float: left; margin-top: 0.5vw; margin-left: 0.3vw;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.1vw;"> Issue Date </b><b id="cname1" style="float: right; margin-right: 2vw; margin-top: -0.1vw;"> {{banInfo[0].issueDate}} </b>
-                            </div>
-                            <div id="c1" class="character"><i class="fa-solid fa-calendar-xmark" style="color: rgb(177, 177, 177); float: left; margin-top: 0.5vw; margin-left: 0.3vw;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.1vw;"> Expiry Date </b><b id="cname1" style="float: right; margin-right: 2vw; margin-top: -0.1vw;"> {{banInfo[0].liftTime}} </b>
-                            </div>
+            <div class="wraps-login100" style="    padding-bottom: 32px;
+">
+                <div class="banHeaderTxt"><i class="fa-sharp fa-solid fa-circle-exclamation"></i> SUNUCUDAN YASAKLISINIZ</div>
+                <div style="    margin-top: 21px;
+    color: #a7a7a7;
+    font-weight: bold;" class="">
+                        <div v-for="bans in banInfo" :key="bans.id"><span style="    color: white;">{{banInfo[0].username}}</span>, <span>{{banInfo[0].issueDate}}</span> tarihinde sunucudan <span style="    color: white;">{{banInfo[0].reason}}</span> sebebiyle <span style="    color: rgb(184 62 62);">{{banInfo[0].admin}}</span> tarafından <span style="    color: white;">{{banInfo[0].liftTime}}</span> süresine kadar yasaklandınız.
+                          <span> Yanlış bir işlem olduğunu düşünüyorsanız Forum üzerinden destek talebi oluşturabilirsiniz.</span>
                         </div>
                     </div>
                 </div>
@@ -97,79 +87,20 @@ html {
   background: #838383;
 }
 
-a {
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-size: 2vw;
-  line-height: 1.7;
-  color: #ffffff;
-  margin-left: 2vw;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  font-weight: 500;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-}
-
-a:focus {
-  outline: none !important;
-}
-
-a:hover {
-  text-decoration: none;
-  color: #a64bf4;
-}
-
 .banHeaderTxt {
-  color: #ff0000;
+  color: #f0f0f0;
   font-family: "OSL";
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
+  font-family: Archivo Black;
+  background: rgb(184, 62, 62);
   font-weight: 1000;
+  border-radius: 7px 7px 0px 0px;
+  font-size: 22px;
   text-align: center;
-  font-size: 30px;
-  background: -webkit-linear-gradient(
-    left,
-    rgba(10, 10, 10, 0.115),
-    rgba(1, 1, 1, 0.651)
-  );
-  padding: 0.7vw;
-  text-align: left;
-  border-bottom: solid #ff0000 3px;
-  box-shadow:0 0 30px #ff0000;
-}
-
-a::after {
-  content: "";
-  color: #ffffff;
-
-  width: 100%;
-  height: 0.2vw;
-  background: rgba(220, 171, 255, 20);
-
-  opacity: 0.5;
-  border-radius: 20px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-s {
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-size: 1vw;
-  line-height: 1.7;
-  color: #ffffff;
-  margin-left: 2vw;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  font-weight: 500;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-  text-decoration: none;
+  padding: 5px 10px;
   text-align: left;
 }
+
+
 
 s:focus {
   outline: none !important;
@@ -180,22 +111,6 @@ s:hover {
   color: #a64bf4;
 }
 
-s::after {
-  color: #ffffff;
-
-  width: 100%;
-  height: 0.2vw;
-  background: rgba(220, 171, 255, 20);
-
-  opacity: 0.5;
-  border-radius: 20px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-s {
-  position: relative;
-}
 
 /*---------------------------------------------*/
 
@@ -336,13 +251,12 @@ iframe {
 }
 
 .container-login100 {
-  opacity: 0.8;
+  opacity: 1;
   width: 100%;
-  min-height: 100vh;
   align-items: center;
   padding: 1px;
-  height: 20vw;
   user-select: none;
+  border-radius: 7px 7px 7px 7px;
   border: none;
   outline: none;
 }
@@ -352,43 +266,17 @@ iframe {
   outline: none;
 }
 
-.character {
-  background: -webkit-linear-gradient(right, #3b3b3b, #000000);
-  margin-left: 0.4vw;
-  color: #fff;
-  height: 2vw;
-  /*font-family: 'OSL';*/
-  border-radius: 10px;
-  font-family: "OSL";
-  font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-  font-weight: 500;
-  text-align: center;
-  margin-top: 1vw;
-  font-size: 1vw;
-  line-height: 2vw;
-  justify-content: center;
-}
 
 .wraps-login100 {
-  width: 25vw;
+  width: 635px;
   border-left: none;
   border-right: none;
-  border-top: solid #ff0000 5px;
-  border-right: solid rgba(255, 255, 255, 0.311) 2px;
-  border-left: solid rgba(255, 255, 255, 0.311) 2px;
-  background: -webkit-linear-gradient(
-    right,
-    rgba(1, 1, 1, 0.651),
-    rgba(10, 10, 10, 0.944)
-  );
-  height: 25vw;
   align-content: center;
+  border-radius: 7px 7px 7px 7px;
   float: center;
-  margin-left: 39vw;
   text-align: center;
   --notchSize: 20px;
-  background-color: #000000ec;
-  background-image: url("./assets/image/diagmonds.png");
+  background-color: #222222;
 
 }
 
@@ -427,5 +315,8 @@ iframe {
   margin-top: -2vw;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+.limiter {
+  justify-content: center;
 }
 </style>

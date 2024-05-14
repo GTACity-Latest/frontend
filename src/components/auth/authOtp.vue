@@ -490,7 +490,6 @@ iframe {
     border-radius: 6px;
   width: 100%;
   height: 55px;
-  background: transparent;
   padding: 0 7px 0 7px;
 }
 

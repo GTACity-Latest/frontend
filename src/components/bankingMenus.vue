@@ -1,12 +1,12 @@
 <template>
     <div style="position:absolute;">
-        <div v-if="bankType === 'atm'" class="uiBase" style="clip-path: none;margin-top:10vw; margin-left:38.7vw;border:none; background-color:rgba(0, 0, 0, 0); background-image:none; height:25vw;">
+        <div v-if="bankType === 'atm'" class="uiBase" style="opacity: 1;clip-path: none;margin-top:10vw; margin-left:38.7vw;border:none; background-color:rgba(0, 0, 0, 0); background-image:none; height:25vw;">
             <menuButton style="position:absolute; margin-left:21.5vw;" />
             <div class="textHeader" style="border:none;margin-bottom:0px;    background: rgb(67 167 79); text-align:center;border-radius: 5px 5px 0px 0px;"><i class="fa-solid fa-building-columns"></i> ATM</div>
             <div  style="    background-color: rgb(55 55 55); padding:0.5vw; color:white;border-radius: 0px 0px 5px 5px;">
                 <div v-if="atmData.length == 0" class="pinPad">
                     <div style="text-align:center; margin-bottom:1vw;">
-                        <div style="font-size:25px; background-color:rgba(0, 0, 0, 0.864); border-radius:10px;">{{pinNumbers.length == 0 ? "..." : pinNumbers.join("")}}</div>
+                        <div style="font-size:25px;    background-color: rgb(30 30 30); border-radius:10px;">{{pinNumbers.length == 0 ? "..." : pinNumbers.join("")}}</div>
                     </div>
                     <div style="display:inline-block; margin-bottom:2vw;">
                         <div>
@@ -53,7 +53,7 @@
                     </div>
                     <div v-else-if="!confirmScreen">
                         <p style="color:white;font-family:'Poppins-Medium'; font-size:15px; line-height:2vw; text-align:center; padding:10px;">Banka hesabında <font color="#118C4F">${{atmData[0].moneyAmount.toLocaleString('en-US')}}</font> bulunmakta.</p>
-                        <div style="border-bottom: solid rgba(255, 255, 255, 0.311) 2px;">
+                        <div style="">
                             <input class="input100" style="padding:10px;font-size:14px;height:fit-content;" maxlength="15" type="number" placeholder="Çekmek istediğin miktarı gir" v-model="enteredCash">
                         </div>
                         <div style="text-align:center;">
@@ -295,11 +295,22 @@ export default {
 * {
     transition: 1s;
 }
-
+.input100 {
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.2;
+    display: block;
+    background: #1e1e1e;
+    border-radius: 6px;
+    width: 100%;
+    height: 55px;
+    padding: 0 7px 0 7px;
+}
 .atmButton {
-    padding:1vw; background-color:rgba(0, 0, 0, 0.864); width:4vw; border-radius:10px;
+    padding:1vw;     background-color: rgb(30 30 30); width:4vw; border-radius:10px;
 }
 .atmButton:hover {
-    background-color: rgba(0, 0, 0, 0.307);
+    background-color: rgb(25 25 25);
 }
 </style>
