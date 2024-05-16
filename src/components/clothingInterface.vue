@@ -204,6 +204,12 @@ export default {
     },
     deep: true
   },
+  propData: {
+    handler(newData) {
+      console.log("propData:", newData);
+    },
+    deep: true
+  },
 
     // eslint-disable-next-line
     type(oldType, newType) {

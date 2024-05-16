@@ -42,7 +42,11 @@
         <div>
           <span style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Karakter</span>
           <div class="layout">
-
+            <div style="position: absolute;margin-left: 104px;margin-top: 96px;" class="kiyafets">ÜST</div>
+            <div style="position: absolute;margin-left: 90px;margin-top: 132px;" class="kiyafets">İÇ GİYİM</div>
+            <div style="position: absolute;margin-left: 83px;margin-top: 232px;" class="kiyafets">PANTOLON</div>
+            <div style="position: absolute;margin-left: 91px;margin-top: 412px;" class="kiyafets">AYAKKABI</div>
+              <img style="width: 83%;align-items: center;margin-left: 26px;margin-top: 12px;" src="./body.png">
           </div>
 
         </div>
@@ -168,6 +172,19 @@ export default {
 </script>
 
 <style>
+.kiyafets {
+  background: rgb(34, 34, 34);
+  padding: 3px 9px;
+  border-bottom: 2px solid;
+  color: rgb(218, 218, 218);
+  border-radius: 5px;
+  font-weight: bold;
+  font-size:13px;
+}
+.kiyafets:hover {
+  color: #c04343;
+  cursor:pointer
+}
 .tst {
     color: #dbdbdb;
     background: #6b1d1d;

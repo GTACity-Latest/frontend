@@ -3,15 +3,18 @@
     <div style="position: absolute;
   bottom:18px;
   left: 15.9vw;">
-    <div v-if="protectedArea" style="margin-top:5px;background: rgb(93 161 87);border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
-    <div style="margin-top:5px;background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(35, 150, 0) 0%, rgba(0, 0, 0, 0) 100%);border-left: 3px solid #047a00;" class="cont"><Icon icon="f7:wallet-fill"  width="17px"  style="margin-right:4px;" />${{  hudInfo[0].money.toLocaleString('en-US') }}</div>
+    <div v-if="protectedArea" style="margin-top:5px;background: rgb(93 161 87 / 65%);border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
+    <div style="margin-top:5px;    background: #66cd329c;" class="cont"><Icon icon="f7:wallet-fill"  width="17px"  style="margin-right:4px;" />${{  hudInfo[0].money.toLocaleString('en-US') }}</div>
     <div style="margin-top:5px;" class="cont"><Icon icon="fa6-solid:user" width="15px"  style="margin-right:5px;" />{{ hudInfo[0].cityName }} ({{ hudInfo[0].id }})</div>
-    <div style="margin-top:5px;" class="cont"><Icon icon="mdi:speedometer"  width="17px" style="margin-right:4px;" />{{ hudInfo[0].fps }} FPS</div>
-    <div style="margin-top:5px;" class="cont"><Icon icon="eos-icons:compass" width="17px" style="margin-right:4px;" />{{ hudInfo[0].direction }}</div>
-    <div style="margin-top:5px;height:fit-content;    padding: 5px;padding-right:28px;" class="cont"><i class="fa-solid fa-location-dot" style="    margin-right: 8px;font-size: 28px;"></i><div style="display: flex;
+    <div style="display: flex;    align-items: flex-end;">
+      <div style="margin-top:5px;height:fit-content;    padding: 5px;padding-right:10px;" class="cont"><i class="fa-solid fa-location-dot" style="    margin-right: 8px;font-size: 28px;"></i><div style="display: flex;
     flex-direction: column;"><span style="font-weight:bold;">{{  hudInfo[0].location }}</span><span style="    margin-top: -6px;
     font-size: 12px;
     color: #d7d7d7;">{{  hudInfo[0].locationTwo }}</span></div></div>
+    <div style="margin-top:5px;margin-left:4px;" class="cont"><Icon icon="eos-icons:compass" width="17px" style="margin-right:4px;" />{{ hudInfo[0].direction }}</div>
+    <div style="margin-top:5px;margin-left:4px;" class="cont"><Icon icon="mdi:speedometer"  width="17px" style="margin-right:4px;" />{{ hudInfo[0].fps }} FPS</div>
+    
+    </div>
   </div>
   <div style="position: absolute;
   bottom:18px;
@@ -19,30 +22,19 @@
   display: flex;
     flex-direction: column;
     align-items: flex-end;">
-  <span style="    display: flex;
-    justify-content: flex-end;padding: 6px;padding-left:28px;
-    border-radius: 7px;background: linear-gradient(280deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);
-    border-right: 3px solid #2d2d2d;">
-    <div style="font-family: 'Poppins-Medium', sans-serif;font-weight: 600;display: flex;flex-direction: column;color:white;align-items: flex-end;margin-right: 3px;">
-      <span style="font-size: 21px;
-    font-weight: 900;
-    line-height: 17px;
-    margin-top: 7px;">V0.0.1</span>
+
+<div style="margin-bottom:5px;height:fit-content;    padding: 5px;" class="cont"><i class="fa-solid fa-clock" style="    margin-right: 8px;font-size: 25px;"></i><div style="display: flex;
+    flex-direction: column;"><span style="font-weight:bold;">{{ getTime() }}</span><span style="    margin-top: -6px;
+    font-size: 12px;
+    color: #d7d7d7;">{{ getDate() }}</span></div></div>
+    <span class="cont" style="overflow: hidden;">
+    <div style="font-family: 'Poppins-Medium', sans-serif;font-weight: 600;display: flex;color:white;    align-items: center;margin-right: 3px;">
+      <span style="font-size: 18px;
+    font-weight: 900;margin-right:4px;">V0.0.1</span>
       <span style="font-weight: 400;
     color: lightgrey;">gtacity.com.tr</span>
     </div>
-    <img style="width: 50px;" src="./assets/dclogo.png"></span>
-  <div style="height:fit-content;margin-top:5px;background: linear-gradient(280deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);
-    border-right: 3px solid #2d2d2d;border-left:none;padding-right:5px;padding-left:20px;" class="cont">
-  <div style="    display: flex;flex-direction: column;align-items: flex-end;    margin: 3px;">
-    <span style="font-size: 21px;
-    font-weight: 900;
-    line-height: 17px;
-    margin-top: 7px;">{{ getTime() }}</span>
-      <span style="font-weight: 400;
-    color: lightgrey;">{{ getDate() }}</span>
-    </div>
-    </div>
+    <img style="width: 24px;" src="./assets/dclogo.png"></span>
   </div>
 </div>
 </template>
@@ -93,17 +85,20 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 .cont {
-  background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%);
+    /* background: linear-gradient(90deg, rgba(40, 167, 255, 1) 0%, rgb(68, 68, 68) 0%, rgba(0, 0, 0, 0) 100%); */
     color: rgb(239 239 239);
     font-family: 'Poppins-Regular';
     font-weight: 600;
+    padding: 6px;
+    width: -moz-fit-content;
     width: fit-content;
-    height: 29px;
+    height: 31px;
     border-radius: 6px;
-    padding-right: 27px;
+    /* padding-right: 27px; */
     font-size: 14px;
-    border-left: 3px solid #2d2d2d;
-    padding-left: 3px;
+    background: #2b2b2b96;
+    /* border-left: 3px solid #2d2d2d; */
+    /* padding-left: 3px; */
     display: flex;
     align-items: center;
 }

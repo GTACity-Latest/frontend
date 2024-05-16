@@ -41,12 +41,7 @@
                         <div class="insert" style="">
                             <p style="color:white; font-size:13px;display: flex;flex-direction: column;align-items: flex-start;"><font style="float:left;">Toplam Nakit</font> <font style="float:right;color:#118C4F;margin-top: -6px;">${{atmData[0].cashAmount.toLocaleString('en-US')}}</font></p>
                         </div>
-                        <div class="insert" style="">
-                            <p style="color:white; font-size:13px;display: flex;flex-direction: column;align-items: flex-start;"><font style="float:left;">Maaş</font> <font style="float:right;color:#118C4F;margin-top: -6px;">${{atmData[0].salary}}</font></p>
-                        </div>
-                        <div class="insert" style="">
-                            <p style="color:white; font-size:13px;display: flex;flex-direction: column;align-items: flex-start;"><font style="float:left;">Maaş Vergi Oranı</font> <font style="float:right;margin-top: -6px;">{{atmData[0].taxRate}}%</font></p>
-                        </div>
+    
                         <div style="text-align:center;">
                             <button @click="cashWithdraw = true" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500; line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw; margin-top:1vw;">Para Çek</button>
                         </div>
@@ -81,16 +76,9 @@
                         <div class="insert" style="">
                             <p style="color:white; font-size:13px;display: flex;flex-direction: column;align-items: flex-start;"><font style="float:left;">Toplam Nakit</font> <font style="float:right;color:#118C4F;margin-top: -6px;">${{atmData[0].cashAmount.toLocaleString('en-US')}}</font></p>
                         </div>
-                        <div class="insert" style="">
-                            <p style="color:white; font-size:13px;display: flex;flex-direction: column;align-items: flex-start;"><font style="float:left;">Maaş</font> <font style="float:right;color:#118C4F;margin-top: -6px;">${{atmData[0].salary}}</font></p>
-                        </div>
-                        <div class="insert" style="">
-                            <p style="color:white; font-size:13px;display: flex;flex-direction: column;align-items: flex-start;"><font style="float:left;">Maaş Vergi Oranı</font> <font style="float:right;margin-top: -6px;">{{atmData[0].taxRate}}%</font></p>
-                        </div>
                 <div style="display: flex;flex-direction: row;flex-wrap: wrap;justify-content: center;">
                     <button @click="confirmScreen = true" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500; line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw;    margin-top: 8px;margin-right:8px;">Para Yatır</button>            
                     <button @click="cashWithdraw = true, confirmScreen = false" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500; line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw;    margin-top: 8px;">Para Çek</button>
-                    <button @click="salaryScreen = true" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500; line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw;    margin-top: 8px;">Maaş Çek</button>
 
                 </div>
             </div>
@@ -109,7 +97,6 @@
             </div>
             <div v-if="salaryScreen">
                 <div style="background-color: rgb(49, 49, 49);padding: 0.5vw;border-radius: 0px 0px 5px 5px;">
-                    <p style="color:white;font-family:'Poppins-Medium'; font-size:15px; line-height:2vw; text-align:center; padding:10px;">Şu an maaş hesabında <font color="#118C4F"> ${{atmData[0].salary.toLocaleString('en-US')}}</font> bulunuyor.</p>
                     <div style="border-bottom: solid rgba(255, 255, 255, 0.311) 2px;">
                         <input class="input100" style="padding:10px;font-size:14px;height:fit-content;" maxlength="15" placeholder="Enter cash amount" v-model="enteredCash">
                     </div>
@@ -117,13 +104,6 @@
                         <button @click="salaryScreen = false" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500;  line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw; margin-top:1vw;">Geri Dön</button>
                         <button @click="confirmSelect('collectSalary')" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500;  line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw; margin-top:1vw;margin-left:5px;">Çek</button>
                     </div>
-                </div>
-            </div>
-            <div v-if="salaryConfirm">
-                <div style="background-color: rgb(49, 49, 49);padding: 0.5vw;border-radius: 0px 0px 5px 5px;">
-                    <p style="color:white;font-family:'Poppins-Medium'; font-size:15px; line-height:2vw; text-align:center; padding:10px;">Maaş hesabından, banka hesabına<font color="#118C4F"> ${{enteredCash.toLocaleString('en-US')}}</font> tutarında çekim yapmak istediğine emin misin?</p>
-                    <button @click="salaryScreen = true, salaryConfirm = false" class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500;  line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw; margin-top:1vw;margin-left:10px;">Geri Dön</button>
-                    <button class="modButton" style="height:2vw;font-family:'Poppins-Medium';font-weight: 500;  line-height:0.2vw; clip-path:none; border-radius:10px; opacity: 1; border-top:none; font-size:0.8vw; margin-top:1vw;margin-left:5px;">Onayla</button>
                 </div>
             </div>
             <div v-if="cashWithdraw"> 
