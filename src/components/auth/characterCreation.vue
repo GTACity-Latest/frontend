@@ -125,8 +125,12 @@
                         <input type="range" min="0" max="33" value="0" class="creationSliders"  v-model="blushStyle">
                       </div> 
                       <div class="secimseysi">
-                        <div class="subText" style="float:left;">Makeup	 {{ makeup }}</div>
+                        <div class="subText" style="float:left;">Makyaj	 {{ makeup }}</div>
                         <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="makeup">
+                      </div> 
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Makyaj Rengi	 {{ makeupColour }}</div>
+                        <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="makeupColour">
                       </div> 
                       <div class="secimseysi">
                         <div class="subText" style="float:left;">Complexion {{ complexion }}</div>
@@ -137,8 +141,12 @@
                         <input type="range" min="0" max="63" value="5" class="creationSliders"  v-model="blushColour">
                       </div> 
                       <div class="secimseysi">
-                        <div class="subText" style="float:left;">Lipstick {{ lipstick }}</div>
+                        <div class="subText" style="float:left;">Ruj {{ lipstick }}</div>
                         <input type="range" min="0" max="10" value="0" class="creationSliders"  v-model="lipstick">
+                      </div>
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Ruj Rengi {{ lipstickColour }}</div>
+                        <input type="range" min="0" max="10" value="0" class="creationSliders"  v-model="lipstickColour">
                       </div> 
                       <div class="secimseysi">
                         <div class="subText" style="float:left;">Moles / Freckles {{ molesFreckles }}</div>
@@ -314,6 +322,7 @@ export default {
       molesFreckles: -1,
       sunDamage: -1,
       lipstick: -1,
+      lipstickColour: -1,
       rot: 0
     };
   },
@@ -708,7 +717,7 @@ export default {
     lipstick(oldType, newType) {
       console.log(oldType, newType);
       if (window.mp) {
-        window.mp.trigger("setHeadOverlay", 8, oldType, 0);
+        window.mp.trigger("setHeadOverlay", 8, oldType, this.lipstickColour);
       }
     },
     sunDamage(oldType, newType) {

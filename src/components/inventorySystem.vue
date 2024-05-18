@@ -7,7 +7,7 @@
     margin-top: 10vw;">
     <div style="    display: flex;">
     <div style="display:flex;align-items: center;justify-content: space-between;font-family: 'Archivo Black';background: #b53434;text-transform: uppercase;color: white;width: 284px;padding:4px;border-radius: 4px 4px 0px 0px;">
-      <span>{{ hudInfo[0].cityName }}</span>
+      <span>{{ hudInfo[0].cityName }} / {{ inventoryItems[0].sex }}</span>
       <span v-if="inventoryItems.length > 0" style="font-family: Poppins-Medium;color: #c98181;font-size: 13px;">{{ inventoryItems.length }}/50</span>
     </div>
     <div v-if="clickedIndices.length > 0" style="display:flex;align-items: center;margin-left:5px;justify-content: space-between;font-weight:bold;background: #b53434;text-transform: uppercase;color: white;width: 504px;padding-right:4px;border-radius: 4px 4px 0px 0px;">
@@ -40,12 +40,13 @@
     margin-left: 0px;">
       <div style="margin-top:7px;">
         <div>
-          <span style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Karakter</span>
+          <span v-for="stat in playerStats" :key="stat.id" style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Karakter</span>
           <div class="layout">
-            <div style="position: absolute;margin-left: 104px;margin-top: 96px;" class="kiyafets">ÜST</div>
-            <div style="position: absolute;margin-left: 90px;margin-top: 132px;" class="kiyafets">İÇ GİYİM</div>
-            <div style="position: absolute;margin-left: 83px;margin-top: 232px;" class="kiyafets">PANTOLON</div>
-            <div style="position: absolute;margin-left: 91px;margin-top: 412px;" class="kiyafets">AYAKKABI</div>
+            <div @click="ustCikar()" style="position: absolute;margin-left: 104px;margin-top: 96px;" class="kiyafets">ÜST</div>
+            <div @click="icgiyimCikar()" style="position: absolute;margin-left: 90px;margin-top: 132px;" class="kiyafets">İÇ GİYİM</div>
+            <div @click="pantolonCikar()" style="position: absolute;margin-left: 83px;margin-top: 232px;" class="kiyafets">PANTOLON</div>
+            <div @click="ayakkabiCikar()" style="position: absolute;margin-left: 91px;margin-top: 412px;" class="kiyafets">AYAKKABI</div>
+            <div @click="giyin()" style="position: absolute;margin-left: 91px;margin-top: 512px;" class="kiyafets">HEPSİNİ GİY</div>
               <img style="width: 83%;align-items: center;margin-left: 26px;margin-top: 12px;" src="./body.png">
           </div>
 
@@ -96,6 +97,7 @@ export default {
       gridItems: [{"id": 32, "name": "Assault Rifle", "img": "https://i.imgur.com/kCG7bOP.png", "ammo": 30, "equipped": false},{"id": 15, "name": "Assault Rifle", "img": "https://i.imgur.com/kCG7bOP.png", "ammo": 30, "equipped": false}, {"id": 39, "name": "Pistol 50", "img": "https://i.imgur.com/J6MQr8G.png", "ammo": 30, "equipped": false}],
       showSpan: false,
       givenId: "",
+      
       clickedIndices: [],
       inventory: [{"id": 1, "name": "Assault Rifle", "img": "https://i.imgur.com/kCG7bOP.png", "ammo": 30, "equipped": false},{"id": 1, "name": "Assault Rifle", "img": "https://i.imgur.com/kCG7bOP.png", "ammo": 30, "equipped": false}, {"id": 2, "name": "Pistol 50", "img": "https://i.imgur.com/J6MQr8G.png", "ammo": 30, "equipped": false}]
     }
@@ -107,7 +109,7 @@ export default {
   },
   
   computed: {
-    ...mapGetters({ inventoryItems: 'inventoryList', hudInfo: "hudInfo" }),
+    ...mapGetters({ inventoryItems: 'inventoryList', hudInfo: "hudInfo",  playerStats: 'statsList'}),
   },
   methods: {
     ...mapMutations(['clearInventory']),
@@ -148,6 +150,7 @@ export default {
         }
       });
 
+
       
       mapGetters({inventoryItems: 'inventoryList'});
       this.showSpan = false;
@@ -155,6 +158,49 @@ export default {
       
       // Diğer işlemler için bir fonksiyon çağırabilirsiniz
       // Örneğin: this.confirmAction();
+    },
+    ustCikar() {
+      if(this.inventoryItems[0].sex == 'female') {
+        if (window.mp) {
+        window.mp.trigger("setPlayer:clothes", 11, 18, 0);
+        window.mp.trigger("setPlayer:clothes", 3, 15, 0);
+      }
+    } else {
+      window.mp.trigger("setPlayer:clothes", 11, 15, 0);
+      window.mp.trigger("setPlayer:clothes", 3, 15, 0);
+    }
+    },
+    icgiyimCikar() {
+      if(this.inventoryItems[0].sex == 'female') {
+        if (window.mp) {
+        window.mp.trigger("setPlayer:clothes", 8, 2, 0);
+      }
+    } else {
+      window.mp.trigger("setPlayer:clothes", 8, 15, 0);
+    }
+    },
+    pantolonCikar() {
+      if(this.inventoryItems[0].sex == 'female') {
+        if (window.mp) {
+        window.mp.trigger("setPlayer:clothes", 4, 17, 0);
+      }
+    } else {
+      window.mp.trigger("setPlayer:clothes", 4, 61, 0);
+    }
+    },
+    ayakkabiCikar() {
+      if(this.inventoryItems[0].sex == 'female') {
+        if (window.mp) {
+        window.mp.trigger("setPlayer:clothes", 6, 35, 0);
+      }
+    } else {
+      window.mp.trigger("setPlayer:clothes", 6, 34, 0);
+    }
+    },
+    giyin() {
+      if (window.mp) {
+        window.mp.trigger("reset:clothes");
+      }
     },
     deleteItem() {
       this.clickedIndices.forEach(x => {

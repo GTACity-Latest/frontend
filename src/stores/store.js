@@ -198,8 +198,8 @@ const store = new Vuex.Store({
 			}
 		},
 
-		addInventoryItem(state, { id, cityitemid, img, name }) {
-			state.playerInfo.inventoryItems.push({ id, cityitemid, name, img })
+		addInventoryItem(state, { id, sex, cityitemid, img, name }) {
+			state.playerInfo.inventoryItems.push({ id, sex, cityitemid, name, img })
 		},
 
 		setBanInfo(state, { username, IP, socialClub, reason, admin, issueDate, liftTime }) {
@@ -249,13 +249,13 @@ const store = new Vuex.Store({
 			for (const report in state.playerReports.activeReports) if (report.id === id) return state.playerReports.activeReports.splice(state.playerReports.list.indexOf(report), 1)
 		},
 
-		updateStats(state, { name, id, bank, cash, credits, phone, occupation, hours, salary, debt, vehicles, characters, houses }) {
+		updateStats(state, { name, id, sex, bank, cash, credits, phone, occupation, hours, salary, debt, vehicles, characters, houses }) {
 			if (state.playerInfo.playerStats.length > 0) {
 				state.playerInfo.playerStats = []
-				state.playerInfo.playerStats.push({ name, id, bank, cash, credits, phone, occupation, hours, salary, debt, vehicles, characters, houses })
+				state.playerInfo.playerStats.push({ name, id, sex, bank, cash, credits, phone, occupation, hours, salary, debt, vehicles, characters, houses })
 				return;
 			}
-			else if (state.playerInfo.playerStats.length == 0) { state.playerInfo.playerStats.push({ name, id, bank, cash, credits, phone, occupation, hours, salary, debt, vehicles, characters, houses }) }
+			else if (state.playerInfo.playerStats.length == 0) { state.playerInfo.playerStats.push({ name, id, sex, bank, cash, credits, phone, occupation, hours, salary, debt, vehicles, characters, houses }) }
 		},
 		updateModal(state, { itemadi, itemsayisi }) {
 			if (state.playerInfo.modalData.length > 0) {

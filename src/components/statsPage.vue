@@ -13,6 +13,8 @@
                             </div>
                             <div id="c1" class="statInsert"><i class="fa-solid fa-id-card-clip" style="color: rgb(177, 177, 177); float: left; margin-top: 7px;margin-left: 7px;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.3vw;"> ID </b><b id="cname1" style="float: right;margin-right: 11px;margin-top: -0.3vw;"> {{stat.id}} </b>
                             </div>
+                            <div id="c1" class="statInsert"><i class="fa-solid fa-id-card-clip" style="color: rgb(177, 177, 177); float: left; margin-top: 7px;margin-left: 7px;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.3vw;"> Cinsiyet </b><b id="cname1" style="float: right;margin-right: 11px;margin-top: -0.3vw;"> {{stat.sex}} </b>
+                            </div>
                             <div id="c1" class="statInsert"><i class="fa-solid fa-building-columns" style="color: rgb(177, 177, 177); float: left; margin-top: 7px;margin-left: 7px;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.3vw;"> Banka </b><b id="cname1" style="float: right;margin-right: 11px;margin-top: -0.3vw; color:rgba(95, 255, 138, 0.835)"> ${{stat.bank}} </b>
                             </div>
                             <div id="c1" class="statInsert"><i class="fa-solid fa-money-bill" style="color: rgb(177, 177, 177); float: left; margin-top: 7px;margin-left: 7px;"></i><b style="float: left; margin-left: 0.3vw; margin-top: -0.3vw;"> Nakit </b><b id="cname1" style="float: right;margin-right: 11px;margin-top: -0.3vw; color:rgba(95, 255, 138, 0.835)"> ${{stat.cash}} </b>
