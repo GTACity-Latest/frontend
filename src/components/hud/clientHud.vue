@@ -30,9 +30,9 @@
     <span class="cont" style="overflow: hidden;">
     <div style="font-family: 'Poppins-Medium', sans-serif;font-weight: 600;display: flex;color:white;    align-items: center;margin-right: 3px;">
       <span style="font-size: 18px;
-    font-weight: 900;margin-right:4px;">V0.0.1</span>
+    font-weight: 900;margin-right:4px;">V0.0.5</span>
       <span style="font-weight: 400;
-    color: lightgrey;">gtacity.com.tr</span>
+    color: lightgrey;">zero-rpg.com</span>
     </div>
     <img style="width: 24px;" src="./assets/dclogo.png"></span>
   </div>

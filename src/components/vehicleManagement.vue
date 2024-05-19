@@ -5,14 +5,14 @@
                 <p style="text-transform: none;color: #e1e1e1;font-size: 12px;margin-top: -5px;">{{formatName(JSON.parse(vehicleData[0].vehicleData).modelName)}} [{{JSON.parse(vehicleData[0].vehicleData).plate}}]</p></span><menuButton style="margin-left:50px;" /></h2>
             <div v-if="browsingType === 'home'">
                 <ul class="navOne" style="width: 100%;margin-top: 0px;padding: 6px;background: #555555;width: 100%;">
-                    <li class="navTwo"><a @click="browsingType='Vehicle Keys'"><i class="fa-solid fa-key"></i> Araç Anahtarları</a></li>
-                    <li class="navTwo" ><a @click="browsingType='Vehicle Location'"><i class="fa-sharp fa-solid fa-location-dot"></i> Araç Konumu</a></li>
-                    <li class="navTwo" ><a @click="browsingType='Vehicle Stats'"><i class="fa-solid fa-list"></i> Araç Bilgileri</a></li>
-                    <li class="navTwo" ><a @click="browsingType='Sell Vehicle'"><i class="fa-solid fa-dollar-sign"></i> Aracı Sat</a></li>
+                    <li class="navTwo"><a @click="browsingType='Araç Anahtarları'"><i class="fa-solid fa-key"></i> Araç Anahtarları</a></li>
+                    <li class="navTwo" ><a @click="browsingType='Araç Konumu'"><i class="fa-sharp fa-solid fa-location-dot"></i> Araç Konumu</a></li>
+                    <li class="navTwo" ><a @click="browsingType='Araç Bilgileri'"><i class="fa-solid fa-list"></i> Araç Bilgileri</a></li>
+                    <li class="navTwo" ><a @click="browsingType='Araç Sat'"><i class="fa-solid fa-dollar-sign"></i> Aracı Sat</a></li>
                     <button @click="listReturn()" class="modButton">Geri Dön</button>
                 </ul>
             </div>
-            <div v-if="browsingType === 'Vehicle Keys'">
+            <div v-if="browsingType === 'Araç Anahtarları'">
                 <div style="background-color:rgb(63 63 63); padding:0.3vw;     border-radius: 0px 0px 5px 5px;">
                     <div v-if="!keyAdd" style="overflow:scroll; height:12vw; overflow-x: hidden; margin-top:0vw">
                         <b v-for="key in keyHolders" :key="key.id" >
@@ -49,20 +49,20 @@
                     </div>
                 </div>
             </div>
-            <div v-if="browsingType === 'Vehicle Location'">
+            <div v-if="browsingType === 'Araç Konumu'">
                 <div style="background-color:rgb(63 63 63); padding:0.3vw;     border-radius: 0px 0px 5px 5px;">
                     <div v-if="JSON.parse(vehicleData[0].vehicleData).spawned == 1" style="text-align:center; margin-top:0.5vw;">
                         <p style="color:white; padding:4px; font-size:13px; ">Aracın dışarıda, aşağıdaki butondan yerini görüntüleyebilirsin.</p>
                         <button @click="pingVehicleLocation()" class="modButton" style="border-top:none;">Haritada İşaretle</button>
                         <button @click="browsingType = 'home'" class="modButton" style="margin-top:3px;border-top:none;">Geri Dön</button>
                     </div>
-                    <div  style="text-align:center;">
+                    <div v-else style="text-align:center;">
                         <p style="color:white; padding:4px; font-size:13px; ">Aracın garajda veya sigorta şirketinde.</p>
                         <button @click="browsingType = 'home'" class="modButton" style="border-top:none;">Geri Dön</button>
                     </div>
                 </div>
             </div>
-            <div v-if="browsingType === 'Vehicle Stats'">
+            <div v-if="browsingType === 'Araç Bilgileri'">
                 <div style="background-color:rgb(63 63 63); padding:0.3vw;     border-radius: 0px 0px 5px 5px;">
                     <div>
                     <div class="insert">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="browsingType === 'Sell Vehicle'">
+            <div v-if="browsingType === 'Araç Sat'">
                 <div style="background-color:rgb(63 63 63); padding:0.3vw;     border-radius: 0px 0px 5px 5px;">
                     <div style="text-align:center">
                         <p style="color:white">Aracı satacağınız kişi ve kendiniz aracın içinde olmalısınız.</p>
@@ -134,7 +134,7 @@ export default {
                 {
                     return 19+'vw';
                 }
-                case 'Vehicle Stats':
+                case 'Araç Bilgileri':
                 {
                     return 30+'vw';
                 }

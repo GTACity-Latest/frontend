@@ -33,7 +33,7 @@
     <div class="uiBase" style="border-top: none;opacity: 1;border-radius: 0px;margin-top: 0px;
     background: rgb(28 28 28);
     clip-path: none;
-    height: 31vw;
+    height: 550px;
     font-size:14px;
     overflow: auto;
     width: 240px;
@@ -42,11 +42,11 @@
         <div>
           <span v-for="stat in playerStats" :key="stat.id" style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Karakter</span>
           <div class="layout">
-            <div @click="ustCikar()" style="position: absolute;margin-left: 104px;margin-top: 96px;" class="kiyafets">ÜST</div>
-            <div @click="icgiyimCikar()" style="position: absolute;margin-left: 90px;margin-top: 132px;" class="kiyafets">İÇ GİYİM</div>
-            <div @click="pantolonCikar()" style="position: absolute;margin-left: 83px;margin-top: 232px;" class="kiyafets">PANTOLON</div>
-            <div @click="ayakkabiCikar()" style="position: absolute;margin-left: 91px;margin-top: 412px;" class="kiyafets">AYAKKABI</div>
-            <div @click="giyin()" style="position: absolute;margin-left: 91px;margin-top: 512px;" class="kiyafets">HEPSİNİ GİY</div>
+            <div @click="ustCikar()" style="position: absolute;margin-left: 107px;margin-top: 96px;" class="kiyafets">ÜST</div>
+            <div @click="icgiyimCikar()" style="position: absolute;margin-left: 94px;margin-top: 132px;" class="kiyafets">İÇ GİYİM</div>
+            <div @click="pantolonCikar()" style="position: absolute;margin-left: 85px;margin-top: 232px;" class="kiyafets">PANTOLON</div>
+            <div @click="ayakkabiCikar()" style="position: absolute;margin-left: 94px;margin-top: 412px;" class="kiyafets">AYAKKABI</div>
+            <div @click="giyin()" style="position: absolute;margin-left: 5px;margin-top: 512px;" class="kiyafets">HEPSİNİ GİY</div>
               <img style="width: 83%;align-items: center;margin-left: 26px;margin-top: 12px;" src="./body.png">
           </div>
 
@@ -58,7 +58,7 @@
 
 
     <div class="uiBase" style="opacity: 1;font-size:14px;    margin-left: 0px;
-    border-left: 4px solid #0e0e0e;border-radius: 0px;border-top:none;margin-top: 0px; background-image:none;    background: rgb(28 28 28); clip-path:none;    height: 31vw; padding:none;width: 600px;overflow: auto;">
+    border-left: 4px solid #0e0e0e;border-radius: 0px;border-top:none;margin-top: 0px; background-image:none;    background: rgb(28 28 28); clip-path:none;    height: 550px; padding:none;width: 600px;overflow: auto;">
       <div style="margin-top:7px;">
         <div>
           <span style="    color: rgb(91 91 91);padding: 11px;font-weight: bold;margin-top: 2px;">Envanter</span>
@@ -90,6 +90,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
+
 
 export default {
   data() {
@@ -220,12 +221,12 @@ export default {
 <style>
 .kiyafets {
   background: rgb(34, 34, 34);
-  padding: 3px 9px;
-  border-bottom: 2px solid;
-  color: rgb(218, 218, 218);
-  border-radius: 5px;
-  font-weight: bold;
-  font-size:13px;
+    padding: 1px 7px;
+    border-bottom: 2px solid;
+    color: rgb(157 157 157);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
 }
 .kiyafets:hover {
   color: #c04343;
