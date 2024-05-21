@@ -2,7 +2,7 @@
   <div v-if="hudState">
     <div style="position: absolute;
   bottom:18px;
-  left: 15.9vw;">
+  left: 16%;">
     <div v-if="protectedArea" style="margin-top:5px;background: rgb(93 161 87 / 65%);border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
     <div style="margin-top:5px;    background: #66cd329c;" class="cont"><Icon icon="f7:wallet-fill"  width="17px"  style="margin-right:4px;" />${{  hudInfo[0].money.toLocaleString('en-US') }}</div>
     <div style="margin-top:5px;" class="cont"><Icon icon="fa6-solid:user" width="15px"  style="margin-right:5px;" />{{ hudInfo[0].cityName }} ({{ hudInfo[0].id }})</div>

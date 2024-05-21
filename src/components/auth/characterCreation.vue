@@ -1,7 +1,7 @@
 <template>
   <div class="ecreator_container">
     <div style="    display: flex;
-    align-items: center;">
+    align-items: center;justify-content: space-between;">
           <div class="ecreator_header">
             
             <span style="font-family: 'Archivo Black', sans-serif;    color: #ebebeb;text-transform: uppercase;font-size: 26px;">
@@ -20,6 +20,7 @@
             <a @click="browsingType='face', menuOneH=44, menuTwoH=38" class="btns">YÜZ DETAYLARI</a>
             <a @click="browsingType='hair', menuOneH=28, menuTwoH=22" class="btns">SAÇ</a>
             <a @click="browsingType='other', menuOneH=31, menuTwoH=30" class="btns">DİĞER</a>
+            <a @click="browsingType='makyaj', menuOneH=31, menuTwoH=30" class="btns">MAKYAJ</a>
           </div>
 
           <div v-if="browsingType==='general'" class="genel">
@@ -37,6 +38,7 @@
                 </div>
 
                 <div class="secimler">
+                  <div class="ikili">
                       <div class="secimseysi">
                           <div class="subText" style="float:left;">Anne <span style="color: #576163;">{{ mother }}</span></div>
                           <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="mother">
@@ -45,11 +47,9 @@
                           <div class="subText" style="float:left;">Baba <span style="color: #576163;">{{ father }}</span></div>
                           <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="father">
                       </div>
-                      <div class="secimseysi">
-                          <div class="subText" style="float:left;">Ebeveyn <span style="color: #576163;">{{ third }}</span></div>
-                          <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="third">
-                      </div>
-                      <div class="secimseysi">
+                  </div>
+                  <div class="ikili">
+                    <div class="secimseysi">
                           <div class="subText" style="float:left;">Anne Ten Rengi <span style="color: #576163;">{{ skinMother }}</span></div>
                           <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="skinMother">
                       </div>
@@ -57,26 +57,35 @@
                           <div class="subText" style="float:left;">Baba Ten Rengi <span style="color: #576163;">{{ skinFather }}</span></div>
                           <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="skinFather">
                       </div>
+                  </div>
+                  <div class="ikili">
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">Ebeveyn <span style="color: #576163;">{{ third }}</span></div>
+                          <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="third">
+                      </div>
                       <div class="secimseysi">
                           <div class="subText" style="float:left;">Ebeveyn Ten Rengi <span style="color: #576163;">{{ skinThird }}</span></div>
                           <input type="range" min="0" max="46" value="0" class="creationSliders"  v-model="skinThird">
                       </div>
+                    </div>
                       <div class="secimseysi">
                           <div class="subText" style="float:left;">Yüz Karışımı <span style="color: #576163;">{{ mix }}%</span></div>
                           <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="mix">
                       </div>
                       <div class="secimseysi">
-                          <div class="subText" style="float:left;">Ebeveyn Benzerliği <span style="color: #576163;">{{ thirdMix }}%</span></div>
-                          <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="thirdMix">
-                      </div>
-                      <div class="secimseysi">
                           <div class="subText" style="float:left;">Ten Rengi Karışımı <span style="color: #576163;">{{ skinMix }}%</span></div>
                           <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="skinMix">
+                      </div>
+                      <div class="secimseysi">
+                          <div class="subText" style="float:left;">Ebeveyn Benzerliği <span style="color: #576163;">{{ thirdMix }}%</span></div>
+                          <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="thirdMix">
                       </div>
                 </div>
           </div>
 
           <div v-if="browsingType==='hair'" class="genel">
+                    <div class="toplu">
+                      <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">SAÇ</span>
                       <div style="margin-top:5px;" class="secimseysi">
                         <div class="subText" style="float:left;">Saç Stili {{ hairStyle }}</div>
                         <input type="range" min="0" max="76" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="hairStyle">
@@ -89,57 +98,52 @@
                         <div class="subText" style="float:left;">Saç İkinci Rengi {{ hairHighlights }}</div>
                         <input type="range" min="0" max="63" value="0" class="creationSliders"  v-model="hairHighlights">
                       </div>
+                    </div>
+                    <div class="toplu">
+                      <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">KAŞ</span>
                       <div class="secimseysi">
                         <div class="subText" style="float:left;">Kaş Şekli	 {{ eyebrowsStyle }}</div>
                         <input type="range" min="0" max="33" value="0" class="creationSliders"  v-model="eyebrowsStyle">
                       </div>
                       <div class="secimseysi">
-                        <div class="subText" style="float:left;">Sakal Stili {{ facialHairStyle }}</div>
-                        <input type="range" min="-1" max="28" value="0" class="creationSliders"  v-model="facialHairStyle">
-                      </div>
-                      <div class="secimseysi">
                         <div class="subText" style="float:left;">Kaş Rengi {{ eyebrowsColour }}</div>
                         <input type="range" min="0" max="63" value="0" class="creationSliders"  v-model="eyebrowsColour">
+                      </div>
+                    </div>
+                    <div class="toplu">
+                      <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">SAKAL</span>
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Sakal Stili {{ facialHairStyle }}</div>
+                        <input type="range" min="-1" max="28" value="0" class="creationSliders"  v-model="facialHairStyle">
                       </div>
                       <div class="secimseysi">
                         <div class="subText" style="float:left;">Sakal Rengi {{ facialHairColour }}</div>
                         <input type="range" min="0" max="63" value="0" class="creationSliders"  v-model="facialHairColour">
                       </div>
+                    </div>
                       <div class="secimseysi">
                         <div class="subText" style="float:left;">Vücut Tüyleri {{ chestHairStyle }}</div>
                         <input type="range" min="0" max="16" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="chestHairStyle">
                       </div>              
           </div>
-
-          <div v-if="browsingType==='other'" class="genel">
-                      <div style="margin-top:5px;" class="secimseysi">
-                        <div class="subText" style="float:left;">Blemishes {{ blemishes }}</div>
-                        <input type="range" min="-1" max="12" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="blemishes">
-                      </div>
-                      <div class="secimseysi">
-                        <div class="subText" style="float:left; margin-top: 1vw">Ageing {{ ageing }}</div>
-                        <input type="range" min="-1" max="14" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="ageing">
-                      </div>
-                      <div class="secimseysi">
-                        <div class="subText" style="float:left;">Blush Style {{ blushStyle }}</div>
+          <div v-if="browsingType==='makyaj'" class="genel">
+            <div class="toplu">
+                    <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">KIZARIKLIK</span>
+            <div class="secimseysi">
+                        <div class="subText" style="float:left;">Kızarıklık {{ blushStyle }}</div>
                         <input type="range" min="0" max="33" value="0" class="creationSliders"  v-model="blushStyle">
-                      </div> 
+                      </div>
                       <div class="secimseysi">
-                        <div class="subText" style="float:left;">Makyaj	 {{ makeup }}</div>
-                        <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="makeup">
-                      </div> 
-                      <div class="secimseysi">
-                        <div class="subText" style="float:left;">Makyaj Rengi	 {{ makeupColour }}</div>
-                        <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="makeupColour">
-                      </div> 
-                      <div class="secimseysi">
-                        <div class="subText" style="float:left;">Complexion {{ complexion }}</div>
-                        <input type="range" min="0" max="11" value="0" class="creationSliders"  v-model="complexion">
-                      </div> 
-                      <div class="secimseysi">
-                        <div class="subText" style="float:left;">Blush Colour {{ blushColour }}</div>
+                        <div class="subText" style="float:left;">Kızarıklık Rengi {{ blushColour }}</div>
                         <input type="range" min="0" max="63" value="5" class="creationSliders"  v-model="blushColour">
                       </div> 
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Kızarıklık Opaklığı {{ blushOpacity/10 }}</div>
+                        <input type="range" min="0" max="10" value="0" class="creationSliders"  v-model="blushOpacity">
+                      </div> 
+                    </div>
+                      <div class="toplu">
+                    <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">RUJ</span>
                       <div class="secimseysi">
                         <div class="subText" style="float:left;">Ruj {{ lipstick }}</div>
                         <input type="range" min="0" max="10" value="0" class="creationSliders"  v-model="lipstick">
@@ -147,101 +151,149 @@
                       <div class="secimseysi">
                         <div class="subText" style="float:left;">Ruj Rengi {{ lipstickColour }}</div>
                         <input type="range" min="0" max="10" value="0" class="creationSliders"  v-model="lipstickColour">
+                      </div>
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Ruj Opaklığı	 {{ lipstickOpacity/10 }}</div>
+                        <input type="range" min="0" max="10" value="0" class="creationSliders"  v-model="lipstickOpacity">
+                      </div>
+                    </div>
+                      <div class="toplu">
+                    <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">MAKYAJ</span>
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Makyaj	 {{ makeup }}</div>
+                        <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="makeup">
                       </div> 
                       <div class="secimseysi">
-                        <div class="subText" style="float:left;">Moles / Freckles {{ molesFreckles }}</div>
+                        <div class="subText" style="float:left;">Makyaj Rengi	 {{ makeupColour }}</div>
+                        <input type="range" min="0" max="100" value="0" class="creationSliders"  v-model="makeupColour">
+                      </div>
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Makyaj Opaklığı	 {{ makeupOpacity/10 }}</div>
+                        <input type="range" min="0" max="10" value="0" class="creationSliders"  v-model="makeupOpacity">
+                      </div> 
+                    </div> 
+                      
+          </div>
+
+          <div v-if="browsingType==='other'" class="genel">
+                      <div style="margin-top:5px;" class="secimseysi">
+                        <div class="subText" style="float:left;">Lekeler {{ blemishes }}</div>
+                        <input type="range" min="-1" max="12" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="blemishes">
+                      </div>
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Yaşlanma {{ ageing }}</div>
+                        <input type="range" min="-1" max="14" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="ageing">
+                      </div>
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Kırışıklık {{ complexion }}</div>
+                        <input type="range" min="0" max="11" value="0" class="creationSliders"  v-model="complexion">
+                      </div> 
+                      <div class="secimseysi">
+                        <div class="subText" style="float:left;">Benler / Çiller {{ molesFreckles }}</div>
                         <input type="range" min="0" max="18" value="0" class="creationSliders"  v-model="molesFreckles">
                       </div> 
                       <div class="secimseysi">
-                        <div class="subText" style="float:left;">Sun Damage {{ sunDamage }}</div>
+                        <div class="subText" style="float:left;">Güneş Yanığı {{ sunDamage }}</div>
                         <input type="range" min="0" max="16" value="0" class="creationSliders" style="margin-top: 1vw;"  v-model="sunDamage">
                       </div> 
           </div> 
 
           <div v-if="browsingType==='face'" class="genel">
+            <div class="toplu">
+                      <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">BURUN</span>
               <div style="margin-top:5px;" class="secimseysi">
-                  <div class="subText" style="float:left;">Nose Width {{ noseWidth/10 }}</div>
+                  <div class="subText" style="float:left;">Burun Genişliği {{ noseWidth/10 }}</div>
                   <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseWidth">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Nose Length	 {{ noseLength/10 }}</div>
+                <div class="subText" style="float:left;">Burun Uzunluğu	 {{ noseLength/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseLength">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Nose Tip {{ noseTip/10 }}</div>
+                <div class="subText" style="float:left;">Burun Ucu {{ noseTip/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseTip">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Brow Height {{ browHeight/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="browHeight">
-              </div>
-              <div class="secimseysi">
-                <div class="subText" style="float:left;">Cheekbone Height {{ cheekboneHeight/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="cheekboneHeight">
-              </div>
-              <div class="secimseysi">
-                <div class="subText" style="float:left;">Cheeks Width {{ cheeksWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="cheeksWidth">
-              </div>
-              <div class="secimseysi">
-                <div class="subText" style="float:left;">Lip Type {{ lips/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="lips">
-              </div>
-              <div class="secimseysi">
-                <div class="subText" style="float:left;">Jaw Height {{ jawHeight/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="jawHeight">
-              </div>
-              <div class="secimseysi">
-                <div class="subText" style="float:left;">Chin Position {{ chinPosition/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinPosition">
-              </div>
-              <div class="secimseysi">
-                <div class="subText" style="float:left;">Chin Shape {{ chinShape/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinShape">
-              </div>
-              <div class="secimseysi">
-                <div class="subText" style="float:left;">Nose Height {{ noseHeight/10 }}</div>
+                <div class="subText" style="float:left;">Burun Yüksekliği {{ noseHeight/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseHeight">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Nose Bridge {{ noseBridge/10 }}</div>
+                <div class="subText" style="float:left;">Burun Köprüsü {{ noseBridge/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseBridge">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Nose Bridge Shift {{ noseBridgeShift/10 }}</div>
+                <div class="subText" style="float:left;">Burun Köprüsü Eğriliği {{ noseBridgeShift/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="noseBridgeShift">
               </div>
-              <div class="secimseysi">
-                <div class="subText" style="float:left;">Brow Width {{ browWidth/10 }}</div>
+              </div>
+              <div class="toplu">
+                    <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">KAŞ</span>
+                    <div class="secimseysi">
+                      <div class="subText" style="float:left;">Kaş Yüksekliği {{ browHeight/10 }}</div>
+                      <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="browHeight">
+                    </div>
+                    <div class="secimseysi">
+                <div class="subText" style="float:left;">Kaş Genişliği {{ browWidth/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="browWidth">
               </div>
+              </div>
+              <div class="toplu">
+                    <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">YANAK</span>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Cheekbone Width {{ cheekboneWidth/10 }}</div>
+                <div class="subText" style="float:left;">Elmacık Kemiği Yüksekliği {{ cheekboneHeight/10 }}</div>
+                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="cheekboneHeight">
+              </div>
+              <div class="secimseysi">
+                <div class="subText" style="float:left;">Elmacık Kemiği Genişliği {{ cheekboneWidth/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="cheekboneWidth">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Eye Type {{ eyes/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="eyes">
+                <div class="subText" style="float:left;">Yanak Genişliği {{ cheeksWidth/10 }}</div>
+                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="cheeksWidth">
+              </div>
+              </div>
+              <div class="toplu">
+                    <span style="font-family: Archivo Black;font-size: 17px;padding: 12px;color: #dbdbdb;">ÇENE</span>
+                    <div class="secimseysi">
+                <div class="subText" style="float:left;">Çene Pozisyonu {{ chinPosition/10 }}</div>
+                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinPosition">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Jaw Width {{ jawWidth/10 }}</div>
-                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="jawWidth">
+                <div class="subText" style="float:left;">Çene Şekli {{ chinShape/10 }}</div>
+                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinShape">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Chin Length {{ chinLength/10 }}</div>
+                <div class="subText" style="float:left;">Çene Uzunluğu {{ chinLength/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinLength">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Chin Width {{ chinWidth/10 }}</div>
+                <div class="subText" style="float:left;">Çene Genişliği {{ chinWidth/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="chinWidth">
               </div>
+                    </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Neck Width {{ neckWidth/10 }}</div>
+                <div class="subText" style="float:left;">Dudak Şekli {{ lips/10 }}</div>
+                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="lips">
+              </div>
+              <div class="secimseysi">
+                <div class="subText" style="float:left;">Çene Yüksekliği {{ jawHeight/10 }}</div>
+                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="jawHeight">
+              </div>  
+              <div class="secimseysi">
+                <div class="subText" style="float:left;">Çene Genişliği {{ jawWidth/10 }}</div>
+                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="jawWidth">
+              </div>
+              <div class="secimseysi">
+                <div class="subText" style="float:left;">Boyun Genişliği {{ neckWidth/10 }}</div>
                 <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="neckWidth">
               </div>
               <div class="secimseysi">
-                <div class="subText" style="float:left;">Eye Colour {{ eyeColour }}</div>
+                <div class="subText" style="float:left;">Göz Rengi {{ eyeColour }}</div>
                 <input type="range" min="0" max="31" value="0" class="creationSliders"  v-model="eyeColour">
+              </div>
+              <div class="secimseysi">
+                <div class="subText" style="float:left;">Göz Tipi {{ eyes/10 }}</div>
+                <input type="range" min="-10" max="10" value="0" class="creationSliders"  v-model="eyes">
               </div>
 
 
@@ -316,13 +368,16 @@ export default {
       ageing: -1,
       blushStyle: -1,
       blushColour: -1,
+      blushOpacity: 0,
       makeup: -1,
       makeupColour: -1,
+      makeupOpacity: 0,
       complexion: -1,
       molesFreckles: -1,
       sunDamage: -1,
       lipstick: -1,
       lipstickColour: -1,
+      lipstickOpacity: 0,
       rot: 0
     };
   },
@@ -687,19 +742,37 @@ export default {
     blushStyle(oldType, newType) {
       console.log(oldType, newType);
       if (window.mp) {
-        window.mp.trigger("setHeadOverlay", 5, oldType, this.blushColour);
+        window.mp.trigger("setHeadOverlayMakeup", 5, oldType, this.blushOpacity / 10, this.blushColour);
       }
     },
     blushColour(oldType, newType) {
       console.log(oldType, newType);
       if (window.mp) {
-        window.mp.trigger("setHeadOverlay", 5, this.blushStyle, oldType);
+        window.mp.trigger("setHeadOverlayMakeup", 5, this.blushStyle, this.blushOpacity / 10, oldType);
+      }
+    },
+    blushOpacity(oldType, newType) {
+      console.log(oldType, newType);
+      if (window.mp) {
+        window.mp.trigger("setHeadOverlayMakeup", 5, this.blushStyle, oldType / 10, this.blushColour);
       }
     },
     makeup(oldType, newType) {
       console.log(oldType, newType);
       if (window.mp) {
-        window.mp.trigger("setHeadOverlay", 4, oldType, this.makeupColour);
+        window.mp.trigger("setHeadOverlayMakeup", 4, oldType, this.makeupOpacity / 10, this.makeupColour);
+      }
+    },
+    makeupColour(oldType, newType) {
+      console.log(oldType, newType);
+      if (window.mp) {
+        window.mp.trigger("setHeadOverlayMakeup", 4, this.makeup, this.makeupOpacity / 10, oldType);
+      }
+    },
+    makeupOpacity(oldType, newType) {
+      console.log(oldType, newType);
+      if (window.mp) {
+        window.mp.trigger("setHeadOverlayMakeup", 4, this.makeup, oldType / 10, this.makeupColour);
       }
     },
     complexion(oldType, newType) {
@@ -717,7 +790,19 @@ export default {
     lipstick(oldType, newType) {
       console.log(oldType, newType);
       if (window.mp) {
-        window.mp.trigger("setHeadOverlay", 8, oldType, this.lipstickColour);
+        window.mp.trigger("setHeadOverlayMakeup", 8, oldType, this.lipstickOpacity / 10, this.lipstickColour);
+      }
+    },
+    lipstickColour(oldType, newType) {
+      console.log(oldType, newType);
+      if (window.mp) {
+        window.mp.trigger("setHeadOverlayMakeup", 8, this.lipstick, this.lipstickOpacity / 10, oldType);
+      }
+    },
+    lipstickOpacity(oldType, newType) {
+      console.log(oldType, newType);
+      if (window.mp) {
+        window.mp.trigger("setHeadOverlayMakeup", 8, this.lipstick, oldType / 10, this.lipstickColour);
       }
     },
     sunDamage(oldType, newType) {
@@ -794,18 +879,29 @@ export default {
   overflow: auto;
 }
 .secimseysi {
-  margin: 20px;
+  margin: 11px;
+    /* margin-left: 3px; */
     margin-top: 0px;
     background: #1e1e1e;
     padding: 10px;
     border-radius: 7px;
+    width: 96%;
+}
+.ikili {
+  display:flex;
+}
+.toplu {
+  PADDING: 3px;
+    background: #3f3f3f;
+    margin: 13px;
+    border-radius: 4px;
 }
 .ecreator_container {
   position: absolute;
     right: 1px;
     display: flex;
     flex-direction: column;
-    background: #1e1e1ee6;
+    background: #2d2d2d;
     margin: 49px;
     height: 91%;
 }
@@ -860,7 +956,6 @@ export default {
 /* Mouse-over effects */
 .creationSliders:hover {
   opacity: 1; /* Fully shown on mouse-over */
-  transition: 0.5s;
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
@@ -901,7 +996,6 @@ export default {
   );
   border-bottom: solid rgb(197, 146, 255) 6px;
   color: #fffffffb;
-  transition-duration: 0.4s;
   font-family: "OSL";
   font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
   font-weight: 650;
@@ -910,7 +1004,6 @@ export default {
   padding: 6px;
   width: 30vw;
   --notchSize: 12px;
-  transition: 0.5s;
   margin-top: 5px;
   margin-left: 68vw;
   position: absolute;
@@ -1016,7 +1109,7 @@ select::after {
 }
 
 * {
-  transition: 0.5s;
+
   user-select: none;
 }
 .unitList {

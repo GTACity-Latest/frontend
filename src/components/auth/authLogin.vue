@@ -28,15 +28,6 @@
                                 <button type="submit" id="loginBtn" @click="login()" class="login100-form-btn">GİRİŞ YAP</button>
                             </div>
                         </div>
-                        <span style="    margin: auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: #afafaf;
-    font-weight: 500;
-    font-size: 12px;
-    margin-top: 44px;
-    margin-bottom: -35px;">discord.gg/gtacity</span>
                         <br>
                 </form>
                 </div>
