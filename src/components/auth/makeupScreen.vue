@@ -147,36 +147,11 @@
     },
     methods: {
       /* eslint-disable */
-      finishCharacter() {
-        function containsNumbers(str) {
-          return /\d/.test(str);
-        }
-        if (
-          this.fName.length == 0 ||
-          this.lName.length == 0 ||
-          this.fName.match(/\W/) ||
-          this.lName.match(/\W/) ||
-          this.fName.length > 15 ||
-          this.lName.length > 15 ||
-          containsNumbers(this.fName) ||
-          containsNumbers(this.lName)
-        ) {
-          global.gui.notify.clearAll();
-          global.gui.notify.showNotification(
-            "Enter a valid character name using the format: Fname Lname",
-            false,
-            true,
-            5000,
-            "fa-solid fa-triangle-exclamation"
-          );
-          return;
-        } else if (window.mp) {
-          this.rot = 0;
-          this.fName = this.fName[0].toUpperCase() + this.fName.toLowerCase().slice(1);
-          this.lName = this.lName[0].toUpperCase() + this.lName.toLowerCase().slice(1);
+      finishUpdate() {   
+         if (window.mp) {
           window.mp.trigger(
-            "serverFunctionCEF",
-            "characterCreationFinish",
+            "characterMakeup",
+            "closeRoute",
             JSON.stringify(this.$data)
           );
         }
