@@ -267,12 +267,12 @@ const store = new Vuex.Store({
 			}
 		},
 
-		updateHud(state, { cityName, unix, id, voice, radio, location, players, money, locationTwo, direction, fps }) {
+		updateHud(state, { cityName, zerobank, unix, id, voice, radio, location, players, money, locationTwo, direction, fps }) {
 			if (state.views.hud.hudInfo.length > 0) {
 				state.views.hud.hudInfo.splice(0, state.views.hud.hudInfo.length)
-				return state.views.hud.hudInfo.push({ cityName, unix, id, voice, radio, location, players, money, locationTwo, direction, fps })
+				return state.views.hud.hudInfo.push({ cityName, zerobank, unix, id, voice, radio, location, players, money, locationTwo, direction, fps })
 			}
-			else { state.views.hud.hudInfo.push({ cityName, unix, id, voice, radio, location, players, money, locationTwo, direction, fps }) }
+			else { state.views.hud.hudInfo.push({ cityName, zerobank, unix, id, voice, radio, location, players, money, locationTwo, direction, fps }) }
 		},
 
 		updateLists(state, { menuName, menuSub, tableOne, tableTwo, tableThree, icon, name, id, button, funcs }) {

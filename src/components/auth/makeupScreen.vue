@@ -147,12 +147,10 @@
     },
     methods: {
       /* eslint-disable */
-      finishUpdate() {   
+      finishCharacter() {   
          if (window.mp) {
           window.mp.trigger(
-            "characterMakeup",
-            "closeRoute",
-            JSON.stringify(this.$data)
+            "closeRoute"
           );
         }
       },
@@ -366,49 +364,7 @@
     line-height: 1vw;
     min-width: 10vw;
   }
-  
-  select {
-    background-color: transparent;
-    border: none;
-    font-family: "OSL";
-    font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-    font-weight: 700;
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    user-select: none;
-  }
-  
-  select:focus {
-    background-color: rgba(0, 0, 0, 0.663);
-    border: none;
-    font-family: "OSL";
-    font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-    font-weight: 700;
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    user-select: none;
-  }
-  option:active {
-    background-color: transparent;
-    border: none;
-    font-family: "OSL";
-    font-family: Myriad Pro, Segoe UI, Verdana, sans-serif;
-    font-weight: 700;
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    user-select: none;
-  }
-  select:focus {
-    border: none;
-    user-select: none;
-  }
-  select::after {
-    border: none;
-    user-select: none;
-  }
+ 
   
   * {
   

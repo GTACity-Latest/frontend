@@ -26,11 +26,15 @@ import fuelScreen from './components/hud/fuelScreen.vue';
 import Notifications from './components/Notifications.vue';
 import altMenu from './components/hud/altMenu.vue';
 import makeupScreen from './components/auth/makeupScreen.vue';
+import propertyManager from './components/propertyManager.vue';
+import factionMenu from './components/factionMenu.vue';
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
+        { path: '/faction', component: factionMenu},
+        { path: '/property', component: propertyManager},
         { path: '/makeup', component: makeupScreen},
         { path: '/altmenu', component: altMenu},
         { path: '/notif', component: Notifications},

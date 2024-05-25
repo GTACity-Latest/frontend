@@ -4,7 +4,10 @@
   bottom:18px;
   left: 16%;">
     <div v-if="protectedArea" style="margin-top:5px;background: rgb(93 161 87 / 65%);border:none;padding:5px;font-size: 13px;" class="cont">Güvenli Bölge</div>
+    <div style="display:flex;">
     <div style="margin-top:5px;    background: #66cd329c;" class="cont"><Icon icon="f7:wallet-fill"  width="17px"  style="margin-right:4px;" />${{  hudInfo[0].money.toLocaleString('en-US') }}</div>
+    <div style="margin-top:5px;margin-left:5px;background: rgb(53 107 26 / 61%);" class="cont"><Icon icon="mingcute:bank-fill"  width="17px"  style="margin-right:4px;" />${{  hudInfo[0].zerobank.toLocaleString('en-US') }}</div>
+    </div>
     <div style="margin-top:5px;" class="cont"><Icon icon="fa6-solid:user" width="15px"  style="margin-right:5px;" />{{ hudInfo[0].cityName }} ({{ hudInfo[0].id }})</div>
     <div style="display: flex;    align-items: flex-end;">
       <div style="margin-top:5px;height:fit-content;    padding: 5px;padding-right:10px;" class="cont"><i class="fa-solid fa-location-dot" style="    margin-right: 8px;font-size: 28px;"></i><div style="display: flex;
