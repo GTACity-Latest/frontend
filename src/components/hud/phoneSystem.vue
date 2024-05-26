@@ -41,10 +41,54 @@
                             </div>
                         </div>
                         <div class="apps" style="display: flex;justify-content: flex-start;margin-left: 0.8vw;margin-top:1.2vw;">
-                            <div @click="openApp('testApp')" class="huhu" style="text-align:center; width:2.4vw; height:2.4vw;     border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:0vw;"><Icon icon="emojione:cat-face" width="2.0vw"  style="margin-left: 3px;margin-top: 2px;" />
+                            <div @click="openApp('testApp')" class="huhu" style="text-align:center; width:2.4vw; height:2.4vw;    border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block; margin-left:0vw;"><Icon icon="emojione:cat-face" width="2.0vw"  style="margin-left: 0.2vw;margin-top: 2px;" />
                                 <p style="color:white; margin-top:.5vw; font-weight:500; font-size:11px; text-align:center;">Catty</p>
                             </div>
+                            <div @click="openApp('reklamApp')" class="huhu" style="text-align:center; width:2.4vw; height:2.4vw;margin-left:1vw;background:red;      border-radius: 6px; box-shadow: 5px 5px 18px rgba(1, 1, 1, .2); display:inline-block;"><Icon icon="bi:badge-ad-fill" width="2.0vw"  style="margin-left: 0.2vw;margin-top: 2px;color:white;" />
+                                <p style="color: white;margin-top: 0.6vw;font-weight: 500;line-height: 11px;margin-left: -1px;font-size: 11px;text-align: center;">Weazel News</p>
+                            </div>
                         </div>
+                    </div>
+                    <div v-if="appView === 'reklamApp'">
+                        <span style="    display: flex;align-items: center;    margin: 0px 5px;padding: 3px;font-weight: bold;color: rgb(255 255 255);width: fit-content;border-radius: 4px;">
+                            <span style="padding: 0.3vw;margin-top: 2px;margin-right: 2px;border-radius: 3px;font-size:23px;">Weazel News</span>
+                        </span>
+                        <span style="margin: 0px 15px;display: flex;font-size: 12px;color: rgb(255 255 255);">Weazel News mobil uygulaması sayesinde kolayca reklam verebilirsin!</span>
+                        <span style="    padding: 15px;
+    font-size: 11px;
+    width: 100%;
+    display: flex;">
+                            <input style="    width: 100%;
+    border-radius: 3px;
+    padding: 4px;
+    background: rgb(231 231 231);
+    font-weight: bold;" type="text"  placeholder="Reklam Metni">
+    </span>
+    <span style="    margin-top:-20px;padding: 15px;font-size: 11px;width: 100%;display: flex;">
+        <button class="btn2">REKLAM VER</button>
+    </span>
+    <div style="height:100%;">
+        <span style="margin-left:15px;font-weight: bold;color: rgb(255 255 255);    font-size: 15px;">Son Reklamlar</span>
+        <div style="background:white;display:flex;flex-direction: column;margin:0px 15px;border-radius: 3px; padding:3px;padding-top:0px;max-height:14vw;overflow: auto;">
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+            <span style="margin-top: 3px;font-size: 11px;font-weight: bold;border-radius: 2px;padding: 2px;width: 100%;background: #cfcfcf;">Örnek Reklam Metni [#00000]</span>
+        </div>
+    </div>
                     </div>
 
                     <div v-if="appView === 'testApp'" class="testapp" style="    margin-top: 5px;">
@@ -147,7 +191,7 @@
                                 <div style="background-color:rgb(47 47 47); padding:.5vw; border-radius:6px 6px 0px 0px; margin-top:.7vw; height:1.8vw;">
                                     <p style="color:rgba(199, 199, 199, 0.853);"><i style="font-size: 13px;    margin-right: 4px;" class="fa-solid fa-clock-rotate-left"></i>Son Aramalar</p>
                                 </div>
-                                <div v-if="phoneRecents.length > 0" style="background-color:rgb(47 47 47); height:12.5vw; overflow:scroll; overflow-x:hidden; border-radius:0px 0px 10px 10px;">
+                                <div v-if="phoneRecents[0].length > 0" style="background-color:rgb(47 47 47); height:12.5vw; overflow:scroll; overflow-x:hidden; border-radius:0px 0px 10px 10px;">
                                     <div v-for="x in phoneRecents[0]" :key="x.id" style="margin-left:.5vw;">
                                         <div style="height:2.5vw; margin-top:.3vw;">
                                             <p>{{x.log}}<font style="float:right; margin-right:.5vw; font-size:13px;"><i @click="subView = 'keypad', phoneNum.length = 0, phoneNum.push(x.number), phoneCall()" class="fa-solid fa-phone" style="transform:rotate(-100deg); color:#118C4F;"></i></font></p>
@@ -479,6 +523,17 @@ export default {
                     this.subView = 'testHome';
                     break;
                 }
+                case 'reklamApp':
+                {
+                    this.phoneOpen = {
+                        'background-color': 'rgb(199 43 43)',
+                        'background-image': 'none',
+                        'margin-top': "17.5vw",
+                    }
+                    this.appView = 'reklamApp';
+                    this.subView = 'reklamHome';
+                    break;
+                }
                 case 'phone':
                 {
                     this.phoneOpen = {
@@ -591,6 +646,12 @@ export default {
 }
 .btn:hover {
     background: rgb(100, 100, 100);color: rgb(216, 216, 216);
+}
+.btn2 {
+    background: rgb(236, 236, 236);color: rgb(199 43 43);font-size: 17px;font-weight: bold;border-radius: 3px;padding: 4px;width: 100%;
+}
+.btn2:hover {
+    background: rgb(199 43 43);color: rgb(236, 236, 236);
 }
 .huhu {
     background:white;
