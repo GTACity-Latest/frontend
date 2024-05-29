@@ -7,7 +7,7 @@
     margin-top: 10vw;">
     <div style="    display: flex;">
     <div style="display:flex;align-items: center;justify-content: space-between;font-family: 'Archivo Black';background: #b53434;text-transform: uppercase;color: white;width: 284px;padding:4px;border-radius: 4px 4px 0px 0px;">
-      <span>{{ hudInfo[0].cityName }} / {{ inventoryItems[0].sex }}</span>
+      <span>{{ hudInfo[0].cityName }}</span>
       <span v-if="inventoryItems.length > 0" style="font-family: Poppins-Medium;color: #c98181;font-size: 13px;">{{ inventoryItems.length }}/50</span>
     </div>
     <div v-if="clickedIndices.length > 0" style="display:flex;align-items: center;margin-left:5px;justify-content: space-between;font-weight:bold;background: #b53434;text-transform: uppercase;color: white;width: 504px;padding-right:4px;border-radius: 4px 4px 0px 0px;">

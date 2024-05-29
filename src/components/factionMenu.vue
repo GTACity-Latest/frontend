@@ -1,5 +1,6 @@
 <template>
-  <div style="display: flex;justify-content: center;">
+  <div style="display: flex;justify-content: center;align-items: center;">
+    <div style="display:flex;">
     <div style="border-radius: 9px 9px 7px 7px;margin-right:0px;" class="ecreator_container">
       <div style="display: flex;
     align-items: center;
@@ -12,28 +13,43 @@
                 BİRLİK YÖNETİMİ
               </span>
               <span style="color: rgb(201 201 201);font-family: Archivo Black;text-transform: uppercase;font-size: 17px;margin-bottom: 7px;line-height: 5px;font-weight: bold;">
-                Los Santos Police Department
+                Los Santos Police Department [1] [Tür]
               </span>
             </div>
           </div>
 
-            <div class="genel" style="padding:10px;">    
-              <div style="display:flex;flex-direction: column;">
-                <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">İsim Değiştirme</span>
-                <input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;padding: 3px 8px;" type="text" placeholder="Mirror Park #25">
+            <div class="genel" style="padding:10px;flex-direction:column;display:flex;">    
+              <div style="width: 100%;border-left:none;font-size:12px;text-transform:uppercase;" class="membera">
+                <span class="cname">Onay Durumu</span>
+                <span style="font-weight:bold;" class="rank">Onaylı</span>
               </div>
-              <div style="display:flex;flex-direction: column;margin-top:5px;">
+              <div style="width: 100%;border-left:none;font-size:12px;text-transform:uppercase;" class="membera">
+                <span class="cname">Hood Onay Durumu</span>
+                <span style="font-weight:bold;" class="rank">Onaylı</span>
+              </div>
+              <div style="width: 100%;border-left:none;font-size:12px;text-transform:uppercase;" class="membera">
+                <span class="cname">Birlik Lideri</span>
+                <span style="font-weight:bold;text-transform:none;" class="rank">Eira Test</span>
+              </div>
+              <div style="width: 100%;border-left:none;font-size:12px;text-transform:uppercase;" class="membera">
+                <span class="cname">Birlik Kasası</span>
+                <span style="font-weight:bold;color:green;" class="rank">$567</span>
+              </div>
+              <div style="display:flex;">
+              <div style="    display: flex;flex-direction: column;margin-top: 10px;background: #3f3f3f;border-radius: 5px;width: fit-content;padding: 7px;">
                 <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">Oyuncu Davet Et</span>
-                <input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;padding: 3px 8px;" type="text" placeholder="Oyuncu ID">
+                <span><input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;font-size: 11px;padding: 3px 8px;" type="text" placeholder="Oyuncu ID"><button style="margin-top:3px;font-size:11px;border-radius: 4px" class="bizmbuton">ONAYLA</button></span>
+              </div>  
+              <div style="    display: flex;flex-direction: column;margin-top: 10px;margin-left:7px;background: #3f3f3f;border-radius: 5px;width: fit-content;padding: 7px;">
+                <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">Para Çek</span>
+                <span><input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;font-size: 11px;padding: 3px 8px;" type="text" placeholder="$0"><button style="margin-top:3px;font-size:11px;border-radius: 4px" class="bizmbuton">ONAYLA</button></span>
               </div>
-              
-              <div style="margin-top:7px;">
-              <button class="btnn">Interior Değiştir</button>    
-              <button style="margin-left:5px;" class="btnn">Kilit</button>  
-              <button style="margin-left:5px;" class="btnn">Kiralığa Çıkart</button>
-              <button style="margin-left:5px;" class="btnn">Satılığa Çıkart</button>
-              <button style="margin-left:5px;" class="btnn">Sisteme Sat</button>    
-            </div>            
+              <div style="    display: flex;flex-direction: column;margin-top: 10px;margin-left:7px;background: #3f3f3f;border-radius: 5px;width: fit-content;padding: 7px;">
+                <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">Para Yatır</span>
+                <span><input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;font-size: 11px;padding: 3px 8px;" type="text" placeholder="$0"><button style="margin-top:3px;font-size:11px;border-radius: 4px" class="bizmbuton">ONAYLA</button></span>
+              </div> 
+            </div>  
+            <button style="margin-top:6px;font-size:11px;border-radius: 4px" class="bizmbuton">ARAÇLARI YENİLE</button>  
             </div>
             
             
@@ -44,7 +60,7 @@
       <div STYLE=" background: #b53434;
     border-radius: 9px 9px 0px 0px;" class="ecreator_header">              
               <span style="font-family: 'Archivo Black', sans-serif;    color: white;text-transform: uppercase;font-size: 15px;">
-                ÜYELER
+                ÜYELER [1/50]
               </span>
             </div>
             <div class="list">
@@ -105,11 +121,88 @@
             <option value="4">Member</option>
           </select>
           <button class="obtn">GÜNCELLE</button>
+          <button class="obtn">BİRLİKTEN ÇIKART</button>
             </span>
-            <div>
-            <input type="text" placeholder="Oyuncu ID">
-            <button class="obtn">BİRLİĞE DAVET ET</button>
-          </div>
+    </div>
+  </div>
+    <div style="margin-left:7px;    height: 338px;border-radius: 9px" class="ecreator_container">
+      <div class="ecreator_header" STYLE=" background: #b53434;border-radius: 9px 9px 0px 0px;">
+        <SPAN style="font-family: 'Archivo Black', sans-serif;    color: #ebebeb;text-transform: uppercase;font-size: 15px;">RÜTBE YÖNETİMİ</SPAN>
+      </div>
+      <div style="height: 296px;" class="list">
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#20</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 20">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#19</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 19">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+              <div style="width: 100%;    align-items: center;border-left:none;" class="membera" >
+                <span class="cname">#18</span>
+                <input style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="Rank 18">
+                <input  style="background: rgb(47 47 47);border-radius: 4px;color: #a7a7a7;margin-left:4px;font-size: 11px;padding: 3px 8px;width: 84px;" type="text" placeholder="$500">
+                <button style="font-size:11px;margin-left:4px;border-radius: 4px" class="bizmbuton">KAYDET</button>
+              </div>
+            </div>
     </div>
   </div>
   </template>
@@ -262,10 +355,22 @@
   }
   .list {
     padding: 6px;
-    height: 200px;
+    height: 284px;
     overflow: auto;
   }
   .member {
+    background: #3f3f3f;
+    color: #9ca3af;
+    margin-top: 4px;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    border-left: 2px solid #46a145;
+    display: flex;
+    justify-content: space-between;
+    width: 308px;
+  }
+  .membera {
     background: #3f3f3f;
     color: #9ca3af;
     margin-top: 4px;
@@ -305,7 +410,7 @@
       display: flex;
       flex-direction: column;
       background: #2d2d2d;
-      margin: 150px;
+      margin-top:150px;
   }
   .btnn {
     margin-top: 7px;

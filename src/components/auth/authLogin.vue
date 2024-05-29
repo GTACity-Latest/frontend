@@ -29,12 +29,6 @@
                             </div>
                         </div>
                         <br>
-                        <div class="container-login100-form-btn">
-                            <div class="wrap-login100-form-btn">
-                                <div class="login100-form-bgbtn"></div>
-                                <button type="submit" id="loginBtn" @click="register()" class="login100-form-btn">GİRİŞ YAP</button>
-                            </div>
-                        </div>
                 </form>
                 </div>
               </div>
