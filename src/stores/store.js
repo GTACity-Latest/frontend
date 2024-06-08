@@ -7,6 +7,9 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
+		property: {
+			propertyInfo: []
+		},
 		playerInfo: {
 			characters: [],
 			notifications: [],
@@ -257,6 +260,14 @@ const store = new Vuex.Store({
 			}
 			else if (state.playerInfo.playerStats.length == 0) { state.playerInfo.playerStats.push({ name, id, sex, bank, cash, credits, phone, occupation, hours, salary, debt, vehicles, characters, houses }) }
 		},
+		
+		ahmetkaya(state, { id, sahibi, kilidi, anahtari, tipi, adi, kiracisi, saticisi, kirafiyatcisi, satisfiyatcisi, guncelleyicisi }) {
+			if (state.property.propertyInfo.length > 0) {
+				state.property.propertyInfo.splice(0, state.property.propertyInfo.length)
+				return state.property.propertyInfo.push({ id, sahibi, kilidi, anahtari, tipi, adi, kiracisi, saticisi, kirafiyatcisi, satisfiyatcisi, guncelleyicisi })
+			}
+			else { state.property.propertyInfo.push({ id, sahibi, kilidi, anahtari, tipi, adi, kiracisi, saticisi, kirafiyatcisi, satisfiyatcisi, guncelleyicisi }) }
+		},
 		updateModal(state, { itemadi, itemsayisi }) {
 			if (state.playerInfo.modalData.length > 0) {
 				state.playerInfo.modalData = []
@@ -386,6 +397,10 @@ const store = new Vuex.Store({
 
 		statsList: (state, getters) => {
 			return state.playerInfo.playerStats;
+		},
+
+		propertyDetails: (state, getters) => {
+			return state.property.propertyInfo;
 		},
 
 		reportsList: (state, getters) => {

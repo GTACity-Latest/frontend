@@ -82,7 +82,7 @@
       <div v-if="browsingType==='Tops'">
                   <div class="icsey">
                     <div class="subText" style="float:left;">Üst <span style="color: rgb(189 82 82);font-size: 11px;">{{ type }} / 392</span></div>
-                    <input type="range" min="0" max="392" value="0" class="slider" id="myRange" v-model="type">
+                    <input type="range" min="0" max="800" value="0" class="slider" id="myRange" v-model="type">
                   </div>  
                   <div class="icsey">
                     <div class="subText" style="float:left;">Üst Texture <span style="color: rgb(189 82 82);font-size: 11px;">{{ texture }} / 10</span></div>

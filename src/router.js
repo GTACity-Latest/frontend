@@ -28,11 +28,13 @@ import altMenu from './components/hud/altMenu.vue';
 import makeupScreen from './components/auth/makeupScreen.vue';
 import propertyManager from './components/propertyManager.vue';
 import factionMenu from './components/factionMenu.vue';
+import marketSystem from './components/marketSystem.vue';
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
+        { path: '/market', component: marketSystem},
         { path: '/faction', component: factionMenu},
         { path: '/property', component: propertyManager},
         { path: '/makeup', component: makeupScreen},

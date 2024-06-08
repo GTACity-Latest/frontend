@@ -14,38 +14,78 @@
             </div>
           </div>
 
-            <div class="genel" style="padding:10px;">    
-              <div style="display:flex;flex-direction: column;">
-                <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">İsim Değiştirme</span>
-                <input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;padding: 3px 8px;" type="text" placeholder="Mirror Park #25">
+            <div class="genel" style="padding:10px;">
+              <div style="display:flex;    justify-content: center;">
+              <div style="display:flex;margin-left:5px;">
+                <span style="color: rgb(183, 183, 183);background: #161616;border-radius: 5px 0px 0px 5px;width: fit-content;font-weight: bold;font-size: 12px;padding: 5px;margin: 5px 0px;    margin-top: 0px;">
+                  Mülk ID
+                </span>
+                <span style="color: rgb(183, 183, 183);background: #4f4f4f;width: fit-content;font-size: 12px;border-radius: 0px 3px 3px 0px;padding: 5px;margin: 5px 0px;margin-top: 0px;">
+                  {{  propertyBilgi[0].id  }}
+                </span>
+              </div>
+              <div style="display:flex;margin-left:5px;">
+                <span style="color: rgb(183, 183, 183);background: #161616;border-radius: 5px 0px 0px 5px;width: fit-content;font-weight: bold;font-size: 12px;padding: 5px;margin: 5px 0px;    margin-top: 0px;">
+                  Mülk Adı
+                </span>
+                <span style="color: rgb(183, 183, 183);background: #4f4f4f;width: fit-content;font-size: 12px;border-radius: 0px 3px 3px 0px;padding: 5px;margin: 5px 0px;margin-top: 0px;">
+                  {{  propertyBilgi[0].adi }}
+                </span>
+              </div>
+            </div>
+            <div style="display:flex;    justify-content: center;">
+              <div style="display:flex;">
+                <span style="color: rgb(183, 183, 183);background: #161616;border-radius: 5px 0px 0px 5px;width: fit-content;font-weight: bold;font-size: 12px;padding: 5px;margin: 5px 0px;    margin-top: 0px;">
+                  Mülk Fiyatı
+                </span>
+                <span style="color: rgb(183, 183, 183);background: #4f4f4f;width: fit-content;font-size: 12px;border-radius: 0px 3px 3px 0px;padding: 5px;margin: 5px 0px;margin-top: 0px;">
+                  $95.000
+                </span>
+              </div>
+              <div style="display:flex;margin-left:5px;">
+                <span style="color: rgb(183, 183, 183);background: #161616;border-radius: 5px 0px 0px 5px;width: fit-content;font-weight: bold;font-size: 12px;padding: 5px;margin: 5px 0px;    margin-top: 0px;">
+                  Sisteme Satış Fiyatı
+                </span>
+                <span style="color: rgb(183, 183, 183);background: #4f4f4f;width: fit-content;font-size: 12px;border-radius: 0px 3px 3px 0px;padding: 5px;margin: 5px 0px;margin-top: 0px;">
+                  $30.000
+                </span>
+              </div>
+            </div>
+
+              <div style="display: flex;flex-direction: column;margin-top: 7px;padding-top: 8px;border-top: 1px solid #515151;">
+                <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">İsim Değiştir</span>
+                <span><input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px; padding: 4px 8px;" type="text" v-model="name" :placeholder="propertyBilgi[0].adi" >
+                <button style="margin-left:5px;font-size:13px;" @click="nameChange()" class="btnn">Kaydet</button>
+              </span>
               </div>
               <div style="display:flex;flex-direction: column;margin-top:5px;">
                 <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">Anahtar Ver</span>
-                <input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;padding: 3px 8px;" type="text" placeholder="Oyuncu ID">
-              </div>
-              <div style="display:flex;flex-direction: column;margin-top:5px;">
-                <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">Satış Fiyatı</span>
-                <input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;padding: 3px 8px;" type="text" placeholder="$0">
+                <span><input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;    padding: 4px 8px;" type="text" placeholder="Karakter Adı">
+                <button style="margin-left:5px;font-size:13px;" class="btnn">Onayla</button>
+              </span>
               </div>
               <div style="display:flex;flex-direction: column;margin-top:5px;">
                 <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">Kiralama Fiyatı</span>
-                <input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;padding: 3px 8px;" type="text" placeholder="$0">
+                <span><input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;    padding: 4px 8px;" type="text" placeholder="0$">
+                <button style="margin-left:5px;font-size:13px;" class="btnn">Kaydet</button>
+              </span>
               </div>
               <div style="display:flex;flex-direction: column;margin-top:5px;">
                 <span style="color: #b7b7b7;font-weight: bold;font-size: 12px;">Giriş Fiyatı</span>
-                <input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;padding: 3px 8px;" type="text" placeholder="$0">
+                <span><input style="background: rgb(63 63 63);border-radius: 4px;color: #a7a7a7;font-size: 13px;    padding: 4px 8px;" type="text" placeholder="0$">
+                <button style="margin-left:5px;font-size:13px;" class="btnn">Kaydet</button>
+              </span>
               </div>
               <div style="margin-top:7px;">
               <button class="btnn">Interior Değiştir</button>    
               <button style="margin-left:5px;" class="btnn">Kilit</button>  
               <button style="margin-left:5px;" class="btnn">Kiralığa Çıkart</button>
-              <button style="margin-left:5px;" class="btnn">Satılığa Çıkart</button>
               <button style="margin-left:5px;" class="btnn">Sisteme Sat</button>    
             </div>            
             </div>
             
             
-            <button style="margin-top:5px;border-radius: 0px 0px 7px 7px;" class="bizmbuton">TAMAMLA</button>
+            <button @click="close()" style="margin-top:5px;border-radius: 0px 0px 7px 7px;" class="bizmbuton">TAMAMLA</button>
   
     </div>
   </div>
@@ -53,6 +93,8 @@
   
   
   <script>
+  import { mapGetters } from "vuex";
+
   export default {
     data() {
       return {
@@ -60,6 +102,7 @@
         blushColour: -1,
         blushOpacity: 0,
         makeup: -1,
+        name: null,
         makeupColour: -1,
         makeupOpacity: 0,
         lipstick: -1,
@@ -67,55 +110,8 @@
         lipstickOpacity: 0
       };
     },
+    
     watch: {
-      blushStyle(oldType, newType) {
-        console.log(oldType, newType);
-        if (window.mp) {
-          window.mp.trigger("setHeadOverlayMakeup", 5, oldType, this.blushOpacity / 10, this.blushColour);
-        }
-      },
-      blushColour(oldType, newType) {
-        console.log(oldType, newType);
-        if (window.mp) {
-          window.mp.trigger("setHeadOverlayMakeup", 5, this.blushStyle, this.blushOpacity / 10, oldType);
-        }
-      },
-      blushOpacity(oldType, newType) {
-        console.log(oldType, newType);
-        if (window.mp) {
-          window.mp.trigger("setHeadOverlayMakeup", 5, this.blushStyle, oldType / 10, this.blushColour);
-        }
-      },
-      makeup(oldType, newType) {
-        console.log(oldType, newType);
-        if (window.mp) {
-          window.mp.trigger("setHeadOverlayMakeup", 4, oldType, this.makeupOpacity / 10, this.makeupColour);
-        }
-      },
-      makeupColour(oldType, newType) {
-        console.log(oldType, newType);
-        if (window.mp) {
-          window.mp.trigger("setHeadOverlayMakeup", 4, this.makeup, this.makeupOpacity / 10, oldType);
-        }
-      },
-      makeupOpacity(oldType, newType) {
-        console.log(oldType, newType);
-        if (window.mp) {
-          window.mp.trigger("setHeadOverlayMakeup", 4, this.makeup, oldType / 10, this.makeupColour);
-        }
-      },
-      lipstick(oldType, newType) {
-        console.log(oldType, newType);
-        if (window.mp) {
-          window.mp.trigger("setHeadOverlayMakeup", 8, oldType, this.lipstickOpacity / 10, this.lipstickColour);
-        }
-      },
-      lipstickColour(oldType, newType) {
-        console.log(oldType, newType);
-        if (window.mp) {
-          window.mp.trigger("setHeadOverlayMakeup", 8, this.lipstick, this.lipstickOpacity / 10, oldType);
-        }
-      },
       lipstickOpacity(oldType, newType) {
         console.log(oldType, newType);
         if (window.mp) {
@@ -123,7 +119,21 @@
         }
       }
     },
+    computed: {
+    ...mapGetters({ propertyBilgi: 'propertyDetails' }),
+  },
     methods: {
+      close() {
+      if (window.mp) {
+        window.mp.trigger("closeRoute");
+      } 
+      },
+      nameChange() {
+        console.log(this.name);
+        if (window.mp) {
+          window.mp.trigger("intisimdegislaamaclientten", this.propertyBilgi[0].id, this.name);
+        }
+      },
       /* eslint-disable */
       finishUpdate() {   
          if (window.mp) {
@@ -137,7 +147,7 @@
       backToSelection() {
         this.$router.push("charselect");
       }
-    }
+    },
   };
   </script>
   
